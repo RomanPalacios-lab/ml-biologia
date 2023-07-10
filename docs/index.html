@@ -4,27 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>YOUR TITLE HERE</title>
-  <meta name="description" content="YOUR TITLE HERE" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <title>Introducción al uso de machine learning en biología</title>
+  <meta name="description" content="Introducción al uso de machine learning en biología" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="YOUR TITLE HERE" />
+  <meta property="og:title" content="Introducción al uso de machine learning en biología" />
   <meta property="og:type" content="book" />
-  
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="YOUR TITLE HERE" />
+  <meta name="twitter:title" content="Introducción al uso de machine learning en biología" />
   
   
   
 
-<meta name="author" content="YOUR NAME HERE" />
+<meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2020-08-10" />
+<meta name="date" content="2023-07-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,8 @@
   
 
 <link rel="next" href="the-pool-of-tears.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,6 +49,9 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -66,10 +69,10 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">SHORT TITLE HERE</a></li>
+<li><a href="./">ML y Biologia</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Down the rabbit-hole</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Una introducción breve a Machine Learning</a></li>
 <li class="chapter" data-level="2" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>2</b> The pool of tears</a></li>
 <li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
 <li class="divider"></li>
@@ -83,7 +86,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">YOUR TITLE HERE</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al uso de machine learning en biología</a>
           </h1>
         </div>
 
@@ -92,12 +95,30 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">YOUR TITLE HERE</h1>
-<p class="author"><em>YOUR NAME HERE</em></p>
-<p class="date"><em>2020-08-10</em></p>
+<h1 class="title">Introducción al uso de machine learning en biología</h1>
+<p class="author"><em>Jhan C. Salazar y Cristian Román-Palacios</em></p>
+<p class="date"><em>2023-07-10</em></p>
 </div>
-<div id="down-the-rabbit-hole" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Down the rabbit-hole</h1>
+<div id="una-introducción-breve-a-machine-learning" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Una introducción breve a Machine Learning<a href="index.html#una-introducción-breve-a-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ul>
+<li><p>(JC) Generalidades: Lo que buscamos. Lo que el libro trata. Audiencia.
+El machine learning es una de las herramientas que más se aplica en diferentes partes de nuestra vida diaria (Poner algunos ejemplos). Sin embargo, muy poca gente sabe cómo utilizar ya sea por miedo o
+desconocimiento a la programación, o simplemente, porque mucha de la información se encuentra en otro idioma, usualmente en inglés. Con este libro, buscamos dar una breve introducción al machine learning
+y su aplicación en el idioma español. Aunque los ejemplos que vamos a utilizar a lo largo del libro son en un contexto biológico, esto no significa que no puedan ser aplicados a otras áreas de estudio. Este libro va dirigido
+a todas las personas que quieren aprender a usar machine learning en su investigaciones, que estén en diferentes niveles de su formación académica o que trabajen en la indrustria, ya sea que tengan o no
+conocimiento previo en programación. El foco principal de este libro no es sólo enseñar cómo utilizar y entender qué es machine learning, si no hacer accesible su uso para personas de habla hispana.</p></li>
+<li><p>(CR) Discutir la estructura del libro en general</p></li>
+</ul>
+<p>Este libro sigue una estructura que inicia desde la introduccion a machine learning, pasa por regresiones lineales, aspectos de clasificacion, y termina con introducciones cortas a modelos de regresion y clasificacion un poco mas complejos. Cada uno de los capitulos revisa tando el componente practico como el teorico del tema principal a tratar. Primero, la discusion teorica incluye detalles generales sobre la fundamentacion de algoritmos y su uso en diferentes contextos. Segundo, la implementacion practica incluye estudios de casos basados en publicaciones recientes. En general, la consulta de este libro implicara una exposicion a aspectos generales tanto de machine learning en su teoria y practica, asi como tambien a su implementacion directa en el analisis de datos biologicos.</p>
+<ul>
+<li><p>(JC) Explicar ML y para que sirve</p></li>
+<li><p>(CR) Lenguajes de programacion y el enfasis del documento</p></li>
+</ul>
+<p>Existe una variedad de lenguajes de programacion que permiten implementar algoritmos de machine learning. En general, el componente practico de este libro estara enfocado en ilustrar el uso de esta perspectiva analitica utilizando el lenguaje de programacion <code>R</code>. Esta herramientaes de codigo abierto, gratuita, y tiene asociado una comunidad amplia red de usuarios y desarrolladores que se encuentran en constante interaccion. Como alternativa <code>R</code> estan <code>python</code>, <code>julia</code>, <code>matlab</code>, entre otros lenguages que permiten tambien el analisis de datos en una aproximacion de machine learning. El codigo que se presenta en este documento puede ser traducido a estos lenguajes. Sin embargo, para quienes consultan el libro y no tienen experiencia en programacion en <code>R</code>, el primer capitulo se enfoca en introducir <code>R</code> como el lenguaje para usos subsecuentes en los componentes practicos del documento.</p>
+<ul>
+<li>(CR) Otros recursos, la relevancia del libro en español (JC) y el enfasis en investigaciones de latam (CR/JC).</li>
+</ul>
 
 </div>
             </section>
@@ -110,7 +131,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -129,6 +149,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -137,7 +158,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/index.Rmd",
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/edit/main/index.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -145,10 +166,14 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/index.Rmd",
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/blob/main/index.Rmd",
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
