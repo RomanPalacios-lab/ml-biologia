@@ -1,1 +1,18 @@
 # Regresiones lineales
+
+- Definiciones generales (teorico):
+-- Simple
+-- Multiple
+--- Distinguir de multivariada
+-- Asunciones
+-- Confounders (factores de confusion)
+-- Interacciones
+-- data augmentation
+-- Mediciones de error (RMSE; MSE; MAE; etc)
+-- Comparaciones multimodelo (AIC, AICc, BIC)
+
+- Implementacion (codigo y explicacion):
+-- Ejemplo de reg simple
+-- Ejemplo de reg multiple
+-- Data augmentation
+--- Mediciones de error y comparacion multimodelo

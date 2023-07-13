@@ -1,5 +1,13 @@
 # Que es Machine Learning?
 
-Como se ha mencionado anteriormente el enfoque de este libro es aprender a usar las herramientas que machine learning provee para resolver problemas o responder preguntar en biología. Sin embargo, aún no hemos dado una definición de los que es machine learning. En pocas palabras, machine learning se refiere al uso de analisis estadísticos para hacer predicciones o inferencias sobre un problema en particular utilizando utilizando particiones del conjunto de datos. 
+- Definicion: Como se ha mencionado anteriormente el enfoque de este libro es aprender a usar las herramientas que machine learning provee para resolver problemas o responder preguntar en biología. Sin embargo, aún no hemos dado una definición de los que es machine learning. En pocas palabras, machine learning se refiere al uso de analisis estadísticos para hacer predicciones o inferencias sobre un problema en particular utilizando utilizando particiones del conjunto de datos. 
 
-Aunque no nos demos cuenta el machine learning hace parte de nuestro día a día. Cuando usamos la cámara de nuestros celulares para desbloquear usando nuestra cara, cuando utilizamos un filtro al momento de tomarnos una foto o cuando nuestro correo envía algunos mensajes a la carpeta de no deseados (SPAM), estamos usando machine learning. 
+- Ejemplos: Aunque no nos demos cuenta el machine learning hace parte de nuestro día a día. Cuando usamos la cámara de nuestros celulares para desbloquear usando nuestra cara, cuando utilizamos un filtro al momento de tomarnos una foto o cuando nuestro correo envía algunos mensajes a la carpeta de no deseados (SPAM), estamos usando machine learning. 
+
+- Hablar de trade-offs:
+
+-- Complejidad/flexibilidad e interpretabilidad: Esquema conceptual
+-- Bias/Variance: Conceptual y diagrama del cañon
+-- The curse of dimensionality: Simulat datos y estimar distancias
+-- Over/underfitting: reg con orden 1–5. Test/train error.
+
