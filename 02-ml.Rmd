@@ -8,6 +8,8 @@
 
 -- Complejidad/flexibilidad e interpretabilidad: Esquema conceptual
 -- Bias/Variance: Conceptual y diagrama del cañon
--- The curse of dimensionality: Simulat datos y estimar distancias
+-- The curse of dimensionality: Simular datos y estimar distancias
 -- Over/underfitting: reg con orden 1–5. Test/train error.
+
+- Discutir sets de datos
 
