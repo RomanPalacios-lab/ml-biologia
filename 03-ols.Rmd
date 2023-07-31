@@ -1,4 +1,18 @@
-# Regresiones lineales
+# Capítulo 3: Regresiones lineales
+
+Regresiones lineales
+
+Las regresiones lineales son una de las herramientas más utilizadas para cuantificar una respuesta. La cual es el mejor punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones de regresiones lineales.
+
+Regresión lineal univariada
+
+Este tipo de regresión es la más simple que existe, y como su nombre bien lo indica asume que hay una relación lineal entre “X” y “Y”, donde “Y” es se puede predecir solamente usando el predictor “X”. Esta relación se representa con la función:
+
+Y ≈ β0 + β1X
+
+Donde β0 y β1 son dos constantes desconocidas que representan el intercepto y la pendiente de la función, los cuales a su vez son conocidos como coeficientes o parámetros.
+
+
 
 - Definiciones generales (teorico):
 -- Simple
