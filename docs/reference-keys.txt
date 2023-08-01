@@ -1,3 +1,3 @@
 una-introducción-breve-a-machine-learning
-que-es-machine-learning
-regresiones-lineales
+capítulo-2-qué-es-machine-learning
+capítulo-3-regresiones-lineales
