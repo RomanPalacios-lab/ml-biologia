@@ -29,6 +29,7 @@ Hablar de training and test sets
 
 XXXX
 
+
 Esquemas:
 -- Diagrama de supervisado vs no supervisado
 -- Esquema conceptual complejidad vs interpretabilidad
