@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitulo 2 ¿Qué es Machine Learning? | Introducción al uso de machine learning en biología</title>
+  <meta name="description" content="Capitulo 2 ¿Qué es Machine Learning? | Introducción al uso de machine learning en biología" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitulo 2 ¿Qué es Machine Learning? | Introducción al uso de machine learning en biología" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitulo 2 ¿Qué es Machine Learning? | Introducción al uso de machine learning en biología" />
+  
+  
+  
+
+<meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
+
+
+<meta name="date" content="2023-08-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="capítulo-3-regresiones-lineales.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ML y Biologia</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Una introducción breve a Machine Learning</a></li>
+<li class="chapter" data-level="2" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es Machine Learning?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#tipos-de-machine-learning"><i class="fa fa-check"></i><b>2.1</b> Tipos de machine learning</a></li>
+<li class="chapter" data-level="2.2" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#definiciones-relevantes-a-machine-learning"><i class="fa fa-check"></i><b>2.2</b> Definiciones relevantes a machine learning</a></li>
+<li class="chapter" data-level="2.3" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#tipos-de-particiones-de-datos-en-machine-learning"><i class="fa fa-check"></i><b>2.3</b> Tipos de particiones de datos en machine learning</a></li>
+<li class="chapter" data-level="2.4" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#introducir-los-papers-y-datasets-que-se-usaran"><i class="fa fa-check"></i><b>2.4</b> Introducir los papers y datasets que se usaran</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html"><i class="fa fa-check"></i><b>3</b> Capítulo 3: Regresiones lineales</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al uso de machine learning en biología</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="qué-es-machine-learning" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capitulo 2</span> ¿Qué es Machine Learning?<a href="qué-es-machine-learning.html#qué-es-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>El enfoque principal de este libro es exponer el uso de herramientas de machine learning para responder preguntar en biología. Sin embargo, aún no se ha definido formalmente que es machine learning. En pocas palabras, machine learning se refiere al uso de análisis estadísticos para hacer predicciones o inferencias sobre un problema en particular utilizando particiones específicas del conjunto de datos. Por lo tanto, el aspecto clave que distingue en general la práctica de machine learning respecta al uso de secciones de los datos con el objetivo de describir explícita y finamente el comportamiento y la generalización de los modelos.</p>
+<p>Actualmente, las aplicaciones de machine learning se encuentran varios ámbitos demuestra vida diaria. Por ejemplo, cuando hablamos a nuestro celular para interactuar con Alexa (Amazon), Siri (Apple) o Google Maps, modelos entrenados utilizando un paradigma de machine learning permite que aquellas palabras que enunciamos sean interpretadas por el equipo (e.g., celular, computador) tras algunos pasos de codificación (e.g., creacion de matrices). Igualmente, Google Maps colecta datos de tráfico desde el punto en el que estamos al sitio en donde vamos para encontrar la ruta más rápido al lugar de destino. Como optimizar estas rutas tambien puede ser una tarea de machine learning. Así como estos ejemplos, hay cientos de situaciones que pueden ser usadas para ejemplificar el uso de machine learning en nuestra cotidianidad.</p>
+<div id="tipos-de-machine-learning" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Tipos de machine learning<a href="qué-es-machine-learning.html#tipos-de-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dentro del machine learning, los problemas estadísticos se dividen en dos categorías: <strong>supervisadas</strong> y <strong>no supervisadas</strong>. La primera categoría, la <strong>supevisada</strong>, se refiere a que por cada observación del predictor (x), hay una medida de respuesta (y). Por el contrario, la categoría <strong>no supervisada</strong> hace referencia a que el predictor (x) no está asociado a una respuesta (y) - no tenemos una variable respuesta que pueda <strong>supervisar</strong> nuestro análisis. A lo largo del libro nos vamos a enfocar principalmente en la categoría de aprendizaje supervisado.</p>
+</div>
+<div id="definiciones-relevantes-a-machine-learning" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Definiciones relevantes a machine learning<a href="qué-es-machine-learning.html#definiciones-relevantes-a-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Al momento de utilizar modelos de machine learning debemos tener en cuenta que hay compromisos (conocidos como trade-offs en inglés). Este es el caso para la relación entre el trío de conceptos clave <em>flexibilidad</em>-<em>interpretabilidad</em>-<em>complejidad</em>. Entender la interacción de estos tres elementos juega un papel clave en la descripción de la generalización relativa de modelos y la definición de que tan apropiados son de acuerdo a las necesidades prácticas del investigador. Primero, la <strong>flexibilidad</strong> hace referencia a cuanto las características de los datos influencia al modelo, dado esto, algunos modelos lineales son más flexibles que otros. Por lo tanto, modelos más flexibles pueden ajustarse más cercanamente a los datos que funciones inflexibles. Sin embargo, la descripción muy ajustada de un modelo a un conjunto de datos puede implicar para este mismo modelo la incapacidad de generalización en otros conjuntos de datos. Es entonces importante considerar la necesidad de describir cercanamente un conjunto de datos sin dejar a un lado el objetivo amplio de generar modelos que permitan interpretar patrones en datos que aun no se examinan (i.e., generalización). Segundo, la <strong>interpretabilidad</strong> de un model se refiere a lo fácil o difícil que es entender como las variables influencian el resultado. En un sentido amplio, se puede decir que modelos más inflexibles son mas interpretables. La flexibilidad de un modelo tiende a aumentar a medida que la interpretabilidad disminuye. Por lo tanto, modelos más complejos tienden a no ser tan facilmente interpretables. Si el objetivo de quien analiza los datos es entender que predictores influencia la respuesta (e.g. analisis supervisados), modelos mas inflexibles (y por lo tanto menos complejos) son en general preferidos. Tercero, la <strong>complejidad</strong> hacer referencia tanto a la estructura de los modelos (e.g. cajas negras) como al número de parametros que se usan en un modelo determinado. Tener en cuenta los compromisos que ocurren entre flexibilidad, interpretabilidad y complejidad es central para entender patrones generales de seleccion de modelos dentro de un contexto de machine learning.</p>
+<p>Otros tres conceptos para tener en cuenta cuando se usan modelos de machine learning son la <strong>varianza</strong>, el <strong>ruido</strong>, y el <strong>sesgo</strong>. Primero, la <strong>varianza</strong> hace referencia a la variacion intrinseca a generar predicciones con modelos. Por ejemplo, models inflexibles tienden a generar predicciones que son consistentes entre si (modelo relativamente con poca varianza). Modelos mas complejos tienden a producir predicciones mas discimiles entre si (modelo relativamente con alta varianza). Segundo, el <strong>ruido</strong> esta asociado a la variacion intrinseca a la variable de respuesta. Este aspecto es independiente al modelo y tiene en general mas relacion con errores de medicion que con otro aspecto. Tercero, el <strong>sesgo</strong> se refiere al error que se da a causa por aproximar un problema de la vida real, teniendo en cuenta el ruido. El sesgo es por lo tanto la relacion (i.e. diferencia) entre varianza y ruido. Este aspecto es relevante dado que los modelos son simplificaciones de datos y, aunque pueden estar cercanos a la realidad, siempre tendran limitaciones para llegar al modelo subyacente.</p>
+<p>Otro concepto para tomar en cuenta cuando se esta eligiendo el método de aprendizaje estadístico es la <strong>maldición de la dimensionalidad</strong>. Este patron se refiere a los problemas que se dan a causa del aumento de variables independientes cuando en un set de datos. Debido a que al aumentar el número de dimensionas al modelo le toma más tiempo al modelo para computar el método de aprendizaje.</p>
+<p><strong>Subajuste</strong> y <strong>sobreajuste</strong> son otros conceptos para tomar en cuenta al momento de elegir nuestro método de aprendizaje. El <strong>subajuste</strong> hace referencia cuando el error del set de datos de entrenamiento es grande, mientras que es dice que uno modelos está <strong>sobreajustado</strong> cuando el error del set de datos de entrenamiento es bajo. En donde el promedio del error es el resultado del uso del método de aprendizaje estadístico para predecir la respuesta de una nueva observación. <em>Nota: usualmente, modelos muy complejos pueden causar que es modelo este sobreajustado.</em></p>
+<p>Al momento de elegir nuestro modelo de aprendizaje debemos de tener en cuenta dos tipos de errores, <strong>errores de entrenamiento</strong> y <strong>errores de prueba</strong>. Los <strong>errores de entrenamiento</strong> hacen referencia al error de los datos de entrenamiento, mientras que el <strong>error de prueba</strong> está asociado con el set observaciones. Algo que hay que tener en cuenta es que para las regresiones lineales y para las clasificaciones, no hay una relación entre el error de entrenamiento y el error de prueba.</p>
+</div>
+<div id="tipos-de-particiones-de-datos-en-machine-learning" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Tipos de particiones de datos en machine learning<a href="qué-es-machine-learning.html#tipos-de-particiones-de-datos-en-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hablar de training and test sets</p>
+</div>
+<div id="introducir-los-papers-y-datasets-que-se-usaran" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Introducir los papers y datasets que se usaran<a href="qué-es-machine-learning.html#introducir-los-papers-y-datasets-que-se-usaran" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>XXXX</p>
+<p>Esquemas:
+– Diagrama de supervisado vs no supervisado
+– Esquema conceptual complejidad vs interpretabilidad
+– Diagrama de tejo
+– Maldicion de la dimensionalidad</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="capítulo-3-regresiones-lineales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/edit/main/02-ml.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/blob/main/02-ml.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
