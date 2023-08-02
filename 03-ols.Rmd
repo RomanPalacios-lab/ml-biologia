@@ -36,7 +36,8 @@ Para recapitular, "β"  ̂0 es el intercepto, el cual se refiere al valor de Y c
 
 Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en Y. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre X y Y.
 
-
+  
+  
 
 
 - Definiciones generales (teorico):
