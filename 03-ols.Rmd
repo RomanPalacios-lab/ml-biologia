@@ -10,7 +10,30 @@ Este tipo de regresión es la más simple que existe, y como su nombre bien lo i
 
 Y ≈ β0 + β1X
 
-Donde β0 y β1 son dos constantes desconocidas que representan el intercepto y la pendiente de la función, los cuales a su vez son conocidos como coeficientes o parámetros.
+Donde β0 y β1 son dos constantes desconocidas que representan el intercepto y la pendiente de la función, los cuales a su vez son conocidos como coeficientes o parámetros. Sin embargo, en la vida real, no conocemos cual es el valor real de β0 y β1, por ello, tenemos que usar los datos para estimar los coeficientes:
+
+(x1, y1), (x2, y2), … , (xn, yn)
+
+Donde n representa pares de observaciones, que consisten en una medida de X y una de Y, teniendo nuestro objetivo es obtener los coeficientes para "β"  ̂0 y "β"  ̂1 en donde el modelo lineal se ajuste lo mejor posible a los datos disponibles, por tanto, nuestra ecuación lineal sería: 
+
+ŷ ≈ "β"  ̂0 + "β"  ̂1Xi
+
+La ecuación anterior busca predecir Y en base al valor iésimo de X. Con esto en mente, podemos decir entones que ei = yi – ŷi, lo cual representa el iésimo residual (la diferencia entre el valor observado de i y el valor de i en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto "β"  ̂0 con una pendiente "β"  ̂1 que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como
+
+RSS = e_1^2+ e_2^2+⋯+ e_n^2
+
+La cual equivale a
+
+RSS = 〖(y_1- β ̂_0- β ̂_1 x_1)〗^(2 )+ 〖(y_2- β ̂_0- β ̂_1 x_2)〗^(2 )+⋯+〖(y_n- β ̂_0- β ̂_1 x_n)〗^(2 )
+
+Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión (R2 o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
+
+Cuando trabajamos con funciones, asumimos que la relación mas cerca a la realidad tiene un termino de error, dado esto nuestra ecuación lineal estaría dada por:
+
+Y ≈ β0 + β1X + ε
+
+Para recapitular, "β"  ̂0 es el intercepto, el cual se refiere al valor de Y cuando X = 0, "β"  ̂1 es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de X, mientras que el valor de ε es el error que está presente cuando se corre este modelo lineal.
+
 
 
 
