@@ -34,6 +34,7 @@ Y ≈ β0 + β1X + ε
 
 Para recapitular, "β"  ̂0 es el intercepto, el cual se refiere al valor de Y cuando X = 0, "β"  ̂1 es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de X, mientras que el valor de ε es el error que está presente cuando se corre este modelo lineal.
 
+Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en Y. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre X y Y.
 
 
 
