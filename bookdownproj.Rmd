@@ -1,0 +1,106 @@
+--- 
+title: "Introducción al uso de machine learning en biología"
+author: "Jhan C. Salazar y Cristian Román-Palacios"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+---
+
+# Una introducción breve a Machine Learning
+
+El machine learning es una de las herramientas que más se aplica en diferentes partes de nuestra vida diaria. Por ejemplo, los mecanismos de prediccion de palabras en su celular, deteccion de spam en el correo, predicciones de estado del tiempo, entre otros, estan cercanamente relacionados con procesos incluidos en machine learning. Sin embargo, muy pocas personas conocen cómo utilizar perspectivas de machine learning, ya sea por miedo o desconocimiento a la programación, o simplemente, porque mucha de la información se encuentra en otro idioma, usualmente en inglés. Con este libro, buscamos dar una breve introducción al machine learning y su aplicación en el idioma español, con ejemplos en analisis de datos biologicos. Como alaracion, aunque los ejemplos que vamos a utilizar a lo largo del libro son en un contexto biológico, esto no significa que no puedan ser aplicados a otras áreas de estudio. Este libro va dirigido a todas las personas que quieren aprender a usar machine learning en su investigaciones, que estén en diferentes niveles de su formación académica o que trabajen en la indrustria. Este documento esta pensado para lectores que tengan o no conocimiento previo en programación. El foco principal de este libro no es sólo enseñar cómo utilizar y entender qué es machine learning, si no hacer accesible su uso para personas de habla hispana.
+
+Este libro inicia con una introducción a machine learning, pasa por regresiones lineales, aspectos de clasificación, y termina con introducciones cortas a modelos de regresión y clasificación un poco mas complejos. Cada uno de los capitulos revisa tando el componente practico como el teorico del tema principal a tratar. La discusion teorica incluye detalles generales sobre la fundamentacion de algoritmos y su uso en diferentes contextos. La implementacion practica incluye estudios de casos basados en publicaciones recientes por autores latinoamericanos. En general, este libro permite una exposicion tanto a aspectos generales de machine learning en su teoria y practica, asi como tambien al uso directo en el analisis de datos biologicos.
+
+Existe una variedad de lenguajes de programacion que permiten implementar algoritmos de machine learning. En general, el componente practico de este libro estara enfocado en ilustrar el uso de esta perspectiva analitica utilizando el lenguaje de programacion `R`. Esta herramientaes es de codigo abierto, gratuita, y tiene asociada una comunidad amplia red de usuarios y desarrolladores que se encuentran en constante interaccion. Como alternativa `R` estan `python`, `julia`, `matlab`, entre otros lenguages que permiten tambien el analisis de datos en una aproximacion de machine learning. El codigo que se presenta en este documento puede ser traducido a estos lenguajes. Sin embargo, para quienes consultan el libro y no tienen experiencia en programacion en `R`, el primer capitulo se enfoca en introducir `R` como el lenguaje para usos subsecuentes en los componentes practicos del documento.
+
+Ademas de nuestro libro, existen diferentes recursos en español que tratan diferentes aspectos de machine learning en `R` y otros languajes de programación. Por ejemplo, en su [libro](http://rafalab.dfci.harvard.edu/dslibro/), Rafael A. Irizarry da una breve introduccion a `R` en el contexto de ciencia de datos. [R Para ciencia de datos](http://es.r4ds.hadley.nz/), traducido del ingles, tambien es un excelente recurso introductorio tanto a `R` como a machine learning. Aunque estos recursos (y otros) se enuentran en español, los documentos existentes son (1) traducciones literales a textos originalmente escritos en ingles, (2) tienen poco enfasis en machine learning por ser pensados en el contexto de data science, o (3) no tienen una aplicacion directa en biologia. Por lo tanto, con este documento propendemos a integrar aspectos basicos de machine learning en el contexto actual de biologia latinoamericana, mientras resaltamos el trabajo investigativo en la region.
+
+<!--chapter:end:index.Rmd-->
+
+# Capítulo 2: ¿Qué es Machine Learning?
+
+Como se ha mencionado anteriormente el enfoque de este libro es aprender a usar las herramientas que machine learning provee para resolver problemas o responder preguntar en biología. Sin embargo, aún no hemos dado una definición de los que es machine learning. En pocas palabras, machine learning se refiere al uso de analisis estadísticos para hacer predicciones o inferencias sobre un problema en particular utilizando utilizando particiones del conjunto de datos. 
+
+Actualmente, las aplicaciones de machine learning se encuentran varios ámbitos demuestra vida diaria. Cuando hablamos a nuestro celular para interactuar con Alexa (Amazon), Siri (Apple) o Google Maps, el machine learning utiliza esas palabras para crear matrices de 1s y 0s para que sean interpretados por el celular. Igualmente, Google Maps colecta datos de tráfico desde el punto en el que estamos al sitio en donde vamos para encontrar la ruta más rápido al lugar de destino. De ese mismo modo, hay cientos de ejemplos del uso de machine learning en cosas que usamos en nuestro día a día. 
+
+No obstante, al momento de utilizar modelos para machine learning debemos tener en cuenta que hay costos de oportunidades (conocidos como tradeoffs en inglés). Este es el caso para el trio de flexibilidad-interpretabilidad-complejidad para la estimación de la función de interés. Flexibilidad hace referencia a cuanto las características de los datos influencia al modelo, dado esto, algunos modelos lineales son más flexibles que otros; modelos más flexibles pueden generar más formas para estimar nuestra función de interés. La interpretabilidad por otro lado se refiere a lo fácil o difícil que es entender como las variables influencian el resultado. De esto modo, podemos decir que modelos mas inflexibles son mas interpretables; la flexibilidad de un modelo aumenta a medida que la interpretabilidad disminuye. Por último, la complejidad hacer referencia al número de variables que se usan en el modelo para realizar predicciones certeras; modelos lineales simples son menos complejos que modelos lineales con más de dos variables.
+
+Igualmente, otros dos conceptos para tener en cuenta cuando se usan modelos de machine learning son el sesgo y la varianza. Sesgo se refiere al error que se da a causa por aproximar un problema de la vida real, dado que los problemas de la vida real no son necesariamente explicados por una relación lineal simple, lo cual resulta en un sesgo en la estimación de la función. Por otro lado, la varianza hace referencia a la cantidad que una función cambiaria si se estimara con set de datos de entrenamiento diferente. Dado que diferente set de datos de entrenamiento causaría resultados diferentes en la variable repuesta de la función. Lo que buscamos al elegir el método de aprendizaje estadístico de interés es aquel que tenga la menor varianza y el menor sesgo.
+Otro concepto para tomar en cuenta cuando se esta eligiendo el método de aprendizaje estadístico es la maldición de la dimensionalidad, el cual se refiere a los problemas que se dan a causa del aumento de variables independientes cuando en un set de datos. Debido a que al aumentar el número de dimensionas al modelo le toma mas tiempo toma el modelo para computar el aprendizaje.
+
+Subajuste y sobreajuste son otros conceptos para tomar en cuenta al momento de elegir nuestro método de aprendizaje. El subajuste hace referencia cuando el error del set de datos de entrenamiento es grande, mientras que es dice que uno modelos está sobreajustado cuando el error del set de datos de entrenamiento es bajo.En donde el promedio del error es el resultado del uso del método de aprendizaje estadistico para predecir la respuesta de una nueva observación. Usualmente, modelos muy complejos pueden causar que es modelo este sobreajustado. 
+
+Al momento de elegir nuestro modelo de aprendizaje debemos de tener en cuenta dos tipos de errores, errores de entrenamiento y errores de test. Los errores de entrenamiento hacen referencia al error de los datos de entrenamiento, mientras que el error de test está asociado con el set observaciones. Algo que hay que tener en cuenta es que para las regresiones lineales y para las clasificaciones, no hay una relación entre el error de entrenamiento y el error de test.
+
+
+Falta:
+-- Esquema conceptual
+-- Diagrama del cañón
+-- Simulación de datos y estimar distancias
+-- Introducir los diferentes set de datos
+
+
+
+<!--chapter:end:02-ml.Rmd-->
+
+# Capítulo 3: Regresiones lineales
+
+Regresiones lineales
+
+Las regresiones lineales son una de las herramientas más utilizadas para cuantificar una respuesta. La cual es el mejor punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones de regresiones lineales.
+
+Regresión lineal univariada
+
+Este tipo de regresión es la más simple que existe, y como su nombre bien lo indica asume que hay una relación lineal entre “X” y “Y”, donde “Y” es se puede predecir solamente usando el predictor “X”. Esta relación se representa con la función:
+
+Y ≈ β0 + β1X
+
+Donde β0 y β1 son dos constantes desconocidas que representan el intercepto y la pendiente de la función, los cuales a su vez son conocidos como coeficientes o parámetros. Sin embargo, en la vida real, no conocemos cual es el valor real de β0 y β1, por ello, tenemos que usar los datos para estimar los coeficientes:
+
+(x1, y1), (x2, y2), … , (xn, yn)
+
+Donde n representa pares de observaciones, que consisten en una medida de X y una de Y, teniendo nuestro objetivo es obtener los coeficientes para "β"  ̂0 y "β"  ̂1 en donde el modelo lineal se ajuste lo mejor posible a los datos disponibles, por tanto, nuestra ecuación lineal sería: 
+
+ŷ ≈ "β"  ̂0 + "β"  ̂1Xi
+
+La ecuación anterior busca predecir Y en base al valor iésimo de X. Con esto en mente, podemos decir entones que ei = yi – ŷi, lo cual representa el iésimo residual (la diferencia entre el valor observado de i y el valor de i en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto "β"  ̂0 con una pendiente "β"  ̂1 que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como
+
+RSS = e_1^2+ e_2^2+⋯+ e_n^2
+
+La cual equivale a
+
+RSS = 〖(y_1- β ̂_0- β ̂_1 x_1)〗^(2 )+ 〖(y_2- β ̂_0- β ̂_1 x_2)〗^(2 )+⋯+〖(y_n- β ̂_0- β ̂_1 x_n)〗^(2 )
+
+Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión (R2 o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
+
+Cuando trabajamos con funciones, asumimos que la relación mas cerca a la realidad tiene un termino de error, dado esto nuestra ecuación lineal estaría dada por:
+
+Y ≈ β0 + β1X + ε
+
+Para recapitular, "β"  ̂0 es el intercepto, el cual se refiere al valor de Y cuando X = 0, "β"  ̂1 es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de X, mientras que el valor de ε es el error que está presente cuando se corre este modelo lineal.
+
+Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en Y. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre X y Y.
+
+  
+  
+
+
+- Definiciones generales (teorico):
+-- Simple
+-- Multiple
+--- Distinguir de multivariada
+-- Asunciones
+-- Confounders (factores de confusion)
+-- Interacciones
+-- data augmentation
+-- Mediciones de error (RMSE; MSE; MAE; etc)
+-- Comparaciones multimodelo (AIC, AICc, BIC)
+
+- Implementacion (codigo y explicacion):
+-- Ejemplo de reg simple
+-- Ejemplo de reg multiple
+-- Data augmentation
+--- Mediciones de error y comparacion multimodelo
+
+<!--chapter:end:03-ols.Rmd-->
+
