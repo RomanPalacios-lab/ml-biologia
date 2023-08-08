@@ -1,3 +1,9 @@
+
+```{r, include = FALSE}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(ggflowchart, ggplot2)
+```
+
 # ¿Qué es Machine Learning?
 
 El enfoque principal de este libro es exponer el uso de herramientas de machine learning para responder preguntar en biología. Sin embargo, aún no se ha definido formalmente que es machine learning. En pocas palabras, machine learning se refiere al uso de análisis estadísticos para hacer predicciones o inferencias sobre un problema en particular utilizando particiones específicas del conjunto de datos. Por lo tanto, el aspecto clave que distingue en general la práctica de machine learning respecta al uso de secciones de los datos con el objetivo de describir explícita y finamente el comportamiento y la generalización de los modelos.
@@ -6,7 +12,13 @@ Actualmente, las aplicaciones de machine learning se encuentran varios ámbitos 
 
 ## Tipos de machine learning
 
-Dentro del machine learning, los problemas estadísticos se dividen en dos categorías: **supervisadas** y **no supervisadas**. La primera categoría, la **supevisada**, se refiere a que por cada observación del predictor (x), hay una medida de respuesta (y). Por el contrario, la categoría **no supervisada** hace referencia a que el predictor (x) no está asociado a una respuesta (y) - no tenemos una variable respuesta que pueda **supervisar** nuestro análisis. A lo largo del libro nos vamos a enfocar principalmente en la categoría de aprendizaje supervisado. 
+Dentro del machine learning, los problemas estadísticos generalmente se dividen en dos categorías principales: **supervisadas** y **no supervisadas**. La primera categoría, la **supevisada**, se refiere a que por cada observación del predictor ($x$), hay una medida de respuesta ($y$). Por el contrario, la categoría **no supervisada** hace referencia a que el predictor (x) no está asociado a una respuesta (y) - no tenemos una variable respuesta que pueda **supervisar** nuestro análisis. A lo largo del libro nos vamos a enfocar principalmente en la categoría de aprendizaje supervisado. Por otro lado, tambien se resalta que existen otras alternativas de aprendijaze en este tipo de sistemas (e.g. aprendizaje de refuerzo). Sin embargo, la ubicacion de estas aproximaciones es un poco mas ambigua con respecto a las dos principales discutidas en esta seccion.
+
+```{r}
+data <- tibble::tibble(from = c("Machine Learning", "Machine Learning", "Supervised Learning", "Supervised Learning", "Unsupervised Learning", "Unsupervised Learning"),
+                       to = c("Supervised Learning", "Unsupervised Learning", "Classification", "Regression", "Clustering", "Dimensionality reduction"))
+ggflowchart(data)
+```
 
 ## Definiciones relevantes a machine learning
 
@@ -20,9 +32,26 @@ Otro concepto para tomar en cuenta cuando se esta eligiendo el método de aprend
 
 Al momento de elegir nuestro modelo de aprendizaje debemos de tener en cuenta dos tipos de errores, **errores de entrenamiento** y **errores de prueba**. Los **errores de entrenamiento** hacen referencia al error de los datos de entrenamiento, mientras que el **error de prueba** está asociado con el set observaciones. Algo que hay que tener en cuenta es que para las regresiones lineales y para las clasificaciones, no hay una relación entre el error de entrenamiento y el error de prueba.
 
+
+```{r}
+x = seq(0,5,length.out=6)   
+y = -x
+label = c("Linear regression",
+"Decision tree", "K-nearest neightbors",
+"Random Forest", "Support Vector Machines",
+"Neural Nets")
+
+data <- cbind.data.frame(x, y, label)
+ggplot(data, aes(x = x, y = y, label = label)) + geom_text()
+```
+
 ## Tipos de particiones de datos en machine learning
 
-Hablar de training and test sets
+El aprendizaje de maquina es de alguna forma el resultado del uso consciente de la informacion disponible, generalmente en forma tabular. En este campo, existen dos tipos de grupos de datos. Cada uno de estos deriva directamente de los datos totales colectados durante procesos investigativos. Primero, el **conjunto de datos de entrenamiento**, referido en ingles como *train set*, se usa en general para que el o los modelos puedan patrones que estan posiblemente presentes en los datos. Este conjunto de datos usualmente representa el 70% u 80% de los datos originales. Segundo, el **conjunto de datos de prueba**, tambien mencionado como *test set* en ingles, se usa para examinar la capacidad de generalizacion en el aprendizaje inicial llevado a cabo en el **conjunto de datos de entrenamiento**. Este conjunto de datos representa usualmente el resto de la informacion que no se ha usado en el **conjunto de datos de prueba**. 
+
+En pocas palabras, primero se entrena el modelo en el **conjunto de datos de entrenamiento** y despues de evalua su desempeño en el **conjunto de datos de prueba**. Estos conjuntos de datos **tienen** que ser conservados de forma independiente desde el principio de los analisis. Especificamente, el **conjunto de datos de prueba** tiene que servir como una fuente independiente de verificacion de que los patrones en el **conjunto de datos de entrenamiento** pueden extenderse a otros conjuntos de datos. Si se mezcla informacion entre estos conjuntos (**fuga de datos** o **data leakeage**), se pierde el sentido de este particionado. 
+
+Existen otros tipos de particiones de los conjuntos de datos de **entrenamiento** y **prueba**. Sin embargo estos dos conjuntos son los mas relevantes en muchos sentidos para el campo. Otras particiones (e.g. **validacion**) seran discutidas en capitulos subsecuentes cuando se revise el re-muestreo.
 
 
 ## Introducir los papers y datasets que se usaran
@@ -31,7 +60,7 @@ XXXX
 
 
 Esquemas:
--- Diagrama de supervisado vs no supervisado
--- Esquema conceptual complejidad vs interpretabilidad
--- Diagrama de tejo
--- Maldicion de la dimensionalidad
+-- Diagrama de supervisado vs no supervisado (Ok)
+-- Esquema conceptual complejidad vs interpretabilidad (Ok)
+-- Diagrama de tejo (TBD)
+-- Maldicion de la dimensionalidad (TBD)
