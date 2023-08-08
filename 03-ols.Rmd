@@ -2,21 +2,21 @@
 
 Regresiones lineales
 
-Las regresiones lineales son una de las herramientas más utilizadas para cuantificar una respuesta. La cual es el mejor punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones de regresiones lineales.
+Las regresiones lineales estan entre las herramientas más utilizadas para cuantificar la asociacion entre variables o predecir los valores de una respuesta. En esta aproximacion metodologica, la respuesta en el modelo supervisado es continua. Los modelos de regresion lineal son usualmente percibidos como poco flexibles. Sin embargo, estos modelos pueden llegar a incluir niveles de flexibilidad y complejidad comparables con otros modelos usualmente vistos como mas flexibles. Los modelos lineales son un excelente punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones o casos especiales de regresiones lineales.
 
-Regresión lineal univariada
+## Regresión lineal univariada
 
-Este tipo de regresión es la más simple que existe, y como su nombre bien lo indica asume que hay una relación lineal entre “X” y “Y”, donde “Y” es se puede predecir solamente usando el predictor “X”. Esta relación se representa con la función:
+Este tipo de regresión es potencialmente la más simple que existe. Como su nombre lo indica, la regresion lineal univariada asume que hay una relación lineal entre el predictor $X$ y la variable continua de respuesta $Y$. Especificamente, este modelo asume que solamente existe una dependencia entre $X$ y $Y$. Dentro de este paradigma, esta relación se representa con la estructura general:
 
-Y ≈ β0 + β1X
+$Y ≈ β_{0} + β_{1}X$
 
-Donde β0 y β1 son dos constantes desconocidas que representan el intercepto y la pendiente de la función, los cuales a su vez son conocidos como coeficientes o parámetros. Sin embargo, en la vida real, no conocemos cual es el valor real de β0 y β1, por ello, tenemos que usar los datos para estimar los coeficientes:
+En esta ecuacion, $β_{0}$ y $β_{1}$ representan dos parametros: intercepto y la pendiente, respectivamente. [NOTA: Explicar que es cada uno]. Estos parametros deben ser estimados a partir de los datos. En particular, no conocemos cual es el valor real de $β_{0}$ y $β_{1}$, por ello, tenemos que usar los datos para estimar los coeficientes de acuerdo a el conjunto de datos,
 
-(x1, y1), (x2, y2), … , (xn, yn)
+$(x_1, y_1), (x_2, y_2), … , (x_n, y_n)$
 
-Donde n representa pares de observaciones, que consisten en una medida de X y una de Y, teniendo nuestro objetivo es obtener los coeficientes para "β"  ̂0 y "β"  ̂1 en donde el modelo lineal se ajuste lo mejor posible a los datos disponibles, por tanto, nuestra ecuación lineal sería: 
+donde $n$ representa los pares de observaciones, que consisten en una medida de $X$ y una de $Y$, teniendo nuestro objetivo es obtener los coeficientes para $β_{0}$ y $β_{1}$, asumiendo un ajuste a los datos de acuerdo a, 
 
-ŷ ≈ "β"  ̂0 + "β"  ̂1Xi
+$ŷ ≈ "β"  ̂0 + "β"  ̂1Xi$ [Hay que ponerla en formato matematico de latex]
 
 La ecuación anterior busca predecir Y en base al valor iésimo de X. Con esto en mente, podemos decir entones que ei = yi – ŷi, lo cual representa el iésimo residual (la diferencia entre el valor observado de i y el valor de i en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto "β"  ̂0 con una pendiente "β"  ̂1 que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como
 

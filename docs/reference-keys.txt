@@ -5,3 +5,4 @@ definiciones-relevantes-a-machine-learning
 tipos-de-particiones-de-datos-en-machine-learning
 introducción-a-los-artículos-y-datasets-que-se-usarán-en-este-librillo
 capítulo-3-regresiones-lineales
+regresión-lineal-univariada
