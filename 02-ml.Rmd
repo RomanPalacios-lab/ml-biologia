@@ -25,9 +25,12 @@ Al momento de elegir nuestro modelo de aprendizaje debemos de tener en cuenta do
 Hablar de training and test sets
 
 
-## Introducir los papers y datasets que se usaran
+## Introducción a los artículos y datasets que se usarán en este librillo
 
-XXXX
+A lo largo de este librillo vamos a ilustrar ejemplos del uso de los diferentes métodos de aprendizaje estadístico utilizando set de datos que están publicados y disponibles para el público. Vamos a utilizar tres diferentes sets de datos el primero es un artículo liderado por Juan Carlos Copete y colaboradores, el cual está enfocado en entender la diversidad de comunidades de palmas en el Chocó biográficos. El segundo, fue liderado por Gustavo A. Londoño y colaboradores, en el cual este grupo de científicos buscaba entender los patrones de depredación de nidos en montañas del trópico. Por último, la tercera base de datos que vamos a usar fue liderada por Giovanny Ramirez y Jesus Orlando Rangel, en la cual estos investigadores buscaban entender la sucesión de plantas en un bosque del Chocó beogeográfico. Al final de cada uno de los capítulos vamos a tener ejemplos de cómo correr los diferentes análisis que se explican en el software `R`.
+
+El artículo que vamos a usar para los ejemplos de machine learning tiene como título **“Diversidad de comunidades de palmas en el Chocó biogeográfico y su relación con la precipitación”**. En este artículo los autores utilizan datos de precipitación en 48 transectos en comunidades de palmas a lo largo del Chocó biogeográfico en 4 localidades en Colombia y Ecuador. Para esto, Juan Carlos Copete y colaboradores tomaron datos de precipitación promedio anual, número promedio de individuos por transecto, número de especies y promedio de especies por transecto. Esto con el fin de responder a la pregunta de que si existe una relación entre la riqueza y abundancia de palmas en el Chocó biogeográfico. En resumen, los autores encontraron que una que diversidad de palmas está influenciada por la precipitación, mientras que la abundancia esta negativamente influenciada por la precipitación, en donde solo una especie – no muy abundantes – pueden sobrevivir en lugares muy húmedo.
+
 
 
 Esquemas:

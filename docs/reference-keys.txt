@@ -3,5 +3,5 @@ qué-es-machine-learning
 tipos-de-machine-learning
 definiciones-relevantes-a-machine-learning
 tipos-de-particiones-de-datos-en-machine-learning
-introducir-los-papers-y-datasets-que-se-usaran
+introducción-a-los-artículos-y-datasets-que-se-usarán-en-este-librillo
 capítulo-3-regresiones-lineales
