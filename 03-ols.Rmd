@@ -4,7 +4,7 @@ Las regresiones lineales estan entre las herramientas más utilizadas para cuant
 
 ## Regresión lineal univariada
 
-Este tipo de regresión es potencialmente la más simple que existe. Como su nombre lo indica, la regresion lineal univariada asume que hay una relación lineal entre el predictor $X$ y la variable continua de respuesta $Y$. Especificamente, este modelo asume que solamente existe una dependencia entre $X$ y $Y$. Dentro de este paradigma, esta relación se representa con la estructura general:
+Este tipo de regresión es potencialmente la más simple que existe. Como su nombre lo indica, la regresion lineal univariada asume que hay una relación lineal entre el predictor $X$ y la variable continua de respuesta $Y$. Específicamente, este modelo asume que solamente existe una dependencia entre $X$ y $Y$. Dentro de este paradigma, esta relación se representa con la estructura general:
 
 $Y ≈ β_{0} + β_{1}X$
 
