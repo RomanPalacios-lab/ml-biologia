@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 2 ¿Qué es Machine Learning? | Introducción al uso de machine learning en biología</title>
   <meta name="description" content="Capitulo 2 ¿Qué es Machine Learning? | Introducción al uso de machine learning en biología" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 2 ¿Qué es Machine Learning? | Introducción al uso de machine learning en biología" />
   <meta property="og:type" content="book" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -146,7 +150,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html"><i class="fa fa-check"></i><b>3</b> Capítulo 3: Regresiones lineales</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#regresión-lineal-univariada"><i class="fa fa-check"></i><b>3.1</b> Regresión lineal univariada</a></li>
+<li class="chapter" data-level="3.1" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#regresión-lineal-univariada"><i class="fa fa-check"></i><b>3.1</b> Regresión lineal univariada</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo"><i class="fa fa-check"></i><b>3.1.1</b> Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#regresión-lineal-de-multiples-variables"><i class="fa fa-check"></i><b>3.2</b> Regresión lineal de multiples variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo-1"><i class="fa fa-check"></i><b>3.2.1</b> Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo</a></li>
+<li class="chapter" data-level="3.2.2" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#interacciones-entre-variables"><i class="fa fa-check"></i><b>3.2.2</b> Interacciones entre variables</a></li>
+<li class="chapter" data-level="3.2.3" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#comparaciones-y-decisiones-entre-modelos-de-multiples-variables"><i class="fa fa-check"></i><b>3.2.3</b> Comparaciones y decisiones entre modelos de multiples variables</a></li>
+<li class="chapter" data-level="3.2.4" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#asunsiones-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas"><i class="fa fa-check"></i><b>3.2.4</b> Asunsiones de las regresiones lineales y cómo lidiar con ellas</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
@@ -207,11 +221,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.4</span> Introducción a los artículos y datasets que se usarán en este librillo<a href="qué-es-machine-learning.html#introducción-a-los-artículos-y-datasets-que-se-usarán-en-este-librillo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A lo largo de este librillo vamos a ilustrar ejemplos del uso de los diferentes métodos de aprendizaje estadístico utilizando set de datos que están publicados y disponibles para el público. Vamos a utilizar tres diferentes sets de datos el primero es un artículo liderado por Juan Carlos Copete y colaboradores, el cual está enfocado en entender la diversidad de comunidades de palmas en el Chocó biográficos. El segundo, fue liderado por Gustavo A. Londoño y colaboradores, en el cual este grupo de científicos buscaba entender los patrones de depredación de nidos en montañas del trópico. Por último, la tercera base de datos que vamos a usar fue liderada por Giovanny Ramirez y Jesus Orlando Rangel, en la cual estos investigadores buscaban entender la sucesión de plantas en un bosque del Chocó beogeográfico. Al final de cada uno de los capítulos vamos a tener ejemplos de cómo correr los diferentes análisis que se explican en el software <code>R</code>.</p>
 <p>El artículo que vamos a usar para los ejemplos de machine learning tiene como título <strong>“Diversidad de comunidades de palmas en el Chocó biogeográfico y su relación con la precipitación”</strong>. En este artículo los autores utilizan datos de precipitación en 48 transectos en comunidades de palmas a lo largo del Chocó biogeográfico en 4 localidades en Colombia y Ecuador. Para esto, Juan Carlos Copete y colaboradores tomaron datos de precipitación promedio anual, número promedio de individuos por transecto, número de especies y promedio de especies por transecto. Esto con el fin de responder a la pregunta de que si existe una relación entre la riqueza y abundancia de palmas en el Chocó biogeográfico. En resumen, los autores encontraron que una que diversidad de palmas está influenciada por la precipitación, mientras que la abundancia esta negativamente influenciada por la precipitación, en donde solo una especie – no muy abundantes – pueden sobrevivir en lugares muy húmedo.</p>
+<p>El segundo artículo que vamos a usar lleva como título <strong>“Changing patterns of nest predation and predator communities along a tropical elevation gradient”</strong> o <strong>“Patrones cambiantes de depredación de nidos y comunidades de depredadores a lo largo de un gradiente de elevación tropical”</strong> en español liderado por Gustavo A. Londoño y colaboradores. En este estudio los autores querían investigar si había cambios en los patrones y tipos de depredadores a lo largo de un gradiente altitudinal en bosque de Perú. Para esto, los autores utilizaron información sobre 2538 nidos que fueron monitoreados en el transcurso de seis años, desde el 2008 hasta el 2016. Además, durante ese mismo tiempo se tomaron fotografías y videos para cada uno de los nidos de los cuales 338 se tenía información de depredación. Igualmente, se tomaron datos de nido y composición del nido (si tenía huevos o polluelos). Los autores encontraron que a medida que la elevación aumenta la presión de depredación disminuye y l tipo de depredadores también cambia.</p>
+<p>Por último, Giovanny Ramirez y Jesus Orlando Rangel realizaron un estudio titulado <strong>“Sucesión vegetal en áreas de minería a cielo abierto en el bosque pluvial tropical del departamento del Chocó, Colombia”</strong>. En este estudio los autores se enfocaron en caracterizar comunidades vegetales en minas que han sido abandonadas en diferentes tiempos (30, 15 y 5 años de abandono) con el fin de ver como patrones de abundancia y diversidad cambian con el tiempo de recuperación en el municipio de Condoto en Chocó. Para esto, se midió la altura de la vegetación y se identificaron las especies presentes en cada sitio de muestreo, además de medir la abundancia relativa de especies y la frecuencia de especies. Los autores encontraron que la riqueza, mientras que la abundancia disminuye ha medida que el tiempo de recuperación aumenta (30 años -&gt; 15 años -&gt; 5 años).</p>
 <p>Esquemas:
 – Diagrama de supervisado vs no supervisado (Ok)
 – Esquema conceptual complejidad vs interpretabilidad (Ok)
 – Diagrama de tejo (TBD)
-– Maldicion de la dimensionalidad (TBD)</p>
+– Maldicion de la dimensionalidad (TBD)
+– Todavía sigo buscando uno para regresión lineal, los que estan ahora son los de habíamos dicho al principi</p>
 
 </div>
 </div>
@@ -281,7 +298,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
