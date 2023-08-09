@@ -6,15 +6,15 @@ Las regresiones lineales estan entre las herramientas más utilizadas para cuant
 
 Este tipo de regresión es potencialmente la más simple que existe. Como su nombre lo indica, la regresion lineal univariada asume que hay una relación lineal entre el predictor $X$ y la variable continua de respuesta $Y$. Específicamente, este modelo asume que solamente existe una dependencia entre $X$ y $Y$. Dentro de este paradigma, esta relación se representa con la estructura general:
 
-$Y ≈ β_{0} + β_{1}X$
+$$Y ≈ β_{0} + β_{1}X$$
 
 En esta ecuacion, $β_{0}$ y $β_{1}$ representan dos parametros: intercepto y la pendiente, respectivamente. [NOTA: Explicar que es cada uno]. Estos parametros deben ser estimados a partir de los datos. En particular, no conocemos cual es el valor real de $β_{0}$ y $β_{1}$, por ello, tenemos que usar los datos para estimar los coeficientes de acuerdo a el conjunto de datos,
 
-$(x_1, y_1), (x_2, y_2), … , (x_n, y_n)$
+$$(x_1, y_1), (x_2, y_2), … , (x_n, y_n)$$
 
 donde $n$ representa los pares de observaciones, que consisten en una medida de $X$ y una de $Y$, teniendo nuestro objetivo es obtener los coeficientes para $β_{0}$ y $β_{1}$, asumiendo un ajuste a los datos de acuerdo a, 
 
-$\hat{y} ≈ \hat{β}_{0} + \hat{β}_{1}X_{i}$
+$$\hat{y} ≈ \hat{β}_{0} + \hat{β}_{1}X_{i}$$
 
 La ecuación anterior busca predecir Y en base al valor iésimo de $X$. Con esto en mente, podemos decir entones que $e_{i} = y_{i} – \hat{y}_{i}$, lo cual representa el iésimo residual (la diferencia entre el valor observado de $i$ y el valor de $i$ en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto $\hat{β}_{0}$ con una pendiente $\hat{β}_{1}$ que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. 
 
@@ -28,14 +28,14 @@ $$RSS = e_{1}^{2} + e_{2}^{2} +⋯+ e_{n}^{2}$$
 
 La cual equivale a
 
-$RSS=[(y_{1}-\hat{β}_{0}-\hat{β}_{1}x_{1})]^{2}+[(y_{2}-\hat{β}_{0}-\hat{β}_{1}x_{2})]^{2}$ 
-$+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n})]^{2}$
+$$RSS=[(y_{1}-\hat{β}_{0}-\hat{β}_{1}x_{1})]^{2}+[(y_{2}-\hat{β}_{0}-\hat{β}_{1}x_{2})]^{2}$$ 
+$$+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n})]^{2}$$
 
 Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión ($R^{2}$ o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
 
 Cuando trabajamos con funciones, asumimos que la relación mas cerca a la realidad tiene un termino de error, dado esto nuestra ecuación lineal estaría dada por:
 
-$Y ≈ β_{0} + β_{1}X + ε$
+$$Y ≈ β_{0} + β_{1}X + ε$$
 
 Para recapitular, $β_{0}$ es el intercepto, el cual se refiere al valor de $Y$ cuando $X = 0$, $β_{1}$ es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de $X$ mientras que el valor de $ε$ es el error que está presente cuando se corre este modelo lineal.
 
@@ -43,7 +43,7 @@ Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera re
 
 $$\hatβ_{1} = \frac{\sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sum_{i = 1}^{n}(x_{i} - \overline{x})^{2}}$$,
 
-$\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}$
+$$\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}$$
 
 Donde $\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}$ and $\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}$ ($≡$ significa *equivalente a*) son solamente medias. En otros palabras, buscamos estimar dos coeficientes desconocidos usando $β_{0}$ y $β_{1}$, los cuales definen la línea de cadrados mínimos. *Nota: si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS*.
 
@@ -55,9 +55,9 @@ Donde $\delta$ es la desviación estándar para cada uno de los valores de $y_{i
 
 Ya teniendo el error estándar, podemos estimar el intervalo de confianza, el cual se refiere al rango de valores que tienen un 95% de probabilidad de ser estimado, dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes. Para un regresión lineal, el 95% del intervalo de confianza de $\hatβ_{1}$ está dado por,
 
-$\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})$
+$$\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})$$
 
-$[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})] , [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]$
+$$[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})] , [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]$$
 
 
 **el estadistico t y sus hipotesis, y R2**
@@ -66,12 +66,12 @@ $[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})] , [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]$
 
 En la vida real, usualmente las respuestas a predicciones están dadas por más de un predictor.
 
-$Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{n}X_{n} + ε$
+$$Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{n}X_{n} + ε$$
 
 **Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos**
 
 
-### Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo
+### Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo
 
 Hablar de RSS, el estadistico F y las hipotesis, RSE
 
