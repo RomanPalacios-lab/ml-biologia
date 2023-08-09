@@ -205,8 +205,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(Y ≈ β_{0} + β_{1}X + ε\)</span></p>
 <p>Para recapitular, <span class="math inline">\(β_{0}\)</span> es el intercepto, el cual se refiere al valor de <span class="math inline">\(Y\)</span> cuando <span class="math inline">\(X = 0\)</span>, <span class="math inline">\(β_{1}\)</span> es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de <span class="math inline">\(X\)</span> mientras que el valor de <span class="math inline">\(ε\)</span> es el error que está presente cuando se corre este modelo lineal.</p>
 <p>Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en <span class="math inline">\(Y\)</span>. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.Esto quiere decir que podemos en la vida real solo podemos computar la línea de los mínimos cuadra (estimados de coeficiente de mínimos cuadrados; ver siguiente ecuación), dado que no podemos ver la línea de regresión para toda la población.</p>
-<p><span class="math inline">\(β_{1} = \frac{\partial \sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\partial \sum_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\)</span>,
-<span class="math inline">\(β_{0} = \overline{y} - β_{1}\overline{x}\)</span></p>
+<p><span class="math inline">\(\hatβ_{1} = \frac{\sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sum_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\)</span>,</p>
+<p><span class="math inline">\(\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}\)</span></p>
+<p>Donde <span class="math inline">\(\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}\)</span> and <span class="math inline">\(\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}\)</span> (<span class="math inline">\(≡\)</span> significa <em>equivalente a</em>) son solamente medias. Si vemos con detenimiento, esta ecuación es una simplificación de la ecuación de RSS.</p>
 </div>
 </div>
 <div id="regresión-lineal-de-multiples-variables" class="section level2 hasAnchor" number="3.2">
