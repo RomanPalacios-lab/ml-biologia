@@ -12,3 +12,4 @@ mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficiente
 interacciones-entre-variables
 comparaciones-y-decisiones-entre-modelos-de-multiples-variables
 asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas
+clasificaciones
