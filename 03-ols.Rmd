@@ -45,9 +45,22 @@ $\hatβ_{1} = \frac{\sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})
 
 $\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}$
 
-Donde $\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}$ and $\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}$ ($≡$ significa *equivalente a*) son solamente medias. Si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS.
+Donde $\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}$ and $\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}$ ($≡$ significa *equivalente a*) son solamente medias. En otros palabras, buscamos estimar dos coeficientes desconocidos usando $β_{0}$ y $β_{1}$, los cuales definen la línea de cadrados mínimos. *Nota: si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS*.
 
-**Falta hablar de SE y el estadistico t y sus hipotesis**
+Otra variable a tener en cuenta cuando estemos haciendo nuestros análisis es $\mu$ o la media, la cual es desconocida, pero tenemos la media para nuestra muestra, también conocido como media de la muestra $\hat{\mu}$, la cual puede ser estimada como $\hat{\mu} = \overline{y}$ donde $\overline{y} = \frac{1}{n}\sum_{i = 1}^{n}y_{i}$.Para saber que tan precisa es la media de la muestra con respecto a la media global podemos estimar el error estándar de $\hat{\mu}$, que se puede representar como $SE(\hat{\mu})$, cuya formula es
+
+$Var(\hat{\mu}) = SE(\hat{\mu})^{2} = \frac{\delta^{2}}{n}$,
+
+Donde $\delta$ es la desviación estándar para cada uno de los valores de $y_{i}$ de $Y^{2}$. Igualmente, $\delta^{2}$ hace referencia a la varianza del error, para esto tenemos que asumir que el error $ε_{i}$ de cada observación están no correlacionados, es decir, $\delta^{2} = Var(ε)$. Generalmente, $\delta^{2}$ es desconocida, pero podemos estimar el error estánadar de los residuos o RSE (por ssus siglas en inglés *residual standard error*), para esto usamos la siguiente formula, $RSE = \sqrt{RSS/(n - 2)}$.
+
+Ya teniendo el error estándar, podemos estimar el intervalo de confianza, el cual se refiere al rango de valores que tienen un 95% de probabilidad de ser estimado, dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes. Para un regresión lineal, el 95% del intervalo de confianza de $\hatβ_{1}$ está dado por,
+
+$\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})$
+
+$[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})] , [\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})] $
+
+
+**el estadistico t y sus hipotesis, y R2**
   
 ## Regresión lineal de multiples variables
 
@@ -55,7 +68,7 @@ En la vida real, usualmente las respuestas a predicciones están dadas por más 
 
 $Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{n}X_{n} + ε$
 
-Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos
+**Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos**
 
 
 ### Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo
