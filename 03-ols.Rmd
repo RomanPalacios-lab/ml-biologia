@@ -27,7 +27,7 @@ $RSS = e_{1}^{2} + e_{2}^{2} +⋯+ e_{n}^{2}$
 La cual equivale a
 
 $RSS=[(y_{1}-\hat{β}_{0}-\hat{β}_{1}x_{1})]^{2}+[(y_{2}-\hat{β}_{0}-\hat{β}_{1}x_{2})]^{2}$ 
-     $+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n)]^{2}$
+$+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n)]^{2}$
 
 Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión ($R^{2}$ o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
 
