@@ -11,4 +11,4 @@ regresión-lineal-de-multiples-variables
 mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo-1
 interacciones-entre-variables
 comparaciones-y-decisiones-entre-modelos-de-multiples-variables
-asunsiones-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas
+asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas

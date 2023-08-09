@@ -18,6 +18,8 @@ $\hat{y} ≈ \hat{β}_{0} + \hat{β}_{1}X_{i}$
 
 La ecuación anterior busca predecir Y en base al valor iésimo de $X$. Con esto en mente, podemos decir entones que $e_{i} = y_{i} – \hat{y}_{i}$, lo cual representa el iésimo residual (la diferencia entre el valor observado de $i$ y el valor de $i$ en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto $\hat{β}_{0}$ con una pendiente $\hat{β}_{1}$ que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. 
 
+**Aquí podríamos poner un ejemplo con alguna de las bases de datos que tenemos, y hacer algo similar a lo que hiciste en el capitulo pasado, poner el código de cómo se hace**
+
 ### Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo
 
 Anteriormente vimos, que lo que buscamos en una regresión lineal es encontrar los puntos que sean lo más cercano posibles a nuestro modelo de interes. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como
@@ -43,9 +45,9 @@ $\hatβ_{1} = \frac{\sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})
 
 $\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}$
 
-Donde $\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}$ and $\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}$ ($≡$ significa *equivalente a*) son solamente medias. Si vemos con detenimiento, esta ecuación es una simplificación de la ecuación de RSS.
+Donde $\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}$ and $\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}$ ($≡$ significa *equivalente a*) son solamente medias. Si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS.
 
-
+**Falta hablar de SE y el estadistico t y sus hipotesis**
   
 ## Regresión lineal de multiples variables
 
@@ -53,14 +55,24 @@ En la vida real, usualmente las respuestas a predicciones están dadas por más 
 
 $Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{n}X_{n} + ε$
 
+Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos
+
 
 ### Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo
 
+Hablar de RSS, el estadistico F y las hipotesis, RSE
+
 ### Interacciones entre variables
+
+Usar una de las bases de datos para ejemplificar esto. Hablar sobre como los resultados pueden cambiar cuando se usar una o varias variables; discutir esto cuando se tienen las interacciones y cuando no se tienen encuenta.
 
 ### Comparaciones y decisiones entre modelos de multiples variables
 
-### Asunsiones de las regresiones lineales y cómo lidiar con ellas
+Hablar del valor p -y tal vez por qué se usa. Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow's C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.
+
+### Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas
+
+Hablar sobre no linearidad, correlaciones de los errores, variancia no constante en el error, datos atipicos, Punto de alto apalancamiento (high-leverage) y colinearidad. Podriamos mostrar ejemplos a acá tambien.
 
 
 - Definiciones generales (teorico):

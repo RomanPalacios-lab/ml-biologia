@@ -159,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo-1"><i class="fa fa-check"></i><b>3.2.1</b> Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo</a></li>
 <li class="chapter" data-level="3.2.2" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#interacciones-entre-variables"><i class="fa fa-check"></i><b>3.2.2</b> Interacciones entre variables</a></li>
 <li class="chapter" data-level="3.2.3" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#comparaciones-y-decisiones-entre-modelos-de-multiples-variables"><i class="fa fa-check"></i><b>3.2.3</b> Comparaciones y decisiones entre modelos de multiples variables</a></li>
-<li class="chapter" data-level="3.2.4" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#asunsiones-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas"><i class="fa fa-check"></i><b>3.2.4</b> Asunsiones de las regresiones lineales y cómo lidiar con ellas</a></li>
+<li class="chapter" data-level="3.2.4" data-path="capítulo-3-regresiones-lineales.html"><a href="capítulo-3-regresiones-lineales.html#asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas"><i class="fa fa-check"></i><b>3.2.4</b> Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -193,6 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>donde <span class="math inline">\(n\)</span> representa los pares de observaciones, que consisten en una medida de <span class="math inline">\(X\)</span> y una de <span class="math inline">\(Y\)</span>, teniendo nuestro objetivo es obtener los coeficientes para <span class="math inline">\(β_{0}\)</span> y <span class="math inline">\(β_{1}\)</span>, asumiendo un ajuste a los datos de acuerdo a,</p>
 <p><span class="math inline">\(\hat{y} ≈ \hat{β}_{0} + \hat{β}_{1}X_{i}\)</span></p>
 <p>La ecuación anterior busca predecir Y en base al valor iésimo de <span class="math inline">\(X\)</span>. Con esto en mente, podemos decir entones que <span class="math inline">\(e_{i} = y_{i} – \hat{y}_{i}\)</span>, lo cual representa el iésimo residual (la diferencia entre el valor observado de <span class="math inline">\(i\)</span> y el valor de <span class="math inline">\(i\)</span> en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto <span class="math inline">\(\hat{β}_{0}\)</span> con una pendiente <span class="math inline">\(\hat{β}_{1}\)</span> que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo.</p>
+<p><strong>Aquí podríamos poner un ejemplo con alguna de las bases de datos que tenemos, y hacer algo similar a lo que hiciste en el capitulo pasado, poner el código de cómo se hace</strong></p>
 <div id="mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo<a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Anteriormente vimos, que lo que buscamos en una regresión lineal es encontrar los puntos que sean lo más cercano posibles a nuestro modelo de interes. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como</p>
@@ -207,24 +208,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en <span class="math inline">\(Y\)</span>. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.Esto quiere decir que podemos en la vida real solo podemos computar la línea de los mínimos cuadra (estimados de coeficiente de mínimos cuadrados; ver siguiente ecuación), dado que no podemos ver la línea de regresión para toda la población.</p>
 <p><span class="math inline">\(\hatβ_{1} = \frac{\sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sum_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\)</span>,</p>
 <p><span class="math inline">\(\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}\)</span></p>
-<p>Donde <span class="math inline">\(\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}\)</span> and <span class="math inline">\(\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}\)</span> (<span class="math inline">\(≡\)</span> significa <em>equivalente a</em>) son solamente medias. Si vemos con detenimiento, esta ecuación es una simplificación de la ecuación de RSS.</p>
+<p>Donde <span class="math inline">\(\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}\)</span> and <span class="math inline">\(\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}\)</span> (<span class="math inline">\(≡\)</span> significa <em>equivalente a</em>) son solamente medias. Si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS.</p>
+<p><strong>Falta hablar de SE y el estadistico t y sus hipotesis</strong></p>
 </div>
 </div>
 <div id="regresión-lineal-de-multiples-variables" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Regresión lineal de multiples variables<a href="capítulo-3-regresiones-lineales.html#regresión-lineal-de-multiples-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En la vida real, usualmente las respuestas a predicciones están dadas por más de un predictor.</p>
 <p><span class="math inline">\(Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{n}X_{n} + ε\)</span></p>
+<p>Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos</p>
 <div id="mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo-1" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo<a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hablar de RSS, el estadistico F y las hipotesis, RSE</p>
 </div>
 <div id="interacciones-entre-variables" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Interacciones entre variables<a href="capítulo-3-regresiones-lineales.html#interacciones-entre-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Usar una de las bases de datos para ejemplificar esto. Hablar sobre como los resultados pueden cambiar cuando se usar una o varias variables; discutir esto cuando se tienen las interacciones y cuando no se tienen encuenta.</p>
 </div>
 <div id="comparaciones-y-decisiones-entre-modelos-de-multiples-variables" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Comparaciones y decisiones entre modelos de multiples variables<a href="capítulo-3-regresiones-lineales.html#comparaciones-y-decisiones-entre-modelos-de-multiples-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hablar del valor p -y tal vez por qué se usa. Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow’s C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.</p>
 </div>
-<div id="asunsiones-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="section level3 hasAnchor" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Asunsiones de las regresiones lineales y cómo lidiar con ellas<a href="capítulo-3-regresiones-lineales.html#asunsiones-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas<a href="capítulo-3-regresiones-lineales.html#asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hablar sobre no linearidad, correlaciones de los errores, variancia no constante en el error, datos atipicos, Punto de alto apalancamiento (high-leverage) y colinearidad. Podriamos mostrar ejemplos a acá tambien.</p>
 <ul>
 <li><p>Definiciones generales (teorico):
 – Simple
