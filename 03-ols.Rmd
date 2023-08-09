@@ -37,7 +37,12 @@ $Y ≈ β_{0} + β_{1}X + ε$
 
 Para recapitular, $β_{0}$ es el intercepto, el cual se refiere al valor de $Y$ cuando $X = 0$, $β_{1}$ es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de $X$ mientras que el valor de $ε$ es el error que está presente cuando se corre este modelo lineal.
 
-Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en $Y$. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre $X$ y $Y$.
+Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en $Y$. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre $X$ y $Y$.Esto quiere decir que podemos en la vida real solo podemos computar la línea de los mínimos cuadra (estimados de coeficiente de mínimos cuadrados; ver siguiente ecuación), dado que no podemos ver la línea de regresión para toda la población.
+
+$β_{1} = \frac{\partial \sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\partial \sum_{i = 1}^{n}(x_{i} - \overline{x})^{2}}$,
+$β_{0} = \overline{y} - β_{1}\overline{x}$
+
+
 
   
 ## Regresión lineal de multiples variables
