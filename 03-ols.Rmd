@@ -14,27 +14,27 @@ $(x_1, y_1), (x_2, y_2), … , (x_n, y_n)$
 
 donde $n$ representa los pares de observaciones, que consisten en una medida de $X$ y una de $Y$, teniendo nuestro objetivo es obtener los coeficientes para $β_{0}$ y $β_{1}$, asumiendo un ajuste a los datos de acuerdo a, 
 
-$\hat{y} ≈ hat{β}_{0} + hat{β}_{1}X_{i}$ [Hay que ponerla en formato matematico de latex]
+$\hat{y} ≈ \hat{β}_{0} + \hat{β}_{1}X_{i}$
 
-La ecuación anterior busca predecir Y en base al valor iésimo de $X$. Con esto en mente, podemos decir entones que $e_{i} = y_{i} – \hat{y}_{i}$, lo cual representa el iésimo residual (la diferencia entre el valor observado de $i$ y el valor de $i$ en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto "β"  ̂0 con una pendiente "β"  ̂1 que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. 
+La ecuación anterior busca predecir Y en base al valor iésimo de $X$. Con esto en mente, podemos decir entones que $e_{i} = y_{i} – \hat{y}_{i}$, lo cual representa el iésimo residual (la diferencia entre el valor observado de $i$ y el valor de $i$ en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto $\hat{β}_{0}$ con una pendiente $\hat{β}_{1}$ que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. 
 
 ### Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo
 
 Anteriormente vimos, que lo que buscamos en una regresión lineal es encontrar los puntos que sean lo más cercano posibles a nuestro modelo de interes. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como
 
-$RSS = e_1^2+ e_2^2+⋯+ e_n^2$
+$RSS = e_{1}^{2} + e_{2}^{2} +⋯+ e_{n}^{2}$
 
 La cual equivale a
 
-$RSS = 〖(y_1- β ̂_0- β ̂_1 x_1)〗^(2 )+ 〖(y_2- β ̂_0- β ̂_1 x_2)〗^(2 )+⋯+〖(y_n- β ̂_0- β ̂_1 x_n)〗^(2 )$
+$RSS =  [(y_{1} - \hat{β}_{0} - \hat{β}_{1}x_{1})]^{2} +  [(y_{2} - \hat{β}_{0} - \hat{β}_{1}x_{2})]^{2} +⋯+ [[(y_{n} - \hat{β}_{0} - \hat{β}_{1}x_{n)]^{2}$
 
-Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión (R2 o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
+Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión ($R^{2}$ o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
 
 Cuando trabajamos con funciones, asumimos que la relación mas cerca a la realidad tiene un termino de error, dado esto nuestra ecuación lineal estaría dada por:
 
 $Y ≈ β0 + β1X + ε$
 
-Para recapitular, "β"  ̂0 es el intercepto, el cual se refiere al valor de $Y$ cuando $X = 0$, "β"  ̂1 es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de $X$ mientras que el valor de $ε$ es el error que está presente cuando se corre este modelo lineal.
+Para recapitular, $\hat{β}_{0}$ es el intercepto, el cual se refiere al valor de $Y$ cuando $X = 0$, $\hat{β}_{1}$ es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de $X$ mientras que el valor de $ε$ es el error que está presente cuando se corre este modelo lineal.
 
 Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en $Y$. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre $X$ y $Y$.
 
