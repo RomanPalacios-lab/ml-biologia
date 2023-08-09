@@ -199,8 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Anteriormente vimos, que lo que buscamos en una regresión lineal es encontrar los puntos que sean lo más cercano posibles a nuestro modelo de interes. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como</p>
 <p><span class="math display">\[RSS = e_{1}^{2} + e_{2}^{2} +⋯+ e_{n}^{2}\]</span></p>
 <p>La cual equivale a</p>
-<p><span class="math display">\[RSS=[(y_{1}-\hat{β}_{0}-\hat{β}_{1}x_{1})]^{2}+[(y_{2}-\hat{β}_{0}-\hat{β}_{1}x_{2})]^{2}\]</span>
-<span class="math display">\[+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n})]^{2}\]</span></p>
+<p><span class="math display">\[RSS=[(y_{1}-\hat{β}_{0}-\hat{β}_{1}x_{1})]^{2}+[(y_{2}-\hat{β}_{0}-\hat{β}_{1}x_{2})]^{2}+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n})]^{2}\]</span></p>
 <p>Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión (<span class="math inline">\(R^{2}\)</span> o coeficiente de determinación – vamos a hablar de esto un poco más adelante).</p>
 <p>Cuando trabajamos con funciones, asumimos que la relación mas cerca a la realidad tiene un termino de error, dado esto nuestra ecuación lineal estaría dada por:</p>
 <p><span class="math display">\[Y ≈ β_{0} + β_{1}X + ε\]</span></p>
@@ -214,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Donde <span class="math inline">\(\delta\)</span> es la desviación estándar para cada uno de los valores de <span class="math inline">\(y_{i}\)</span> de <span class="math inline">\(Y^{2}\)</span>. Igualmente, <span class="math inline">\(\delta^{2}\)</span> hace referencia a la varianza del error, para esto tenemos que asumir que el error <span class="math inline">\(ε_{i}\)</span> de cada observación están no correlacionados, es decir, <span class="math inline">\(\delta^{2} = Var(ε)\)</span>. Generalmente, <span class="math inline">\(\delta^{2}\)</span> es desconocida, pero podemos estimar el error estánadar de los residuos o RSE (por ssus siglas en inglés <em>residual standard error</em>), para esto usamos la siguiente formula, <span class="math inline">\(RSE = \sqrt{RSS/(n - 2)}\)</span>.</p>
 <p>Ya teniendo el error estándar, podemos estimar el intervalo de confianza, el cual se refiere al rango de valores que tienen un 95% de probabilidad de ser estimado, dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes. Para un regresión lineal, el 95% del intervalo de confianza de <span class="math inline">\(\hatβ_{1}\)</span> está dado por,</p>
 <p><span class="math display">\[\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})\]</span></p>
-<p><span class="math display">\[[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})] , [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]\]</span></p>
+<p><span class="math display">\[[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})]  ,  [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]\]</span></p>
 <p><strong>el estadistico t y sus hipotesis, y R2</strong></p>
 </div>
 </div>
