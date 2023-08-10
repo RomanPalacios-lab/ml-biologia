@@ -8,7 +8,7 @@ Este tipo de regresión es potencialmente la más simple que existe. Como su nom
 
 $$Y ≈ β_{0} + β_{1}X$$
 
-En esta ecuacion, $β_{0}$ y $β_{1}$ representan dos parametros: intercepto y la pendiente, respectivamente. [NOTA: Explicar que es cada uno]. Estos parametros deben ser estimados a partir de los datos. En particular, no conocemos cual es el valor real de $β_{0}$ y $β_{1}$, por ello, tenemos que usar los datos para estimar los coeficientes de acuerdo a el conjunto de datos,
+En esta ecuacion, $β_{0}$ y $β_{1}$ representan dos parametros: intercepto y la pendiente, respectivamente. En regresiones lineal, el intercepto se refiere a cuando el valor de $x$ es igual a $0$ o $x = 0$,  mientras que pendiente se refiere a al cambio de $y$ por una unidad en el cambio de $x$; o también se refiere al ángulo  de la línea en el plano. Estos parametros deben ser estimados a partir de los datos. En particular, no conocemos cual es el valor real de $β_{0}$ y $β_{1}$, por ello, tenemos que usar los datos para estimar los coeficientes de acuerdo a el conjunto de datos,
 
 $$(x_1, y_1), (x_2, y_2), … , (x_n, y_n)$$
 
