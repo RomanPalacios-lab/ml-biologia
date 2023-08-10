@@ -50,7 +50,7 @@ Otra variable a tener en cuenta cuando estemos haciendo nuestros análisis es $\
 
 $$Var(\hat{\mu}) = SE(\hat{\mu})^{2} = \frac{\delta^{2}}{n}$$,
 
-Donde $\delta$ es la desviación estándar para cada uno de los valores de $y_{i}$ de $Y^{2}$. Igualmente, $\delta^{2}$ hace referencia a la varianza del error, para esto tenemos que asumir que el error $ε_{i}$ de cada observación están no correlacionados, es decir, $\delta^{2} = Var(ε)$. Generalmente, $\delta^{2}$ es desconocida, pero podemos estimar el error estánadar de los residuos o RSE (por ssus siglas en inglés *residual standard error*), para esto usamos la siguiente formula, $RSE = \sqrt{RSS/(n - 2)}$.
+Donde $\delta$ es la desviación estándar para cada uno de los valores de $y_{i}$ de $Y$. Igualmente, $\delta^{2}$ hace referencia a la varianza del error, para esto tenemos que asumir que el error $ε_{i}$ de cada observación están no correlacionados, es decir, $\delta^{2} = Var(ε)$. Generalmente, $\delta^{2}$ es desconocida, pero podemos estimar el error estánadar de los residuos o RSE (por ssus siglas en inglés *residual standard error*), para esto usamos la siguiente formula, $RSE = \sqrt{RSS/(n - 2)}$.
 
 Ya teniendo el error estándar, podemos estimar el intervalo de confianza, el cual se refiere al rango de valores que tienen un 95% de probabilidad de ser estimado, dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes. Para un regresión lineal, el 95% del intervalo de confianza de $\hatβ_{1}$ está dado por,
 
@@ -58,6 +58,26 @@ $$\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})$$
 
 $$[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})]  ,  [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]$$
 
+Igualmente, para el intervalo de confianza de $\hatβ_{0}$, esta dado por una ecuación similar,
+
+$$\hatβ_{0} ± 2 ⋅ SE(\hatβ_{0})$$
+
+Cuando tenemos el error estándar, también podemos probar hipótesis en los coeficientes. Las hipótesis que usualmente probamos son: la **hipótesis nula**
+
+$$H_{0}$$: No hay relación entre $X$ y $Y$
+
+Mientras que la hipótesis *alternativa sería*
+
+$$H_{\alpha}$$: No hay relación entre $X$ y $Y$
+
+Matemáticamente hablando, la denotación para estas dos hipótesis sería:
+
+
+$$H_{0}: \hatβ_{0} = 0$$
+
+Y
+
+$$H_{\alpha}: \hatβ_{1} = 0$$
 
 **el estadistico t y sus hipotesis, y R2**
   
