@@ -102,7 +102,7 @@ Donde $X_{j}$ representa del $j-ésimo$ predictor y $β_{j}$ cuantifica la asoci
 
 Al igual que en la regresión lineal de una varible, los coeficientes de regresión $β_{0}$, $β_{1}$,..., $β_{p}$ son desconocidos, por lo tanto, lo que estimamos es $\hatβ_{0}$, $\hatβ_{1}$,..., $\hatβ_{p}$, lo cual hace que nuestra formula de regresión lineal cambie un poco
 
-$$\haty = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε$$
+$$\hat{y} = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε$$
 
 **Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos**
 
@@ -111,7 +111,7 @@ $$\haty = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p}
 
 Similar a lo que hablamos en regresiones lineales simples, los parámetros se estiman utilizando mínimos cuadros, pero en este caso, utilizamos la siguente formula
 
-$$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \haty_{i})^{2}$$
+$$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hat{y}_{i})^{2}$$
 
 $$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hatβ_{0} - \hatβ_{1}x_{i1} - \hatβ_{2}x_{i2} - … - \hatβ_{p}X_{ip})^{2}$$
 

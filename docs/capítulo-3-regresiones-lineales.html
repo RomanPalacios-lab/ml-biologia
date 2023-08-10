@@ -250,12 +250,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{p}X_{p} + ε\]</span></p>
 <p>Donde <span class="math inline">\(X_{j}\)</span> representa del <span class="math inline">\(j-ésimo\)</span> predictor y <span class="math inline">\(β_{j}\)</span> cuantifica la asociación entre la variable y la respuesta. Esto se puede interpretar como <span class="math inline">\(β_{j}\)</span> es el efecto <em>promedio</em> de <span class="math inline">\(Y\)</span> por cada unidad de incremento en <span class="math inline">\(X_{j}\)</span> cuando <em>cuando todos los otros predictores se mantienen constantes</em>.</p>
 <p>Al igual que en la regresión lineal de una varible, los coeficientes de regresión <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> son desconocidos, por lo tanto, lo que estimamos es <span class="math inline">\(\hatβ_{0}\)</span>, <span class="math inline">\(\hatβ_{1}\)</span>,…, <span class="math inline">\(\hatβ_{p}\)</span>, lo cual hace que nuestra formula de regresión lineal cambie un poco</p>
-<p><span class="math display">\[\haty = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε\]</span></p>
+<p><span class="math display">\[\hat{y} = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε\]</span></p>
 <p><strong>Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos</strong></p>
 <div id="mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo<a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Similar a lo que hablamos en regresiones lineales simples, los parámetros se estiman utilizando mínimos cuadros, pero en este caso, utilizamos la siguente formula</p>
-<p><span class="math display">\[RSS ≡ \sum_{i = 1}^{n}(y_{i} - \haty_{i})^{2}\]</span></p>
+<p><span class="math display">\[RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hat{y}_{i})^{2}\]</span></p>
 <p><span class="math display">\[RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hatβ_{0} - \hatβ_{1}x_{i1} - \hatβ_{2}x_{i2} - … - \hatβ_{p}X_{ip})^{2}\]</span></p>
 <p>Los valores de <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples.</p>
 </div>
