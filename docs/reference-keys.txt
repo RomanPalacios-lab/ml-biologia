@@ -13,3 +13,9 @@ interacciones-entre-variables
 comparaciones-y-decisiones-entre-modelos-de-multiples-variables
 asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas
 clasificaciones
+regresión-logística
+análisis-discriminante-lineal
+comparasión-de-métodos-de-clasificación
+métodos-de-remuestreo
+validación-cruzada
+boopstrap-o-arranque

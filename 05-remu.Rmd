@@ -1,0 +1,5 @@
+# Métodos de remuestreo
+
+## Validación cruzada
+
+## Boopstrap (o arranque)

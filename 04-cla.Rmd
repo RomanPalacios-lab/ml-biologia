@@ -1,1 +1,7 @@
 # Clasificaciones
+
+## Regresión logística
+
+## Análisis discriminante lineal
+
+## Comparasión de métodos de clasificación
