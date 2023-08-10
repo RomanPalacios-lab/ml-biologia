@@ -83,7 +83,7 @@ La pregunta que queda ahora es ¿cómo probamos la *hipótesis nula*? Para este 
 
 $$t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}$$, 
 
-El estadístico mide el número de desvaciones estándar que $\hatβ_{1}$ se aleja de cero. En donde valores pequeños de $\hatβ_{1}$ dan evidencia de que $\hatβ_{1} ≠ 0$, es decir hay una relación entre $X$ y $Y$. Cuando $\hatβ_{1}$ tiene valores absolutos muchos más grande se rechaza la *hipótesis nula*. Es relativamente sencillo computar la probabilidad de observar un valor de $|t|$ or mayor, cuando asumimos que $\hatβ_{1} = 0$. A esta probabilidad se le conoce normalmente como *valor-p*, entre más pequeño mayor es la asociación entre el predictor y la respuesta. Cuando el valor de *p* es muy pequeño *rechazamos la hipótesis nula*, es decir, hay una relación entre $X$ y $Y$.
+El estadístico mide el número de desvaciones estándar que $\hatβ_{1}$ se aleja de cero. En donde valores pequeños de $\hatβ_{1}$ dan evidencia de que $\hatβ_{1} ≠ 0$, es decir hay una relación entre $X$ y $Y$. Cuando $\hatβ_{1}$ tiene valores absolutos muchos más grande se rechaza la *hipótesis nula*. Es relativamente sencillo computar la probabilidad de observar un valor de $|t|$ o mayor, cuando asumimos que $\hatβ_{1} = 0$. A esta probabilidad se le conoce normalmente como *valor-p*, entre más pequeño mayor es la asociación entre el predictor y la respuesta. Cuando el valor de *p* es muy pequeño *rechazamos la hipótesis nula*, es decir, hay una relación entre $X$ y $Y$.
 
 Otro estadístico a tener en cuenta es el estadístico $R^{2}$, comunmente conocido como **coeficiente de proporcionalidad**. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. $R^{2}$ toma valores entre 0 y 1, y es independiente de la escala de $Y$. El coefiente de proporcionalidad usualmente se calcula como
 
@@ -94,11 +94,30 @@ Donde $TSS = \sum(y_{1} - \overline{y})^{2}$, en otras palabras,la suma total de
 
 ## Regresión lineal de multiples variables
 
-En la vida real, usualmente las respuestas a predicciones están dadas por más de un predictor.
+En la vida real, usualmente las respuestas a predicciones están dadas por más de un predictor. Para esto usualmente utilizamos una regresión de multiples variables, donde cada predictor tiene su propia pendiente. Este tipo de regresión lineal está dada por una cantidad de predictores *p*, y se denota matemáticamente de la siguiente manera
 
-$$Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{n}X_{n} + ε$$
+$$Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{p}X_{p} + ε$$
+
+Donde $X_{j}$ representa del $j-ésimo$ predictor y $β_{j}$ cuantifica la asociación entre la variable y la respuesta. Esto se puede interpretar como $β_{j}$ es el efecto *promedio* de $Y$ por cada unidad de incremento en $X_{j}$ cuando *cuando todos los otros predictores se mantienen constantes*.
+
+Al igual que en la regresión lineal de una varible, los coeficientes de regresión $β_{0}$, $β_{1}$,..., $β_{p}$ son desconocidos, por lo tanto, lo que estimamos es $\hatβ_{0}$, $\hatβ_{1}$,..., $\hatβ_{p}$, lo cual hace que nuestra formula de regresión lineal cambie un poco
+
+$$\haty = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε$$
 
 **Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos**
+
+
+### Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo
+
+Similar a lo que hablamos en regresiones lineales simples, los parámetros se estiman utilizando mínimos cuadros, pero en este caso, utilizamos la siguente formula
+
+$$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \haty_{i})^{2}$$
+
+$$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hatβ_{0} - \hatβ_{1}x_{i1} - \hatβ_{2}x_{i2} - … - \hatβ_{p}X_{ip})^{2}$$
+
+Los valores de $β_{0}$, $β_{1}$,..., $β_{p}$ que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples.
+
+
 
 
 ### Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo
