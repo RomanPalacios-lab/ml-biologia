@@ -64,11 +64,11 @@ $$\hatβ_{0} ± 2 ⋅ SE(\hatβ_{0})$$
 
 Cuando tenemos el error estándar, también podemos probar hipótesis en los coeficientes. Las hipótesis que usualmente probamos son: la **hipótesis nula**
 
-$$H_{0}$$: No hay relación entre $X$ y $Y$
+$$H_{0}: No hay relación entre X y Y$$
 
-Mientras que la hipótesis *alternativa sería*
+Mientras que la hipótesis **alternativa sería**
 
-$$H_{\alpha}$$: No hay relación entre $X$ y $Y$
+$$H_{\alpha}: No hay relación entre X y Y$$
 
 Matemáticamente hablando, la denotación para estas dos hipótesis sería:
 
