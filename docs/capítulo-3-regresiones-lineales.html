@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-08-09" />
+<meta name="date" content="2023-08-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -230,12 +230,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Cuando tenemos el error estándar, también podemos probar hipótesis en los coeficientes. Las hipótesis que usualmente probamos son: la <strong>hipótesis nula</strong></p>
 <p><span class="math inline">\(H_{0}\)</span>: No hay relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span></p>
 <p>Mientras que la <strong>hipótesis alternativa</strong> sería</p>
-<p><span class="math inline">\(H_{\alpha}\)</span>: No hay relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span></p>
+<p><span class="math inline">\(H_{\alpha}\)</span>: Hay relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span></p>
 <p>Matemáticamente hablando, la denotación para estas dos hipótesis sería:</p>
 <p><span class="math display">\[H_{0}: \hatβ_{0} = 0\]</span></p>
 <p>Y</p>
-<p><span class="math display">\[H_{\alpha}: \hatβ_{1} = 0\]</span></p>
-<p><strong>el estadistico t y sus hipotesis, y R2</strong></p>
+<p><span class="math display">\[H_{\alpha}: \hatβ_{1} ≠ 0\]</span></p>
+<p>La pregunta que queda ahora es ¿cómo probamos la <em>hipótesis nula</em>? Para este tenemos que determinar que tan alejado <span class="math inline">\(\hatβ_{1}\)</span>. Para esto utilizamos el estadístico <span class="math inline">\(t\)</span>, el cual está dado por la ecuación,</p>
+<p><span class="math display">\[t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}\]</span>,</p>
+<p>El estadístico mide el número de desvaciones estándar que <span class="math inline">\(\hatβ_{1}\)</span> se aleja de cero. En donde valores pequeños de <span class="math inline">\(\hatβ_{1}\)</span> dan evidencia de que <span class="math inline">\(\hatβ_{1} ≠ 0\)</span>, es decir hay una relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Cuando <span class="math inline">\(\hatβ_{1}\)</span> tiene valores absolutos muchos más grande se rechaza la <em>hipótesis nula</em>. Es relativamente sencillo computar la probabilidad de observar un valor de <span class="math inline">\(|t|\)</span> or mayor, cuando asumimos que <span class="math inline">\(\hatβ_{1} = 0\)</span>. A esta probabilidad se le conoce normalmente como <em>valor-p</em>, entre más pequeño mayor es la asociación entre el predictor y la respuesta. Cuando el valor de <em>p</em> es muy pequeño <em>rechazamos la hipótesis nula</em>, es decir, hay una relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.</p>
+<p>Otro estadístico a tener en cuenta es el estadístico <span class="math inline">\(R^{2}\)</span>, comunmente conocido como <strong>coeficiente de proporcionalidad</strong>. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. <span class="math inline">\(R^{2}\)</span> toma valores entre 0 y 1, y es independiente de la escala de <span class="math inline">\(Y\)</span>. El coefiente de proporcionalidad usualmente se calcula como</p>
+<p><span class="math display">\[R^{2} = \frac{TSS-RSS}{RSS} = 1 - \frac{RSS}{TSS}\]</span></p>
+<p>Donde <span class="math inline">\(TSS = \sum(y_{1} - \overline{y})^{2}\)</span>, en otras palabras,la suma total de todos las cuadrados, el cual mide la varianza total de la respuesta <span class="math inline">\(Y\)</span>, también podemos definirlo como la cantidad de variabilidad de la respuesta antes de la regresión o <em>mide la proporción de la variablidad de Y que es explicada usando X</em>. Cuando <span class="math inline">\(R^{2}\)</span> es cercano 1 indica que una gran proporción de la variablidad en la respuesta es explicada por la regresión. Mientras que un valor cercano a 0 indicaría que la regresió no explica la variabilidad de la respuesta. Lo cual quiere decir que el modelo lineal tiene algún problema, o que el error inherente <span class="math inline">\(\delta^{2}\)</span> es muy alto ambos.</p>
 </div>
 </div>
 <div id="regresión-lineal-de-multiples-variables" class="section level2 hasAnchor" number="3.2">
@@ -253,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="comparaciones-y-decisiones-entre-modelos-de-multiples-variables" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Comparaciones y decisiones entre modelos de multiples variables<a href="capítulo-3-regresiones-lineales.html#comparaciones-y-decisiones-entre-modelos-de-multiples-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hablar del valor p -y tal vez por qué se usa. Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow’s C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.</p>
+<p>Hablar del valor p (NOTA: Ya hablé de este un poquito en regresiones de una variables). Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow’s C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.</p>
 </div>
 <div id="asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="section level3 hasAnchor" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas<a href="capítulo-3-regresiones-lineales.html#asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="anchor-section" aria-label="Anchor link to header"></a></h3>

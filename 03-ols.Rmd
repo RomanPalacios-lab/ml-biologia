@@ -68,7 +68,7 @@ $H_{0}$: No hay relación entre $X$ y $Y$
 
 Mientras que la **hipótesis alternativa** sería
 
-$H_{\alpha}$: No hay relación entre $X$ y $Y$
+$H_{\alpha}$: Hay relación entre $X$ y $Y$
 
 Matemáticamente hablando, la denotación para estas dos hipótesis sería:
 
@@ -77,14 +77,21 @@ $$H_{0}: \hatβ_{0} = 0$$
 
 Y
 
-$$H_{\alpha}: \hatβ_{1} = 0$$
+$$H_{\alpha}: \hatβ_{1} ≠ 0$$
+
+La pregunta que queda ahora es ¿cómo probamos la *hipótesis nula*? Para este tenemos que determinar que tan alejado $\hatβ_{1}$. Para esto utilizamos el estadístico $t$, el cual está dado por la ecuación,
+
+$$t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}$$, 
+
+El estadístico mide el número de desvaciones estándar que $\hatβ_{1}$ se aleja de cero. En donde valores pequeños de $\hatβ_{1}$ dan evidencia de que $\hatβ_{1} ≠ 0$, es decir hay una relación entre $X$ y $Y$. Cuando $\hatβ_{1}$ tiene valores absolutos muchos más grande se rechaza la *hipótesis nula*. Es relativamente sencillo computar la probabilidad de observar un valor de $|t|$ or mayor, cuando asumimos que $\hatβ_{1} = 0$. A esta probabilidad se le conoce normalmente como *valor-p*, entre más pequeño mayor es la asociación entre el predictor y la respuesta. Cuando el valor de *p* es muy pequeño *rechazamos la hipótesis nula*, es decir, hay una relación entre $X$ y $Y$.
+
+Otro estadístico a tener en cuenta es el estadístico $R^{2}$, comunmente conocido como **coeficiente de proporcionalidad**. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. $R^{2}$ toma valores entre 0 y 1, y es independiente de la escala de $Y$. El coefiente de proporcionalidad usualmente se calcula como
+
+$$R^{2} = \frac{TSS-RSS}{RSS} = 1 - \frac{RSS}{TSS}$$
+
+Donde $TSS = \sum(y_{1} - \overline{y})^{2}$, en otras palabras,la suma total de todos las cuadrados, el cual mide la varianza total de la respuesta $Y$, también podemos definirlo como la cantidad de variabilidad de la respuesta antes de la regresión o *mide la proporción de la variablidad de Y que es explicada usando X*. Cuando $R^{2}$  es cercano 1 indica que una gran proporción de la variablidad en la respuesta es explicada por la regresión. Mientras que un valor cercano a 0 indicaría que la regresió no explica la variabilidad de la respuesta. Lo cual quiere decir que el modelo lineal tiene algún problema, o que el error inherente $\delta^{2}$ es muy alto ambos.
 
 
-
-
-
-**el estadistico t y sus hipotesis, y R2**
-  
 ## Regresión lineal de multiples variables
 
 En la vida real, usualmente las respuestas a predicciones están dadas por más de un predictor.
@@ -104,7 +111,7 @@ Usar una de las bases de datos para ejemplificar esto. Hablar sobre como los res
 
 ### Comparaciones y decisiones entre modelos de multiples variables
 
-Hablar del valor p -y tal vez por qué se usa. Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow's C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.
+Hablar del valor p (NOTA: Ya hablé de este un poquito en regresiones de una variables). Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow's C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.
 
 ### Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas
 
