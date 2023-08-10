@@ -1,58 +1,56 @@
 # Capítulo 3: Regresiones lineales
 
-Las regresiones lineales estan entre las herramientas más utilizadas para cuantificar la asociacion entre variables o predecir los valores de una respuesta. En esta aproximacion metodologica, la respuesta en el modelo supervisado es continua. Los modelos de regresion lineal son usualmente percibidos como poco flexibles. Sin embargo, estos modelos pueden llegar a incluir niveles de flexibilidad y complejidad comparables con otros modelos usualmente vistos como mas flexibles. Los modelos lineales son un excelente punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones o casos especiales de regresiones lineales.
+Las regresiones lineales estan entre las herramientas más utilizadas para cuantificar y describir la asociacion entre variables o predecir los valores de una respuesta. En esta aproximacion metodologica, la respuesta en el modelo supervisado es continua. Los modelos de regresion lineal son usualmente percibidos como poco flexibles. Sin embargo, estos modelos pueden llegar a incluir niveles de flexibilidad y complejidad comparables con otros modelos usualmente vistos como mas flexibles. Los modelos lineales son un excelente punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones o casos especiales de regresiones lineales.
 
 ## Regresión lineal univariada
 
-Este tipo de regresión es potencialmente la más simple que existe. Como su nombre lo indica, la regresion lineal univariada asume que hay una relación lineal entre el predictor $X$ y la variable continua de respuesta $Y$. Específicamente, este modelo asume que solamente existe una dependencia entre $X$ y $Y$. Dentro de este paradigma, esta relación se representa con la estructura general:
+Este tipo de regresión es potencialmente la más simple que existe en su estructura. La regresion lineal univariada asume que hay una relación lineal entre el predictor $X$ y la variable continua de respuesta $Y$. Específicamente, este modelo asume que unicamente existe una dependencia entre $X$ y $Y$. Dentro de este paradigma, esta relación se representa como:
 
 $$Y ≈ β_{0} + β_{1}X$$
 
-En esta ecuacion, $β_{0}$ y $β_{1}$ representan dos parametros: intercepto y la pendiente, respectivamente. En regresiones lineal, el intercepto se refiere a cuando el valor de $x$ es igual a $0$ o $x = 0$,  mientras que pendiente se refiere a al cambio de $y$ por una unidad en el cambio de $x$; o también se refiere al ángulo  de la línea en el plano. Estos parametros deben ser estimados a partir de los datos. En particular, no conocemos cual es el valor real de $β_{0}$ y $β_{1}$, por ello, tenemos que usar los datos para estimar los coeficientes de acuerdo a el conjunto de datos,
+En esta ecuacion, $β_{0}$ y $β_{1}$ representan dos parametros: intercepto y la pendiente, respectivamente. El intercepto se refiere al valor en el cual $x$ es igual a $0$, $x = 0$. La pendiente se refiere a al cambio de $y$ por una unidad en el cambio de $x$. Es entonces el ángulo de la línea en el plano. Estos parametros deben ser estimados a partir de los datos,
 
 $$(x_1, y_1), (x_2, y_2), … , (x_n, y_n)$$
 
-donde $n$ representa los pares de observaciones, que consisten en una medida de $X$ y una de $Y$, teniendo nuestro objetivo es obtener los coeficientes para $β_{0}$ y $β_{1}$, asumiendo un ajuste a los datos de acuerdo a, 
+donde $n$ representa los pares de observaciones en el conjunto de datos, que consisten en una medida de $X$ y una de $Y$. Teniendo en cuenta que nuestro objetivo es el obtener los coeficientes para $β_{0}$ y $β_{1}$, asumiendo un ajuste a los datos de acuerdo a, 
 
 $$\hat{y} ≈ \hat{β}_{0} + \hat{β}_{1}X_{i}$$
 
-La ecuación anterior busca predecir Y en base al valor iésimo de $X$. Con esto en mente, podemos decir entones que $e_{i} = y_{i} – \hat{y}_{i}$, lo cual representa el iésimo residual (la diferencia entre el valor observado de $i$ y el valor de $i$ en la respuesta predicha en el modelo lineal). Con todo esto, buscamos encontrar un intercepto $\hat{β}_{0}$ con una pendiente $\hat{β}_{1}$ que resulte en la línea más cerca posible a los datos que utilizamos en nuestro modelo. 
-
-**Aquí podríamos poner un ejemplo con alguna de las bases de datos que tenemos, y hacer algo similar a lo que hiciste en el capitulo pasado, poner el código de cómo se hace**
+La ecuación anterior busca predecir $Y$ en base al valor iésimo de $X$. Con esto en mente, podemos decir entones que $e_{i} = y_{i} - \hat{y}_{i}$ es entonces la diferencia entre el valor real de cada observacion en el conjunto de datos ($y_{i}$) y el aproximado por el modelo ($\hat{y}_{i}$). Esta diferencia es conocida como residual e identifica el ajuste del modelo con los datos. Conociendo entonces la desviacion que existe entre los valores generados por el modelo y los datos colectados, podemos entonces enfocarnos en minimizar el error (e.g. residuales) a partir de cambios en los valores de los parametros $\hat{β}_{0}$ y $\hat{β}_{1}$.
 
 ### Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo
 
-Anteriormente vimos, que lo que buscamos en una regresión lineal es encontrar los puntos que sean lo más cercano posibles a nuestro modelo de interes. Hay muchas maneras de buscar la cercanía de estos puntos, uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (SCE o RSS – residual sum of squares – aquí lo vamos a llamar RSS), como
+Lo que buscamos en una regresión lineal es ajustar un modelo donde se cometa el minimo error con respecto a los datos existentes. Hay muchas maneras de buscar la cercanía de estos puntos (i.e. los del modelo y las observaciones). Uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (**SCE** o **RSS**, residual sum of squares), como:
 
 $$RSS = e_{1}^{2} + e_{2}^{2} +⋯+ e_{n}^{2}$$
 
-La cual equivale a
+La cual equivale a la suma a lo largo de todas las observaciones en el set de datos de los residuales al cuadrado:
 
 $$RSS=[(y_{1}-\hat{β}_{0}-\hat{β}_{1}x_{1})]^{2}+[(y_{2}-\hat{β}_{0}-\hat{β}_{1}x_{2})]^{2}+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n})]^{2}$$
 
-Usualmente utilizamos RSS para determinar la proporción de la variación total que es explicada por el modelo de regresión ($R^{2}$ o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
+Usualmente utilizamos **RSS** para determinar la proporción de la variación total que es explicada por el modelo de regresión ($R^{2}$ o coeficiente de determinación – vamos a hablar de esto un poco más adelante).
 
-Cuando trabajamos con funciones, asumimos que la relación mas cerca a la realidad tiene un termino de error, dado esto nuestra ecuación lineal estaría dada por:
+Tambien notamos que cuando trabajamos con funciones se asume que la relación mas cerca a la realidad tiene un termino de error ($ε$). Dado esto nuestra ecuación lineal estaría dada en realidad por la estructura,
 
 $$Y ≈ β_{0} + β_{1}X + ε$$
 
-Para recapitular, $β_{0}$ es el intercepto, el cual se refiere al valor de $Y$ cuando $X = 0$, $β_{1}$ es la pendiente, que hace referencia al incremento de Y que está asociado con el cambio de una unidad de $X$ mientras que el valor de $ε$ es el error que está presente cuando se corre este modelo lineal.
-
-Algo que no hemos mencionado hasta ahora, es que, posiblemente, una verdadera relación nunca es linear, porque puede haber otras variables que causan que haya variación en $Y$. Por ello, la ecuación que mostramos anterior mente es la mejor aproximación lineal para encontrar la verdadera relación entre $X$ y $Y$.Esto quiere decir que podemos en la vida real solo podemos computar la línea de los mínimos cuadra (estimados de coeficiente de mínimos cuadrados; ver siguiente ecuación), dado que no podemos ver la línea de regresión para toda la población.
+Hasta el momento hemos descrito patrones lineales en el set de datos. Sin embargo, los modelos que subyacen datos reales raramente son lineales. Esto es debido a complejidad adicional, donde variables externas pueden generar efectos sobre la estructura de relacion entre las variables focales. Por ello, la ecuación que mostramos anteriormente es la mejor aproximación lineal para encontrar la relación entre $X$ y $Y$. Esto implica que, dado los coeficientes del modelo son desconocidos en datos experimentales, solo podemos estimar estos parametros a partir de aproximaciones como las de minimos cuadrados,
 
 $$\hatβ_{1} = \frac{\sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sum_{i = 1}^{n}(x_{i} - \overline{x})^{2}}$$,
 
 $$\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}$$
 
-Donde $\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}$ and $\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}$ ($≡$ significa *equivalente a*) son solamente medias. En otros palabras, buscamos estimar dos coeficientes desconocidos usando $β_{0}$ y $β_{1}$, los cuales definen la línea de cadrados mínimos. *Nota: si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS*.
+Donde $\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}$ y $\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}$ ($≡$ significa *equivalente a*) son medias. Por lo tanto, lo que se busca es estimar dos coeficientes desconocidos usando $β_{0}$ y $β_{1}$, los cuales definen directamente la línea a partir de la aproximacion de minimos cuadrados. *Nota: si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS*.
 
-Otra variable a tener en cuenta cuando estemos haciendo nuestros análisis es $\mu$ o la media, la cual es desconocida, pero tenemos la media para nuestra muestra, también conocido como media de la muestra $\hat{\mu}$, la cual puede ser estimada como $\hat{\mu} = \overline{y}$ donde $\overline{y} = \frac{1}{n}\sum_{i = 1}^{n}y_{i}$.Para saber que tan precisa es la media de la muestra con respecto a la media global podemos estimar el error estándar de $\hat{\mu}$, que se puede representar como $SE(\hat{\mu})$, cuya formula es
+Otra variable a tener en cuenta cuando estemos haciendo nuestros análisis es $\mu$ o la media. Este parametro, el cual es desconocido, puede ser aproximado a partir de la media para nuestra muestra, $\hat{\mu} = \overline{y}$ donde $\overline{y} = \frac{1}{n}\sum_{i = 1}^{n}y_{i}$. Para saber que tan precisa es la media de la muestra con respecto a la media global podemos estimar el error estándar de $\hat{\mu}$, que se puede representar como $SE(\hat{\mu})$, cuya formula es
 
 $$Var(\hat{\mu}) = SE(\hat{\mu})^{2} = \frac{\delta^{2}}{n}$$,
 
-Donde $\delta$ es la desviación estándar para cada uno de los valores de $y_{i}$ de $Y$. Igualmente, $\delta^{2}$ hace referencia a la varianza del error, para esto tenemos que asumir que el error $ε_{i}$ de cada observación están no correlacionados, es decir, $\delta^{2} = Var(ε)$. Generalmente, $\delta^{2}$ es desconocida, pero podemos estimar el error estánadar de los residuos o RSE (por ssus siglas en inglés *residual standard error*), para esto usamos la siguiente formula, $RSE = \sqrt{RSS/(n - 2)}$.
+Donde $\delta$ es la desviación estándar para cada uno de los valores de $y_{i}$ de $Y$. Igualmente, $\delta^{2}$ hace referencia a la varianza del error. Para esto tenemos que asumir que el error $ε_{i}$ de cada observación están no correlacionados, es decir, $\delta^{2} = Var(ε)$. Generalmente, $\delta^{2}$ es desconocida, pero podemos estimar el error estánadar de los residuos o RSE (por sus siglas en inglés *residual standard error*), para esto usamos la siguiente formula, 
 
-Ya teniendo el error estándar, podemos estimar el intervalo de confianza, el cual se refiere al rango de valores que tienen un 95% de probabilidad de ser estimado, dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes. Para un regresión lineal, el 95% del intervalo de confianza de $\hatβ_{1}$ está dado por,
+$$RSE = \sqrt{RSS/(n - 2)}$
+
+Ya teniendo el error estándar, podemos estimar el intervalo de confianza (e.g. 95%). Dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes con el valor definido de confianza. Para un regresión lineal, el 95% del intervalo de confianza de $\hatβ_{1}$ está dado por,
 
 $$\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})$$
 
@@ -62,16 +60,15 @@ Igualmente, para el intervalo de confianza de $\hatβ_{0}$, esta dado por una ec
 
 $$\hatβ_{0} ± 2 ⋅ SE(\hatβ_{0})$$
 
-Cuando tenemos el error estándar, también podemos probar hipótesis en los coeficientes. Las hipótesis que usualmente probamos son: la **hipótesis nula**
+Cuando tenemos el error estándar, también podemos probar hipótesis en los coeficientes. La hipótesis que usualmente probamos contrastamos es la **hipótesis nula** que establece,
 
 $H_{0}$: No hay relación entre $X$ y $Y$
 
-Mientras que la **hipótesis alternativa** sería
+Mientras que la **hipótesis alternativa** indica que,
 
 $H_{\alpha}$: Hay relación entre $X$ y $Y$
 
-Matemáticamente hablando, la denotación para estas dos hipótesis sería:
-
+Matemáticamente hablando, la denotación para estas dos hipótesis sería respectivamente:
 
 $$H_{0}: \hatβ_{0} = 0$$
 
@@ -79,11 +76,11 @@ Y
 
 $$H_{\alpha}: \hatβ_{1} ≠ 0$$
 
-La pregunta que queda ahora es ¿cómo probamos la *hipótesis nula*? Para este tenemos que determinar que tan alejado $\hatβ_{1}$. Para esto utilizamos el estadístico $t$, el cual está dado por la ecuación,
+La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la *hipótesis nula*?. Para este tenemos que determinar que tan alejado $\hatβ_{1}$ es de un valor de 0. Para esto utilizamos el estadístico $t$, el cual está dado por la ecuación,
 
 $$t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}$$, 
 
-El estadístico mide el número de desvaciones estándar que $\hatβ_{1}$ se aleja de cero. En donde valores pequeños de $\hatβ_{1}$ dan evidencia de que $\hatβ_{1} ≠ 0$, es decir hay una relación entre $X$ y $Y$. Cuando $\hatβ_{1}$ tiene valores absolutos muchos más grande se rechaza la *hipótesis nula*. Es relativamente sencillo computar la probabilidad de observar un valor de $|t|$ o mayor, cuando asumimos que $\hatβ_{1} = 0$. A esta probabilidad se le conoce normalmente como *valor-p*, entre más pequeño mayor es la asociación entre el predictor y la respuesta. Cuando el valor de *p* es muy pequeño *rechazamos la hipótesis nula*, es decir, hay una relación entre $X$ y $Y$.
+El estadístico mide el número de desvaciones estándar que $\hatβ_{1}$ se aleja de 0. En donde valores pequeños de $\hatβ_{1}$ dan evidencia de que $\hatβ_{1} ≠ 0$, es decir hay una relación entre $X$ y $Y$. Cuando $\hatβ_{1}$ tiene valores absolutos muchos más grande se rechaza la *hipótesis nula*. Es relativamente sencillo computar la probabilidad de observar un valor de $|t|$ o mayor, cuando asumimos que $\hatβ_{1} = 0$. A esta probabilidad se le conoce normalmente como *valor-p*. Cuando el valor de *p* es muy pequeño (e.g. p<0.05) *rechazamos la hipótesis nula*, es decir, hay evidencia de relación entre $X$ y $Y$. Si el *valor-p* es mas grande (e.g. >0.05), no se rechaza la hipotesis nula. 
 
 Otro estadístico a tener en cuenta es el estadístico $R^{2}$, comunmente conocido como **coeficiente de proporcionalidad**. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. $R^{2}$ toma valores entre 0 y 1, y es independiente de la escala de $Y$. El coefiente de proporcionalidad usualmente se calcula como
 
