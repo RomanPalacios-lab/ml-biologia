@@ -135,7 +135,7 @@ $$E[RSS/(n-p-1)] = \delta^{2}$$
 
 Además, si $H_{0}$ es verdadera, entonces
 
-$$E{(TSS-RSS)/p} = \delta^{2}$$
+$$E[(TSS-RSS)/p] = \delta^{2}$$
 
 Hablar de RSS, el estadistico F y las hipotesis, RSE
 
