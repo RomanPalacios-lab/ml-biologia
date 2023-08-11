@@ -76,7 +76,7 @@ Y
 
 $$H_{\alpha}: \hatβ_{1} ≠ 0$$
 
-La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la *hipótesis nula*?. Para este tenemos que determinar que tan alejado $\hatβ_{1}$ es de un valor de 0. Para esto utilizamos el estadístico $t$, el cual está dado por la ecuación,
+La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la *hipótesis nula*?. Para este tenemos que determinar que tan alejado $\hatβ_{1}$ es de un valor de 0. Para esto utilizamos el **estadístico t**, el cual está dado por la ecuación,
 
 $$t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}$$, 
 
@@ -115,9 +115,21 @@ $$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hatβ_{0} - \hatβ_{1}x_{i1} - \hatβ_{2}x_{
 Los valores de $β_{0}$, $β_{1}$,..., $β_{p}$ que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples.
 
 
-
-
 ### Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo
+
+Al igual que en las regresiones simples, para las regresiones multiples se tienen hipótesis, pero antes, tenemos que preguntarnos si todos los coeficientes de la regresión son igual a cero, es decir, si $β_{1} = β_{2} = ... = β_{p} = 0$. Dado esto, las hipótesis que vamos a probar son: la *hipótesis nula* sería
+
+$H_{0}: β_{1} = β_{2} = ... = β_{p} = 0$
+
+Mientras que la *hipótesis alternativa* sería
+
+$H_{0}:$ DOnde por lo menos uno de los $β_{j} = 0$
+
+Para poder probar estas hipótesis utilizamos un estadístico llamado **estadístico F**, el cual se denota matemáticamente de la siguiente manera
+
+$$F = \frac{(TSS - RSS)/p}{RSS/(n-p-1)}$$
+
+Donde, $TSS = \sum(y_{i} - \overline{y})^2$ y $RSS = \sum(y_{i} - \hat{y_{i}})^2$
 
 Hablar de RSS, el estadistico F y las hipotesis, RSE
 
