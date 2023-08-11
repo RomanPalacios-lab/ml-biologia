@@ -137,7 +137,17 @@ Además, si $H_{0}$ es verdadera, entonces
 
 $$E[(TSS-RSS)/p] = \delta^{2}$$
 
-Hablar de RSS, el estadistico F y las hipotesis, RSE
+Esto quiere decir que cuando no hay una relación entre la repuesta y el predictor, el estadístico F tomaría valores cerca a 1. Mientras que si $H_{\alpha}$ fuera verdadera, entocnes el *estadístico F* tomaría valores mayores a 1, es decir, $E[(TSS - RSS)/p] > \alpha^{2}$.
+
+Igualmente, a veces queremos encontrar si los coeficientes de un subcojunto *q* son iguales a cero. Para el caso de la hipótesis nula esto se escribiría matemáticamente como
+
+$$H_{0}: β_{p-q+1} = β_{p-q+2} += … = β_{p} = 0$$
+
+Si queremos probar una modelo que contenga todas las variables *excepción* de las *q*. Supongamos que la suma de cuadrados de los residuospara este modelo es $RSS_{0}$, entonces la formar de calcular el *estadístico F* sería.
+
+$$F = \frac{(RSS_{0} - RSS)/q}{RSS/(n-p-1)}$$
+
+Algo que debemos tener en cuenta cuando estemos realizando la elección de variables en una regresión lineal de multiples variables funciona para cada asociación entre los predicttores y la variable respuuesta, cuando *p* es relativamente pequeño e casi tan pequeño como *n*. Cuando $p > n$ hay más coificientes $β_{j}$ para estimar que el número de observaciones que se necesita para estimar esos coeficientes. Dado este caso no podemos usar una regresión lineal multiple usando mínimos caudrados, por ello debemos usar otras alternativas, entre las cuales se encuentran: seleccion hacia adelante, seleccion desde atras y seleccion mixta, de las cuales hablaremos más adelante.
 
 ### Interacciones entre variables
 

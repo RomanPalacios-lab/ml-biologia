@@ -270,7 +270,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[E[RSS/(n-p-1)] = \delta^{2}\]</span></p>
 <p>Además, si <span class="math inline">\(H_{0}\)</span> es verdadera, entonces</p>
 <p><span class="math display">\[E[(TSS-RSS)/p] = \delta^{2}\]</span></p>
-<p>Hablar de RSS, el estadistico F y las hipotesis, RSE</p>
+<p>Esto quiere decir que cuando no hay una relación entre la repuesta y el predictor, el estadístico F tomaría valores cerca a 1. Mientras que si <span class="math inline">\(H_{\alpha}\)</span> fuera verdadera, entocnes el <em>estadístico F</em> tomaría valores mayores a 1, es decir, <span class="math inline">\(E[(TSS - RSS)/p] &gt; \alpha^{2}\)</span>.</p>
+<p>Igualmente, a veces queremos encontrar si los coeficientes de un subcojunto <em>q</em> son iguales a cero. Para el caso de la hipótesis nula esto se escribiría matemáticamente como</p>
+<p><span class="math display">\[H_{0}: β_{p-q+1} = β_{p-q+2} += … = β_{p} = 0\]</span></p>
+<p>Si queremos probar una modelo que contenga todas las variables <em>excepción</em> de las <em>q</em>. Supongamos que la suma de cuadrados de los residuospara este modelo es <span class="math inline">\(RSS_{0}\)</span>, entonces la formar de calcular el <em>estadístico F</em> sería.</p>
+<p><span class="math display">\[F = \frac{(RSS_{0} - RSS)/q}{RSS/(n-p-1)}\]</span></p>
+<p>Algo que debemos tener en cuenta cuando estemos realizando la elección de variables en una regresión lineal de multiples variables funciona para cada asociación entre los predicttores y la variable respuuesta, cuando <em>p</em> es relativamente pequeño e casi tan pequeño como <em>n</em>. Cuando <span class="math inline">\(p &gt; n\)</span> hay más coificientes <span class="math inline">\(β_{j}\)</span> para estimar que el número de observaciones que se necesita para estimar esos coeficientes. Dado este caso no podemos usar una regresión lineal multiple usando mínimos caudrados, por ello debemos usar otras alternativas, entre las cuales se encuentran: seleccion hacia adelante, seleccion desde atras y seleccion mixta, de las cuales hablaremos más adelante.</p>
 </div>
 <div id="interacciones-entre-variables" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Interacciones entre variables<a href="capítulo-3-regresiones-lineales.html#interacciones-entre-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
