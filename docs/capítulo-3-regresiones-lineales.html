@@ -263,10 +263,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Al igual que en las regresiones simples, para las regresiones multiples se tienen hipótesis, pero antes, tenemos que preguntarnos si todos los coeficientes de la regresión son igual a cero, es decir, si <span class="math inline">\(β_{1} = β_{2} = ... = β_{p} = 0\)</span>. Dado esto, las hipótesis que vamos a probar son: la <em>hipótesis nula</em> sería</p>
 <p><span class="math inline">\(H_{0}: β_{1} = β_{2} = ... = β_{p} = 0\)</span></p>
 <p>Mientras que la <em>hipótesis alternativa</em> sería</p>
-<p><span class="math inline">\(H_{0}:\)</span> DOnde por lo menos uno de los <span class="math inline">\(β_{j} = 0\)</span></p>
+<p><span class="math inline">\(H_{\alpha}:\)</span> Donde por lo menos uno de los <span class="math inline">\(β_{j} = 0\)</span>,</p>
 <p>Para poder probar estas hipótesis utilizamos un estadístico llamado <strong>estadístico F</strong>, el cual se denota matemáticamente de la siguiente manera</p>
 <p><span class="math display">\[F = \frac{(TSS - RSS)/p}{RSS/(n-p-1)}\]</span></p>
-<p>Donde, <span class="math inline">\(TSS = \sum(y_{i} - \overline{y})^2\)</span> y <span class="math inline">\(RSS = \sum(y_{i} - \hat{y_{i}})^2\)</span></p>
+<p>Donde, <span class="math inline">\(TSS = \sum(y_{i} - \overline{y})^2\)</span> y <span class="math inline">\(RSS = \sum(y_{i} - \hat{y_{i}})^2\)</span>, si las asunciones del modelo son correctas entonces podemos decir que</p>
+<p><span class="math display">\[E[RSS/(n-p-1)] = \delta^{2}\]</span></p>
+<p>Además, si <span class="math inline">\(H_{0}\)</span> es verdadera, entonces</p>
+<p><span class="math display">\[E{(TSS-RSS)/p} = \delta^{2}\]</span></p>
 <p>Hablar de RSS, el estadistico F y las hipotesis, RSE</p>
 </div>
 <div id="interacciones-entre-variables" class="section level3 hasAnchor" number="3.2.3">

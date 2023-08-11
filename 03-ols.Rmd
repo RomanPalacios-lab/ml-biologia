@@ -123,13 +123,19 @@ $H_{0}: β_{1} = β_{2} = ... = β_{p} = 0$
 
 Mientras que la *hipótesis alternativa* sería
 
-$H_{0}:$ DOnde por lo menos uno de los $β_{j} = 0$
+$H_{\alpha}:$ Donde por lo menos uno de los $β_{j} = 0$, 
 
 Para poder probar estas hipótesis utilizamos un estadístico llamado **estadístico F**, el cual se denota matemáticamente de la siguiente manera
 
 $$F = \frac{(TSS - RSS)/p}{RSS/(n-p-1)}$$
 
-Donde, $TSS = \sum(y_{i} - \overline{y})^2$ y $RSS = \sum(y_{i} - \hat{y_{i}})^2$
+Donde, $TSS = \sum(y_{i} - \overline{y})^2$ y $RSS = \sum(y_{i} - \hat{y_{i}})^2$, si las asunciones del modelo son correctas entonces podemos decir que
+
+$$E[RSS/(n-p-1)] = \delta^{2}$$
+
+Además, si $H_{0}$ es verdadera, entonces
+
+$$E{(TSS-RSS)/p} = \delta^{2}$$
 
 Hablar de RSS, el estadistico F y las hipotesis, RSE
 
