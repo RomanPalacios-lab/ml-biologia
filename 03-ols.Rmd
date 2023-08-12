@@ -56,11 +56,11 @@ $$\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})$$
 
 $$[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})]  ,  [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]$$
 
-Igualmente, para el intervalo de confianza de $\hatβ_{0}$, esta dado por una ecuación similar,
+Igualmente, el intervalo de confianza de $\hatβ_{0}$, esta dado por una ecuación similar:
 
 $$\hatβ_{0} ± 2 ⋅ SE(\hatβ_{0})$$
 
-Cuando tenemos el error estándar, también podemos probar hipótesis en los coeficientes. La hipótesis que usualmente probamos contrastamos es la **hipótesis nula** que establece,
+Tras estimar el error estandard en los parametros, podemos consider probar hipótesis en los coeficientes. La hipótesis que usualmente probamos contrastamos es la **hipótesis nula** que establece,
 
 $H_{0}$: No hay relación entre $X$ y $Y$
 
@@ -76,74 +76,76 @@ Y
 
 $$H_{\alpha}: \hatβ_{1} ≠ 0$$
 
-La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la *hipótesis nula*?. Para este tenemos que determinar que tan alejado $\hatβ_{1}$ es de un valor de 0. Para esto utilizamos el **estadístico t**, el cual está dado por la ecuación,
+La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la *hipótesis nula*?. Para este tenemos que determinar que tan alejado $\hatβ_{1}$, la pendiente, está de un valor de 0. Para esto utilizamos el **estadístico t**:
 
 $$t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}$$, 
 
-El estadístico mide el número de desvaciones estándar que $\hatβ_{1}$ se aleja de 0. En donde valores pequeños de $\hatβ_{1}$ dan evidencia de que $\hatβ_{1} ≠ 0$, es decir hay una relación entre $X$ y $Y$. Cuando $\hatβ_{1}$ tiene valores absolutos muchos más grande se rechaza la *hipótesis nula*. Es relativamente sencillo computar la probabilidad de observar un valor de $|t|$ o mayor, cuando asumimos que $\hatβ_{1} = 0$. A esta probabilidad se le conoce normalmente como *valor-p*. Cuando el valor de *p* es muy pequeño (e.g. p<0.05) *rechazamos la hipótesis nula*, es decir, hay evidencia de relación entre $X$ y $Y$. Si el *valor-p* es mas grande (e.g. >0.05), no se rechaza la hipotesis nula. 
+Este estadístico mide el número de desvaciones estándar en el que $\hatβ_{1}$ se aleja de 0. Por lo tanto, valores pequeños de $\hatβ_{1}$ dan evidencia de que $\hatβ_{1} ≠ 0$, es decir hay una relación estadistica entre $X$ y $Y$. Cuando $\hatβ_{1}$ tiene valores absolutos muchos más grande, se rechaza la *hipótesis nula*. 
 
-Otro estadístico a tener en cuenta es el estadístico $R^{2}$, comunmente conocido como **coeficiente de proporcionalidad**. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. $R^{2}$ toma valores entre 0 y 1, y es independiente de la escala de $Y$. El coefiente de proporcionalidad usualmente se calcula como
+Es relativamente sencillo computar la probabilidad de observar un valor de $|t|$ o mayor, cuando asumimos que $\hatβ_{1} = 0$. A esta probabilidad se le conoce normalmente como *valor-p*. Cuando el valor de *p* es muy pequeño (e.g. p<0.05) *rechazamos la hipótesis nula*, es decir, hay evidencia de relación entre $X$ y $Y$. Si el *valor-p* es mas grande (e.g. >0.05), no se rechaza la hipotesis nula. 
+
+Otro estadístico a tener en cuenta es el estadístico $R^{2}$, comunmente conocido como **coeficiente de proporcionalidad**. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. $R^{2}$ usualmente toma valores entre 0 y 1, y es independiente de la escala de $Y$. El coefiente de proporcionalidad frecuentemente se calcula como:
 
 $$R^{2} = \frac{TSS-RSS}{RSS} = 1 - \frac{RSS}{TSS}$$
 
-Donde $TSS = \sum(y_{1} - \overline{y})^{2}$, en otras palabras, la suma total de todos las cuadrados, el cual mide la varianza total de la respuesta $Y$, también podemos definirlo como la cantidad de variabilidad de la respuesta antes de la regresión, mientras que RSS mide la cantidad de variabilidad que no se explica luego de realizar la regresión. Con esto podemos decir que $TSS - RSS$ mide la la cantidad de variabilidad de la respues que es explicada a causa de realizar la regresión. $R^{2}$ *mide la proporción de la variablidad de $Y$ que es explicada usando $X$*. Cuando $R^{2}$  es cercano 1 indica que una gran proporción de la variablidad en la respuesta es explicada por la regresión. Mientras que un valor cercano a 0 indicaría que la regresió no explica la variabilidad de la respuesta. Lo cual quiere decir que el modelo lineal tiene algún problema, que el error inherente $\delta^{2}$ es muy alto o ambos.
+Donde $TSS = \sum(y_{1} - \overline{y})^{2}$ esla suma total de todos las cuadrados. Este indice mide la varianza total de la respuesta $Y$ o la cantidad de variabilidad de la respuesta antes de la regresión. Por otra parte, el RSS mide la cantidad de variabilidad que no se explica luego de realizar la regresión. Asumiendo estas definiciones podemos decir que $TSS - RSS$ mide la la cantidad de variabilidad de la respues que es explicada a causa de la regresión. Por lo tanto, $R^{2}$ *mide la proporción de la variablidad de $Y$ que es explicada por $X$*. Cuando $R^{2}$  es cercano 1, una gran proporción de la variablidad en la respuesta es explicada por el modelo. Un valor de $R^{2}$ cercano a 0 indicaría que la regresió no explica la variabilidad de la respuesta.
 
 
 ## Regresión lineal de multiples variables
 
-En la vida real, usualmente las respuestas a predicciones están dadas por más de un predictor. Para esto usualmente utilizamos una regresión de multiples variables, donde cada predictor tiene su propia pendiente. Este tipo de regresión lineal está dada por una cantidad de predictores *p*, y se denota matemáticamente de la siguiente manera
+Comunmente, las asociaciones entre variables no son unicamente entre dos variables. Por lo tanto, las respuestas a predicciones están dadas por más de un predictor. Para esto usualmente utilizamos una regresión de multiples variables. En este paradigma, la relacion entre cada predictor y la respuesta esta modulada por su propio parametro (i.e. pendiente). Este tipo de regresión lineal está dada por una cantidad de predictores *p*, y se denota matemáticamente de la siguiente manera,
 
 $$Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{p}X_{p} + ε$$
 
-Donde $X_{j}$ representa del $j-ésimo$ predictor y $β_{j}$ cuantifica la asociación entre la variable y la respuesta. Esto se puede interpretar como $β_{j}$ es el efecto *promedio* de $Y$ por cada unidad de incremento en $X_{j}$ cuando *cuando todos los otros predictores se mantienen constantes*.
-
-Al igual que en la regresión lineal de una varible, los coeficientes de regresión $β_{0}$, $β_{1}$,..., $β_{p}$ son desconocidos, por lo tanto, lo que estimamos es $\hatβ_{0}$, $\hatβ_{1}$,..., $\hatβ_{p}$, lo cual hace que nuestra formula de regresión lineal cambie un poco
+Donde $X_{j}$ representa del $j-ésimo$ predictor y $β_{j}$ cuantifica la asociación entre la variable y la respuesta. Esto se puede interpretar como $β_{j}$ es el efecto *promedio* de $Y$ por cada unidad de incremento en $X_{j}$ cuando *cuando todos los otros predictores se mantienen constantes*. Excepto por la asuncion de constancia, esta definicion de pendientes no difiere marcadamente en interpretacion con relacion a lo discutido anteriormente sobre regresiones lineales. Al igual que en la regresión lineal de una varible, los coeficientes de regresión $β_{0}$, $β_{1}$,..., $β_{p}$ son desconocidos, por lo tanto, lo que estimamos es $\hatβ_{0}$, $\hatβ_{1}$,..., $\hatβ_{p}$, lo cual hace que nuestra formula de regresión lineal cambie un poco
 
 $$\hat{y} = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε$$
 
-**Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos**
+Por lo tanto, en regresiones multiples, existen tantas pendientes como predictores en la function. Es entonces extender, de alguna forma, el resultado de extender un modelo de regresion simple para tener en cuenta un mayor numero de variables predictoras. Hay que tambien anotar que este tipo de regresion es diferente a los modelos de regresion multivariada. En estos ultimos, existen multiples variables de respuesta, en vez de solo una como es el caso de la regresion multiple.
 
 
 ### Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo
 
-Similar a lo que hablamos en regresiones lineales simples, los parámetros se estiman utilizando mínimos cuadros, pero en este caso, utilizamos la siguente formula
+Similar a lo que se discutia sobre regresiones lineales simples, los parámetros en estos modelos son estimados utilizando mínimos cuadros. Sin embargo, en este caso, utilizamos la siguente formula,
 
 $$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hat{y}_{i})^{2}$$
 
 $$RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hatβ_{0} - \hatβ_{1}x_{i1} - \hatβ_{2}x_{i2} - … - \hatβ_{p}X_{ip})^{2}$$
 
-Los valores de $β_{0}$, $β_{1}$,..., $β_{p}$ que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples.
+Los valores de $β_{0}$, $β_{1}$,..., $β_{p}$ que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples. Existen alternativas para estimar estos coeficientes como maxima varosimilitud.
 
 
 ### Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo
 
-Al igual que en las regresiones simples, para las regresiones multiples se tienen hipótesis, pero antes, tenemos que preguntarnos si todos los coeficientes de la regresión son igual a cero, es decir, si $β_{1} = β_{2} = ... = β_{p} = 0$. Dado esto, las hipótesis que vamos a probar son: la *hipótesis nula* sería
+Las regresiones multiples tambien tienen hipótesis asociadas a las relaciones entre variables. Existen dos niveles de hipotesis en este tipo de regresiones. Primero, existe una relacion general entre los predictores y la respuesta? Segundo, existe una relacion particular entre cada predictor y la respuesta? Por ahora, nos enfocaremos en el primer aspecto. El segundo aspecto es congruente con las interpretaciones discutidas en regresiones de una variable (excepto por la asuncion de constancia en la interpretacion).
+
+Nos preguntarnos por lo tanto si todos los coeficientes de la regresión son igual a cero, es decir, si $β_{1} = β_{2} = ... = β_{p} = 0$. Dado esto, la *hipótesis nula* sería,
 
 $H_{0}: β_{1} = β_{2} = ... = β_{p} = 0$
 
-Mientras que la *hipótesis alternativa* sería
+Y la *hipótesis alternativa*,
 
 $H_{\alpha}:$ Donde por lo menos uno de los $β_{j} = 0$, 
 
-Para poder probar estas hipótesis utilizamos un estadístico llamado **estadístico F**, el cual se denota matemáticamente de la siguiente manera
+Para probar estas hipótesis utilizamos el **estadístico F**. Este estadistico se define matemáticamente de la siguiente manera:
 
 $$F = \frac{(TSS - RSS)/p}{RSS/(n-p-1)}$$
 
-Donde, $TSS = \sum(y_{i} - \overline{y})^2$ y $RSS = \sum(y_{i} - \hat{y_{i}})^2$, si las asunciones del modelo son correctas entonces podemos decir que
+Donde, $TSS = \sum(y_{i} - \overline{y})^2$ y $RSS = \sum(y_{i} - \hat{y_{i}})^2$. Si las asunciones del modelo son correctas entonces podemos decir que,
 
 $$E[RSS/(n-p-1)] = \delta^{2}$$
 
-Además, si $H_{0}$ es verdadera, entonces
+Además, si $H_{0}$ es verdadera, entonces,
 
 $$E[(TSS-RSS)/p] = \delta^{2}$$
 
-Esto quiere decir que cuando no hay una relación entre la repuesta y el predictor, el estadístico F tomaría valores cerca a 1. Mientras que si $H_{\alpha}$ fuera verdadera, entocnes el *estadístico F* tomaría valores mayores a 1, es decir, $E[(TSS - RSS)/p] > \alpha^{2}$.
+Esto quiere decir que cuando no hay una relación estadistica entre la repuesta y los predictores, el *estadístico F* tomaría valores cerca a 1. Sin embargo, si la hipotesis nula fuese rechazada, entocnes el *estadístico F* tomaría valores mayores a 1, es decir, $E[(TSS - RSS)/p] > \alpha^{2}$.
 
-Igualmente, a veces queremos encontrar si los coeficientes de un subcojunto *q* son iguales a cero. Para el caso de la hipótesis nula esto se escribiría matemáticamente como
+Igualmente, a veces queremos encontrar si los coeficientes de un subcojunto *q* son iguales a cero. Para el caso de la hipótesis nula esto se escribiría matemáticamente como,
 
 $$H_{0}: β_{p-q+1} = β_{p-q+2} += … = β_{p} = 0$$
 
-Si queremos probar una modelo que contenga todas las variables *excepción* de las *q*. Supongamos que la suma de cuadrados de los residuospara este modelo es $RSS_{0}$, entonces la formar de calcular el *estadístico F* sería.
+Si queremos probar una modelo que contenga todas las variables *excepción* de las *q*. Supongamos que la suma de cuadrados de los residuos para este modelo es $RSS_{0}$, entonces la formar de calcular el *estadístico F* sería.
 
 $$F = \frac{(RSS_{0} - RSS)/q}{RSS/(n-p-1)}$$
 

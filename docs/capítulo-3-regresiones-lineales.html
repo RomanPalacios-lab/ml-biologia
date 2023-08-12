@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 3 Capítulo 3: Regresiones lineales | Introducción al uso de machine learning en biología</title>
   <meta name="description" content="Capitulo 3 Capítulo 3: Regresiones lineales | Introducción al uso de machine learning en biología" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 3 Capítulo 3: Regresiones lineales | Introducción al uso de machine learning en biología" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-08-10" />
+<meta name="date" content="2023-08-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,10 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -225,9 +221,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ya teniendo el error estándar, podemos estimar el intervalo de confianza (e.g. 95%). Dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes con el valor definido de confianza. Para un regresión lineal, el 95% del intervalo de confianza de <span class="math inline">\(\hatβ_{1}\)</span> está dado por,</p>
 <p><span class="math display">\[\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})\]</span></p>
 <p><span class="math display">\[[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})]  ,  [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]\]</span></p>
-<p>Igualmente, para el intervalo de confianza de <span class="math inline">\(\hatβ_{0}\)</span>, esta dado por una ecuación similar,</p>
+<p>Igualmente, el intervalo de confianza de <span class="math inline">\(\hatβ_{0}\)</span>, esta dado por una ecuación similar:</p>
 <p><span class="math display">\[\hatβ_{0} ± 2 ⋅ SE(\hatβ_{0})\]</span></p>
-<p>Cuando tenemos el error estándar, también podemos probar hipótesis en los coeficientes. La hipótesis que usualmente probamos contrastamos es la <strong>hipótesis nula</strong> que establece,</p>
+<p>Tras estimar el error estandard en los parametros, podemos consider probar hipótesis en los coeficientes. La hipótesis que usualmente probamos contrastamos es la <strong>hipótesis nula</strong> que establece,</p>
 <p><span class="math inline">\(H_{0}\)</span>: No hay relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span></p>
 <p>Mientras que la <strong>hipótesis alternativa</strong> indica que,</p>
 <p><span class="math inline">\(H_{\alpha}\)</span>: Hay relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span></p>
@@ -235,45 +231,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[H_{0}: \hatβ_{0} = 0\]</span></p>
 <p>Y</p>
 <p><span class="math display">\[H_{\alpha}: \hatβ_{1} ≠ 0\]</span></p>
-<p>La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la <em>hipótesis nula</em>?. Para este tenemos que determinar que tan alejado <span class="math inline">\(\hatβ_{1}\)</span> es de un valor de 0. Para esto utilizamos el <strong>estadístico t</strong>, el cual está dado por la ecuación,</p>
+<p>La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la <em>hipótesis nula</em>?. Para este tenemos que determinar que tan alejado <span class="math inline">\(\hatβ_{1}\)</span>, la pendiente, está de un valor de 0. Para esto utilizamos el <strong>estadístico t</strong>:</p>
 <p><span class="math display">\[t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}\]</span>,</p>
-<p>El estadístico mide el número de desvaciones estándar que <span class="math inline">\(\hatβ_{1}\)</span> se aleja de 0. En donde valores pequeños de <span class="math inline">\(\hatβ_{1}\)</span> dan evidencia de que <span class="math inline">\(\hatβ_{1} ≠ 0\)</span>, es decir hay una relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Cuando <span class="math inline">\(\hatβ_{1}\)</span> tiene valores absolutos muchos más grande se rechaza la <em>hipótesis nula</em>. Es relativamente sencillo computar la probabilidad de observar un valor de <span class="math inline">\(|t|\)</span> o mayor, cuando asumimos que <span class="math inline">\(\hatβ_{1} = 0\)</span>. A esta probabilidad se le conoce normalmente como <em>valor-p</em>. Cuando el valor de <em>p</em> es muy pequeño (e.g. p&lt;0.05) <em>rechazamos la hipótesis nula</em>, es decir, hay evidencia de relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Si el <em>valor-p</em> es mas grande (e.g. &gt;0.05), no se rechaza la hipotesis nula.</p>
-<p>Otro estadístico a tener en cuenta es el estadístico <span class="math inline">\(R^{2}\)</span>, comunmente conocido como <strong>coeficiente de proporcionalidad</strong>. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. <span class="math inline">\(R^{2}\)</span> toma valores entre 0 y 1, y es independiente de la escala de <span class="math inline">\(Y\)</span>. El coefiente de proporcionalidad usualmente se calcula como</p>
+<p>Este estadístico mide el número de desvaciones estándar en el que <span class="math inline">\(\hatβ_{1}\)</span> se aleja de 0. Por lo tanto, valores pequeños de <span class="math inline">\(\hatβ_{1}\)</span> dan evidencia de que <span class="math inline">\(\hatβ_{1} ≠ 0\)</span>, es decir hay una relación estadistica entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Cuando <span class="math inline">\(\hatβ_{1}\)</span> tiene valores absolutos muchos más grande, se rechaza la <em>hipótesis nula</em>.</p>
+<p>Es relativamente sencillo computar la probabilidad de observar un valor de <span class="math inline">\(|t|\)</span> o mayor, cuando asumimos que <span class="math inline">\(\hatβ_{1} = 0\)</span>. A esta probabilidad se le conoce normalmente como <em>valor-p</em>. Cuando el valor de <em>p</em> es muy pequeño (e.g. p&lt;0.05) <em>rechazamos la hipótesis nula</em>, es decir, hay evidencia de relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Si el <em>valor-p</em> es mas grande (e.g. &gt;0.05), no se rechaza la hipotesis nula.</p>
+<p>Otro estadístico a tener en cuenta es el estadístico <span class="math inline">\(R^{2}\)</span>, comunmente conocido como <strong>coeficiente de proporcionalidad</strong>. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. <span class="math inline">\(R^{2}\)</span> usualmente toma valores entre 0 y 1, y es independiente de la escala de <span class="math inline">\(Y\)</span>. El coefiente de proporcionalidad frecuentemente se calcula como:</p>
 <p><span class="math display">\[R^{2} = \frac{TSS-RSS}{RSS} = 1 - \frac{RSS}{TSS}\]</span></p>
-<p>Donde <span class="math inline">\(TSS = \sum(y_{1} - \overline{y})^{2}\)</span>, en otras palabras, la suma total de todos las cuadrados, el cual mide la varianza total de la respuesta <span class="math inline">\(Y\)</span>, también podemos definirlo como la cantidad de variabilidad de la respuesta antes de la regresión, mientras que RSS mide la cantidad de variabilidad que no se explica luego de realizar la regresión. Con esto podemos decir que <span class="math inline">\(TSS - RSS\)</span> mide la la cantidad de variabilidad de la respues que es explicada a causa de realizar la regresión. <span class="math inline">\(R^{2}\)</span> <em>mide la proporción de la variablidad de <span class="math inline">\(Y\)</span> que es explicada usando <span class="math inline">\(X\)</span></em>. Cuando <span class="math inline">\(R^{2}\)</span> es cercano 1 indica que una gran proporción de la variablidad en la respuesta es explicada por la regresión. Mientras que un valor cercano a 0 indicaría que la regresió no explica la variabilidad de la respuesta. Lo cual quiere decir que el modelo lineal tiene algún problema, que el error inherente <span class="math inline">\(\delta^{2}\)</span> es muy alto o ambos.</p>
+<p>Donde <span class="math inline">\(TSS = \sum(y_{1} - \overline{y})^{2}\)</span> esla suma total de todos las cuadrados. Este indice mide la varianza total de la respuesta <span class="math inline">\(Y\)</span> o la cantidad de variabilidad de la respuesta antes de la regresión. Por otra parte, el RSS mide la cantidad de variabilidad que no se explica luego de realizar la regresión. Asumiendo estas definiciones podemos decir que <span class="math inline">\(TSS - RSS\)</span> mide la la cantidad de variabilidad de la respues que es explicada a causa de la regresión. Por lo tanto, <span class="math inline">\(R^{2}\)</span> <em>mide la proporción de la variablidad de <span class="math inline">\(Y\)</span> que es explicada por <span class="math inline">\(X\)</span></em>. Cuando <span class="math inline">\(R^{2}\)</span> es cercano 1, una gran proporción de la variablidad en la respuesta es explicada por el modelo. Un valor de <span class="math inline">\(R^{2}\)</span> cercano a 0 indicaría que la regresió no explica la variabilidad de la respuesta.</p>
 </div>
 </div>
 <div id="regresión-lineal-de-multiples-variables" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Regresión lineal de multiples variables<a href="capítulo-3-regresiones-lineales.html#regresión-lineal-de-multiples-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En la vida real, usualmente las respuestas a predicciones están dadas por más de un predictor. Para esto usualmente utilizamos una regresión de multiples variables, donde cada predictor tiene su propia pendiente. Este tipo de regresión lineal está dada por una cantidad de predictores <em>p</em>, y se denota matemáticamente de la siguiente manera</p>
+<p>Comunmente, las asociaciones entre variables no son unicamente entre dos variables. Por lo tanto, las respuestas a predicciones están dadas por más de un predictor. Para esto usualmente utilizamos una regresión de multiples variables. En este paradigma, la relacion entre cada predictor y la respuesta esta modulada por su propio parametro (i.e. pendiente). Este tipo de regresión lineal está dada por una cantidad de predictores <em>p</em>, y se denota matemáticamente de la siguiente manera,</p>
 <p><span class="math display">\[Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{p}X_{p} + ε\]</span></p>
-<p>Donde <span class="math inline">\(X_{j}\)</span> representa del <span class="math inline">\(j-ésimo\)</span> predictor y <span class="math inline">\(β_{j}\)</span> cuantifica la asociación entre la variable y la respuesta. Esto se puede interpretar como <span class="math inline">\(β_{j}\)</span> es el efecto <em>promedio</em> de <span class="math inline">\(Y\)</span> por cada unidad de incremento en <span class="math inline">\(X_{j}\)</span> cuando <em>cuando todos los otros predictores se mantienen constantes</em>.</p>
-<p>Al igual que en la regresión lineal de una varible, los coeficientes de regresión <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> son desconocidos, por lo tanto, lo que estimamos es <span class="math inline">\(\hatβ_{0}\)</span>, <span class="math inline">\(\hatβ_{1}\)</span>,…, <span class="math inline">\(\hatβ_{p}\)</span>, lo cual hace que nuestra formula de regresión lineal cambie un poco</p>
+<p>Donde <span class="math inline">\(X_{j}\)</span> representa del <span class="math inline">\(j-ésimo\)</span> predictor y <span class="math inline">\(β_{j}\)</span> cuantifica la asociación entre la variable y la respuesta. Esto se puede interpretar como <span class="math inline">\(β_{j}\)</span> es el efecto <em>promedio</em> de <span class="math inline">\(Y\)</span> por cada unidad de incremento en <span class="math inline">\(X_{j}\)</span> cuando <em>cuando todos los otros predictores se mantienen constantes</em>. Excepto por la asuncion de constancia, esta definicion de pendientes no difiere marcadamente en interpretacion con relacion a lo discutido anteriormente sobre regresiones lineales. Al igual que en la regresión lineal de una varible, los coeficientes de regresión <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> son desconocidos, por lo tanto, lo que estimamos es <span class="math inline">\(\hatβ_{0}\)</span>, <span class="math inline">\(\hatβ_{1}\)</span>,…, <span class="math inline">\(\hatβ_{p}\)</span>, lo cual hace que nuestra formula de regresión lineal cambie un poco</p>
 <p><span class="math display">\[\hat{y} = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε\]</span></p>
-<p><strong>Acá podemos seguir hablando de manera general sobre la matematica detrás de las regresiones lineales de varias variables, y al final del parrafo hacer un ejemplo con alguna de las bases de datos que tenemos</strong></p>
+<p>Por lo tanto, en regresiones multiples, existen tantas pendientes como predictores en la function. Es entonces extender, de alguna forma, el resultado de extender un modelo de regresion simple para tener en cuenta un mayor numero de variables predictoras. Hay que tambien anotar que este tipo de regresion es diferente a los modelos de regresion multivariada. En estos ultimos, existen multiples variables de respuesta, en vez de solo una como es el caso de la regresion multiple.</p>
 <div id="mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo<a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Similar a lo que hablamos en regresiones lineales simples, los parámetros se estiman utilizando mínimos cuadros, pero en este caso, utilizamos la siguente formula</p>
+<p>Similar a lo que se discutia sobre regresiones lineales simples, los parámetros en estos modelos son estimados utilizando mínimos cuadros. Sin embargo, en este caso, utilizamos la siguente formula,</p>
 <p><span class="math display">\[RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hat{y}_{i})^{2}\]</span></p>
 <p><span class="math display">\[RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hatβ_{0} - \hatβ_{1}x_{i1} - \hatβ_{2}x_{i2} - … - \hatβ_{p}X_{ip})^{2}\]</span></p>
-<p>Los valores de <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples.</p>
+<p>Los valores de <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples. Existen alternativas para estimar estos coeficientes como maxima varosimilitud.</p>
 </div>
 <div id="mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo-1" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo<a href="capítulo-3-regresiones-lineales.html#mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Al igual que en las regresiones simples, para las regresiones multiples se tienen hipótesis, pero antes, tenemos que preguntarnos si todos los coeficientes de la regresión son igual a cero, es decir, si <span class="math inline">\(β_{1} = β_{2} = ... = β_{p} = 0\)</span>. Dado esto, las hipótesis que vamos a probar son: la <em>hipótesis nula</em> sería</p>
+<p>Las regresiones multiples tambien tienen hipótesis asociadas a las relaciones entre variables. Existen dos niveles de hipotesis en este tipo de regresiones. Primero, existe una relacion general entre los predictores y la respuesta? Segundo, existe una relacion particular entre cada predictor y la respuesta? Por ahora, nos enfocaremos en el primer aspecto. El segundo aspecto es congruente con las interpretaciones discutidas en regresiones de una variable (excepto por la asuncion de constancia en la interpretacion).</p>
+<p>Nos preguntarnos por lo tanto si todos los coeficientes de la regresión son igual a cero, es decir, si <span class="math inline">\(β_{1} = β_{2} = ... = β_{p} = 0\)</span>. Dado esto, la <em>hipótesis nula</em> sería,</p>
 <p><span class="math inline">\(H_{0}: β_{1} = β_{2} = ... = β_{p} = 0\)</span></p>
-<p>Mientras que la <em>hipótesis alternativa</em> sería</p>
+<p>Y la <em>hipótesis alternativa</em>,</p>
 <p><span class="math inline">\(H_{\alpha}:\)</span> Donde por lo menos uno de los <span class="math inline">\(β_{j} = 0\)</span>,</p>
-<p>Para poder probar estas hipótesis utilizamos un estadístico llamado <strong>estadístico F</strong>, el cual se denota matemáticamente de la siguiente manera</p>
+<p>Para probar estas hipótesis utilizamos el <strong>estadístico F</strong>. Este estadistico se define matemáticamente de la siguiente manera:</p>
 <p><span class="math display">\[F = \frac{(TSS - RSS)/p}{RSS/(n-p-1)}\]</span></p>
-<p>Donde, <span class="math inline">\(TSS = \sum(y_{i} - \overline{y})^2\)</span> y <span class="math inline">\(RSS = \sum(y_{i} - \hat{y_{i}})^2\)</span>, si las asunciones del modelo son correctas entonces podemos decir que</p>
+<p>Donde, <span class="math inline">\(TSS = \sum(y_{i} - \overline{y})^2\)</span> y <span class="math inline">\(RSS = \sum(y_{i} - \hat{y_{i}})^2\)</span>. Si las asunciones del modelo son correctas entonces podemos decir que,</p>
 <p><span class="math display">\[E[RSS/(n-p-1)] = \delta^{2}\]</span></p>
-<p>Además, si <span class="math inline">\(H_{0}\)</span> es verdadera, entonces</p>
+<p>Además, si <span class="math inline">\(H_{0}\)</span> es verdadera, entonces,</p>
 <p><span class="math display">\[E[(TSS-RSS)/p] = \delta^{2}\]</span></p>
-<p>Esto quiere decir que cuando no hay una relación entre la repuesta y el predictor, el estadístico F tomaría valores cerca a 1. Mientras que si <span class="math inline">\(H_{\alpha}\)</span> fuera verdadera, entocnes el <em>estadístico F</em> tomaría valores mayores a 1, es decir, <span class="math inline">\(E[(TSS - RSS)/p] &gt; \alpha^{2}\)</span>.</p>
-<p>Igualmente, a veces queremos encontrar si los coeficientes de un subcojunto <em>q</em> son iguales a cero. Para el caso de la hipótesis nula esto se escribiría matemáticamente como</p>
+<p>Esto quiere decir que cuando no hay una relación estadistica entre la repuesta y los predictores, el <em>estadístico F</em> tomaría valores cerca a 1. Sin embargo, si la hipotesis nula fuese rechazada, entocnes el <em>estadístico F</em> tomaría valores mayores a 1, es decir, <span class="math inline">\(E[(TSS - RSS)/p] &gt; \alpha^{2}\)</span>.</p>
+<p>Igualmente, a veces queremos encontrar si los coeficientes de un subcojunto <em>q</em> son iguales a cero. Para el caso de la hipótesis nula esto se escribiría matemáticamente como,</p>
 <p><span class="math display">\[H_{0}: β_{p-q+1} = β_{p-q+2} += … = β_{p} = 0\]</span></p>
-<p>Si queremos probar una modelo que contenga todas las variables <em>excepción</em> de las <em>q</em>. Supongamos que la suma de cuadrados de los residuospara este modelo es <span class="math inline">\(RSS_{0}\)</span>, entonces la formar de calcular el <em>estadístico F</em> sería.</p>
+<p>Si queremos probar una modelo que contenga todas las variables <em>excepción</em> de las <em>q</em>. Supongamos que la suma de cuadrados de los residuos para este modelo es <span class="math inline">\(RSS_{0}\)</span>, entonces la formar de calcular el <em>estadístico F</em> sería.</p>
 <p><span class="math display">\[F = \frac{(RSS_{0} - RSS)/q}{RSS/(n-p-1)}\]</span></p>
 <p>Algo que debemos tener en cuenta cuando estemos realizando la elección de variables en una regresión lineal de multiples variables funciona para cada asociación entre los predicttores y la variable respuuesta, cuando <em>p</em> es relativamente pequeño e casi tan pequeño como <em>n</em>. Cuando <span class="math inline">\(p &gt; n\)</span> hay más coificientes <span class="math inline">\(β_{j}\)</span> para estimar que el número de observaciones que se necesita para estimar esos coeficientes. Dado este caso no podemos usar una regresión lineal multiple usando mínimos caudrados, por ello debemos usar otras alternativas, entre las cuales se encuentran: seleccion hacia adelante, seleccion desde atras y seleccion mixta, de las cuales hablaremos más adelante.</p>
 </div>
@@ -375,7 +372,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
