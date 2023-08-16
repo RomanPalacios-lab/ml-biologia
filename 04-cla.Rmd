@@ -24,7 +24,7 @@ La cantidad dada por $p(X)/[1 – p(X)]$ es conocida como posibilidades, y puede
 
 $$log(\frac{P(X)}{1 – p(X)} = β_{0} + β_{1}X)$$
 
-La parte de la izquierda esta ecuación es conocida como *función logit*, *log-odds* o *logit*, que es básicamente la transformación de $p(X)$. En los modelos de regresión logística, el incremento de una unidad de *X* cambia los log-odds por $β_{1}$, esto también se puede ver como la multiplicación de las posibilidades por $ e^{β_{1}}$. *Note: dado que la relación entre $p(X)$ y $X$ no es una línea recta, $β_{1}$ **no** corresponde al cambio de $p(X)$ asociado con el incremento en una unidad en $X$*.
+La parte de la izquierda esta ecuación es conocida como *función logit*, *log-odds* o *logit*, que es básicamente la transformación de $p(X)$. En los modelos de regresión logística, el incremento de una unidad de *X* cambia los log-odds por $β_{1}$, esto también se puede ver como la multiplicación de las posibilidades por $e^{β_{1}}$. *Note: dado que la relación entre $p(X)$ y $X$ no es una línea recta, $β_{1}$ **no** corresponde al cambio de $p(X)$ asociado con el incremento en una unidad en $X$*.
 
 ### Estimación de coeficiente en regresiones logísticas
 
