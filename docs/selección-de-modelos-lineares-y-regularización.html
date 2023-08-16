@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología</title>
-  <meta name="description" content="Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología" />
+  <title>Capitulo 6 Selección de modelos lineares y regularización | Introducción al uso de machine learning en biología</title>
+  <meta name="description" content="Capitulo 6 Selección de modelos lineares y regularización | Introducción al uso de machine learning en biología" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología" />
+  <meta property="og:title" content="Capitulo 6 Selección de modelos lineares y regularización | Introducción al uso de machine learning en biología" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología" />
+  <meta name="twitter:title" content="Capitulo 6 Selección de modelos lineares y regularización | Introducción al uso de machine learning en biología" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="clasificaciones.html"/>
-<link rel="next" href="selección-de-modelos-lineares-y-regularización.html"/>
+<link rel="prev" href="métodos-de-remuestreo.html"/>
+<link rel="next" href="métodos-basados-en-árboles.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -216,13 +216,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="métodos-de-remuestreo" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Capitulo 5</span> Métodos de remuestreo<a href="métodos-de-remuestreo.html#métodos-de-remuestreo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="validación-cruzada" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Validación cruzada<a href="métodos-de-remuestreo.html#validación-cruzada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="selección-de-modelos-lineares-y-regularización" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Capitulo 6</span> Selección de modelos lineares y regularización<a href="selección-de-modelos-lineares-y-regularización.html#selección-de-modelos-lineares-y-regularización" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="selección-de-subconjuntos" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Selección de subconjuntos<a href="selección-de-modelos-lineares-y-regularización.html#selección-de-subconjuntos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="boopstrap-o-arranque" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Boopstrap (o arranque)<a href="métodos-de-remuestreo.html#boopstrap-o-arranque" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="métodos-de-contracción" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Métodos de contracción<a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-contracción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="métodos-de-reducción-dimensiones" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Métodos de reducción dimensiones<a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-reducción-dimensiones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="consideraciones-en-dimensiones-altas" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Consideraciones en dimensiones altas<a href="selección-de-modelos-lineares-y-regularización.html#consideraciones-en-dimensiones-altas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -231,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="clasificaciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="selección-de-modelos-lineares-y-regularización.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="métodos-de-remuestreo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="métodos-basados-en-árboles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -263,7 +269,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/RomanPalacios-lab/ml-biologia/edit/main/05-remu.Rmd",
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/edit/main/06-lmsreg.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -271,7 +277,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RomanPalacios-lab/ml-biologia/blob/main/05-remu.Rmd",
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/blob/main/06-lmsreg.Rmd",
 "text": null
 },
 "download": null,

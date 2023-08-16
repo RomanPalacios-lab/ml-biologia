@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 3 Regresiones lineales | Introducción al uso de machine learning en biología</title>
   <meta name="description" content="Capitulo 3 Regresiones lineales | Introducción al uso de machine learning en biología" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 3 Regresiones lineales | Introducción al uso de machine learning en biología" />
   <meta property="og:type" content="book" />
@@ -23,15 +23,15 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-07-24" />
+<meta name="date" content="2023-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="que-es-machine-learning.html"/>
-
+<link rel="prev" href="qué-es-machine-learning.html"/>
+<link rel="next" href="clasificaciones.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,7 +54,75 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -73,8 +141,62 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Una introducción breve a Machine Learning</a></li>
-<li class="chapter" data-level="2" data-path="que-es-machine-learning.html"><a href="que-es-machine-learning.html"><i class="fa fa-check"></i><b>2</b> Que es Machine Learning?</a></li>
-<li class="chapter" data-level="3" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html"><i class="fa fa-check"></i><b>3</b> Regresiones lineales</a></li>
+<li class="chapter" data-level="2" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es Machine Learning?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#tipos-de-machine-learning"><i class="fa fa-check"></i><b>2.1</b> Tipos de machine learning</a></li>
+<li class="chapter" data-level="2.2" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#definiciones-relevantes-a-machine-learning"><i class="fa fa-check"></i><b>2.2</b> Definiciones relevantes a machine learning</a></li>
+<li class="chapter" data-level="2.3" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#tipos-de-particiones-de-datos-en-machine-learning"><i class="fa fa-check"></i><b>2.3</b> Tipos de particiones de datos en machine learning</a></li>
+<li class="chapter" data-level="2.4" data-path="qué-es-machine-learning.html"><a href="qué-es-machine-learning.html#introducción-a-los-artículos-y-datasets-que-se-usarán-en-este-librillo"><i class="fa fa-check"></i><b>2.4</b> Introducción a los artículos y datasets que se usarán en este librillo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html"><i class="fa fa-check"></i><b>3</b> Regresiones lineales</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#regresión-lineal-univariada"><i class="fa fa-check"></i><b>3.1</b> Regresión lineal univariada</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo"><i class="fa fa-check"></i><b>3.1.1</b> Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#regresión-lineal-de-multiples-variables"><i class="fa fa-check"></i><b>3.2</b> Regresión lineal de multiples variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo"><i class="fa fa-check"></i><b>3.2.1</b> Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo</a></li>
+<li class="chapter" data-level="3.2.2" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo-1"><i class="fa fa-check"></i><b>3.2.2</b> Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo</a></li>
+<li class="chapter" data-level="3.2.3" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#interacciones-entre-variables"><i class="fa fa-check"></i><b>3.2.3</b> Interacciones entre variables</a></li>
+<li class="chapter" data-level="3.2.4" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#comparaciones-y-decisiones-entre-modelos-de-multiples-variables"><i class="fa fa-check"></i><b>3.2.4</b> Comparaciones y decisiones entre modelos de multiples variables</a></li>
+<li class="chapter" data-level="3.2.5" data-path="regresiones-lineales.html"><a href="regresiones-lineales.html#asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas"><i class="fa fa-check"></i><b>3.2.5</b> Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="clasificaciones.html"><a href="clasificaciones.html"><i class="fa fa-check"></i><b>4</b> Clasificaciones</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="clasificaciones.html"><a href="clasificaciones.html#regresión-logística"><i class="fa fa-check"></i><b>4.1</b> Regresión logística</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="clasificaciones.html"><a href="clasificaciones.html#estimación-de-coeficiente-en-regresiones-logísticas"><i class="fa fa-check"></i><b>4.1.1</b> Estimación de coeficiente en regresiones logísticas</a></li>
+<li class="chapter" data-level="4.1.2" data-path="clasificaciones.html"><a href="clasificaciones.html#regresiones-logísticas-múltiples-y-para-2-clases-de-respuestas"><i class="fa fa-check"></i><b>4.1.2</b> Regresiones logísticas múltiples y para &gt;2 clases de respuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal"><i class="fa fa-check"></i><b>4.2</b> Análisis discriminante lineal</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="clasificaciones.html"><a href="clasificaciones.html#teorema-de-bayes-para-las-clasificaciones"><i class="fa fa-check"></i><b>4.2.1</b> Teorema de Bayes para las clasificaciones</a></li>
+<li class="chapter" data-level="4.2.2" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1"><i class="fa fa-check"></i><b>4.2.2</b> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1"><i class="fa fa-check"></i><b>4.2.3</b> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discrimimante-cuadratico"><i class="fa fa-check"></i><b>4.2.4</b> Análisis discrimimante cuadratico</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="clasificaciones.html"><a href="clasificaciones.html#k-vecinos-más-cercanos"><i class="fa fa-check"></i><b>4.3</b> K-vecinos más cercanos</a></li>
+<li class="chapter" data-level="4.4" data-path="clasificaciones.html"><a href="clasificaciones.html#comparación-de-métodos-de-clasificación"><i class="fa fa-check"></i><b>4.4</b> Comparación de métodos de clasificación</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html"><i class="fa fa-check"></i><b>5</b> Métodos de remuestreo</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html#validación-cruzada"><i class="fa fa-check"></i><b>5.1</b> Validación cruzada</a></li>
+<li class="chapter" data-level="5.2" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html#boopstrap-o-arranque"><i class="fa fa-check"></i><b>5.2</b> Boopstrap (o arranque)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos lineares y regularización</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#selección-de-subconjuntos"><i class="fa fa-check"></i><b>6.1</b> Selección de subconjuntos</a></li>
+<li class="chapter" data-level="6.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-contracción"><i class="fa fa-check"></i><b>6.2</b> Métodos de contracción</a></li>
+<li class="chapter" data-level="6.3" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-reducción-dimensiones"><i class="fa fa-check"></i><b>6.3</b> Métodos de reducción dimensiones</a></li>
+<li class="chapter" data-level="6.4" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#consideraciones-en-dimensiones-altas"><i class="fa fa-check"></i><b>6.4</b> Consideraciones en dimensiones altas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="métodos-basados-en-árboles.html"><a href="métodos-basados-en-árboles.html"><i class="fa fa-check"></i><b>7</b> Métodos basados en árboles</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="métodos-basados-en-árboles.html"><a href="métodos-basados-en-árboles.html#lightgbm"><i class="fa fa-check"></i><b>7.1</b> lightGBM</a></li>
+<li class="chapter" data-level="7.2" data-path="métodos-basados-en-árboles.html"><a href="métodos-basados-en-árboles.html#xgboost"><i class="fa fa-check"></i><b>7.2</b> XGboost</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
 </ul>
@@ -96,15 +218,109 @@
             <section class="normal" id="section-">
 <div id="regresiones-lineales" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Capitulo 3</span> Regresiones lineales<a href="regresiones-lineales.html#regresiones-lineales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Las regresiones lineales estan entre las herramientas más utilizadas para cuantificar y describir la asociacion entre variables o predecir los valores de una respuesta. En esta aproximacion metodologica, la respuesta en el modelo supervisado es continua. Los modelos de regresion lineal son usualmente percibidos como poco flexibles. Sin embargo, estos modelos pueden llegar a incluir niveles de flexibilidad y complejidad comparables con otros modelos usualmente vistos como mas flexibles. Los modelos lineales son un excelente punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones o casos especiales de regresiones lineales.</p>
+<div id="regresión-lineal-univariada" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Regresión lineal univariada<a href="regresiones-lineales.html#regresión-lineal-univariada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este tipo de regresión es potencialmente la más simple que existe en su estructura. La regresion lineal univariada asume que hay una relación lineal entre el predictor <span class="math inline">\(X\)</span> y la variable continua de respuesta <span class="math inline">\(Y\)</span>. Específicamente, este modelo asume que unicamente existe una dependencia entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Dentro de este paradigma, esta relación se representa como:</p>
+<p><span class="math display">\[Y ≈ β_{0} + β_{1}X\]</span></p>
+<p>En esta ecuacion, <span class="math inline">\(β_{0}\)</span> y <span class="math inline">\(β_{1}\)</span> representan dos parametros: intercepto y la pendiente, respectivamente. El intercepto se refiere al valor en el cual <span class="math inline">\(x\)</span> es igual a <span class="math inline">\(0\)</span>, <span class="math inline">\(x = 0\)</span>. La pendiente se refiere a al cambio de <span class="math inline">\(y\)</span> por una unidad en el cambio de <span class="math inline">\(x\)</span>. Es entonces el ángulo de la línea en el plano. Estos parametros deben ser estimados a partir de los datos,</p>
+<p><span class="math display">\[(x_1, y_1), (x_2, y_2), … , (x_n, y_n)\]</span></p>
+<p>donde <span class="math inline">\(n\)</span> representa los pares de observaciones en el conjunto de datos, que consisten en una medida de <span class="math inline">\(X\)</span> y una de <span class="math inline">\(Y\)</span>. Teniendo en cuenta que nuestro objetivo es el obtener los coeficientes para <span class="math inline">\(β_{0}\)</span> y <span class="math inline">\(β_{1}\)</span>, asumiendo un ajuste a los datos de acuerdo a,</p>
+<p><span class="math display">\[\hat{y} ≈ \hat{β}_{0} + \hat{β}_{1}X_{i}\]</span></p>
+<p>La ecuación anterior busca predecir <span class="math inline">\(Y\)</span> en base al valor iésimo de <span class="math inline">\(X\)</span>. Con esto en mente, podemos decir entones que <span class="math inline">\(e_{i} = y_{i} - \hat{y}_{i}\)</span> es entonces la diferencia entre el valor real de cada observacion en el conjunto de datos (<span class="math inline">\(y_{i}\)</span>) y el aproximado por el modelo (<span class="math inline">\(\hat{y}_{i}\)</span>). Esta diferencia es conocida como residual e identifica el ajuste del modelo con los datos. Conociendo entonces la desviacion que existe entre los valores generados por el modelo y los datos colectados, podemos entonces enfocarnos en minimizar el error (e.g. residuales) a partir de cambios en los valores de los parametros <span class="math inline">\(\hat{β}_{0}\)</span> y <span class="math inline">\(\hat{β}_{1}\)</span>.</p>
+<div id="mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Mediciones de error para regresiones lineales univariadas para los coeficientes y el modelo<a href="regresiones-lineales.html#mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lo que buscamos en una regresión lineal es ajustar un modelo donde se cometa el minimo error con respecto a los datos existentes. Hay muchas maneras de buscar la cercanía de estos puntos (i.e. los del modelo y las observaciones). Uno de los métodos más usados es conocido como mínimos cuadrados. Con esto en mente, podemos definir la suma de los cuadrados del error residual (<strong>SCE</strong> o <strong>RSS</strong>, residual sum of squares), como:</p>
+<p><span class="math display">\[RSS = e_{1}^{2} + e_{2}^{2} +⋯+ e_{n}^{2}\]</span></p>
+<p>La cual equivale a la suma a lo largo de todas las observaciones en el set de datos de los residuales al cuadrado:</p>
+<p><span class="math display">\[RSS=[(y_{1}-\hat{β}_{0}-\hat{β}_{1}x_{1})]^{2}+[(y_{2}-\hat{β}_{0}-\hat{β}_{1}x_{2})]^{2}+⋯+[(y_{n}-\hat{β}_{0}-\hat{β}_{1}x_{n})]^{2}\]</span></p>
+<p>Usualmente utilizamos <strong>RSS</strong> para determinar la proporción de la variación total que es explicada por el modelo de regresión (<span class="math inline">\(R^{2}\)</span> o coeficiente de determinación – vamos a hablar de esto un poco más adelante).</p>
+<p>Tambien notamos que cuando trabajamos con funciones se asume que la relación mas cerca a la realidad tiene un termino de error (<span class="math inline">\(ε\)</span>). Dado esto nuestra ecuación lineal estaría dada en realidad por la estructura,</p>
+<p><span class="math display">\[Y ≈ β_{0} + β_{1}X + ε\]</span></p>
+<p>Hasta el momento hemos descrito patrones lineales en el set de datos. Sin embargo, los modelos que subyacen datos reales raramente son lineales. Esto es debido a complejidad adicional, donde variables externas pueden generar efectos sobre la estructura de relacion entre las variables focales. Por ello, la ecuación que mostramos anteriormente es la mejor aproximación lineal para encontrar la relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Esto implica que, dado los coeficientes del modelo son desconocidos en datos experimentales, solo podemos estimar estos parametros a partir de aproximaciones como las de minimos cuadrados,</p>
+<p><span class="math display">\[\hatβ_{1} = \frac{\sum_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sum_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\]</span>,</p>
+<p><span class="math display">\[\hatβ_{0} = \overline{y} - \hatβ_{1}\overline{x}\]</span></p>
+<p>Donde <span class="math inline">\(\overline{y} ≡ \frac{1}{n}\sum_{i = 1}^{n}y_{i}\)</span> y <span class="math inline">\(\overline{x} ≡ \frac{1}{n}\sum_{i = 1}^{n}x_{i}\)</span> (<span class="math inline">\(≡\)</span> significa <em>equivalente a</em>) son medias. Por lo tanto, lo que se busca es estimar dos coeficientes desconocidos usando <span class="math inline">\(β_{0}\)</span> y <span class="math inline">\(β_{1}\)</span>, los cuales definen directamente la línea a partir de la aproximacion de minimos cuadrados. <em>Nota: si vemos con detenimiente esta ecuación, es una simplificación de la ecuación de RSS</em>.</p>
+<p>Otra variable a tener en cuenta cuando estemos haciendo nuestros análisis es <span class="math inline">\(\mu\)</span> o la media. Este parametro, el cual es desconocido, puede ser aproximado a partir de la media para nuestra muestra, <span class="math inline">\(\hat{\mu} = \overline{y}\)</span> donde <span class="math inline">\(\overline{y} = \frac{1}{n}\sum_{i = 1}^{n}y_{i}\)</span>. Para saber que tan precisa es la media de la muestra con respecto a la media global podemos estimar el error estándar de <span class="math inline">\(\hat{\mu}\)</span>, que se puede representar como <span class="math inline">\(SE(\hat{\mu})\)</span>, cuya formula es</p>
+<p><span class="math display">\[Var(\hat{\mu}) = SE(\hat{\mu})^{2} = \frac{\delta^{2}}{n}\]</span>,</p>
+<p>Donde <span class="math inline">\(\delta\)</span> es la desviación estándar para cada uno de los valores de <span class="math inline">\(y_{i}\)</span> de <span class="math inline">\(Y\)</span>. Igualmente, <span class="math inline">\(\delta^{2}\)</span> hace referencia a la varianza del error. Para esto tenemos que asumir que el error <span class="math inline">\(ε_{i}\)</span> de cada observación están no correlacionados, es decir, <span class="math inline">\(\delta^{2} = Var(ε)\)</span>. Generalmente, <span class="math inline">\(\delta^{2}\)</span> es desconocida, pero podemos estimar el error estánadar de los residuos o RSE (por sus siglas en inglés <em>residual standard error</em>), para esto usamos la siguiente formula,</p>
+<p>$<span class="math inline">\(RSE = \sqrt{RSS/(n - 2)}\)</span></p>
+<p>Ya teniendo el error estándar, podemos estimar el intervalo de confianza (e.g. 95%). Dentro de este rango se encuentra el valor que no conocemos para nuestro parámetro de interes con el valor definido de confianza. Para un regresión lineal, el 95% del intervalo de confianza de <span class="math inline">\(\hatβ_{1}\)</span> está dado por,</p>
+<p><span class="math display">\[\hatβ_{1} ± 2 ⋅ SE(\hatβ_{1})\]</span></p>
+<p><span class="math display">\[[\hatβ_{1} - 2 ⋅ SE(\hatβ_{1})]  ,  [\hatβ_{1} + 2 ⋅ SE(\hatβ_{1})]\]</span></p>
+<p>Igualmente, el intervalo de confianza de <span class="math inline">\(\hatβ_{0}\)</span>, esta dado por una ecuación similar:</p>
+<p><span class="math display">\[\hatβ_{0} ± 2 ⋅ SE(\hatβ_{0})\]</span></p>
+<p>Tras estimar el error estandard en los parametros, podemos consider probar hipótesis en los coeficientes. La hipótesis que usualmente probamos contrastamos es la <strong>hipótesis nula</strong> que establece,</p>
+<p><span class="math inline">\(H_{0}\)</span>: No hay relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span></p>
+<p>Mientras que la <strong>hipótesis alternativa</strong> indica que,</p>
+<p><span class="math inline">\(H_{\alpha}\)</span>: Hay relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span></p>
+<p>Matemáticamente hablando, la denotación para estas dos hipótesis sería respectivamente:</p>
+<p><span class="math display">\[H_{0}: \hatβ_{0} = 0\]</span></p>
+<p>Y</p>
+<p><span class="math display">\[H_{\alpha}: \hatβ_{1} ≠ 0\]</span></p>
+<p>La pregunta que queda ahora es ¿cómo probamos (rechazamos o no) la <em>hipótesis nula</em>?. Para este tenemos que determinar que tan alejado <span class="math inline">\(\hatβ_{1}\)</span>, la pendiente, está de un valor de 0. Para esto utilizamos el <strong>estadístico t</strong>:</p>
+<p><span class="math display">\[t = \frac{\hatβ_{1} - 0}{SE(\hatβ_{1})}\]</span>,</p>
+<p>Este estadístico mide el número de desvaciones estándar en el que <span class="math inline">\(\hatβ_{1}\)</span> se aleja de 0. Por lo tanto, valores pequeños de <span class="math inline">\(\hatβ_{1}\)</span> dan evidencia de que <span class="math inline">\(\hatβ_{1} ≠ 0\)</span>, es decir hay una relación estadistica entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Cuando <span class="math inline">\(\hatβ_{1}\)</span> tiene valores absolutos muchos más grande, se rechaza la <em>hipótesis nula</em>.</p>
+<p>Es relativamente sencillo computar la probabilidad de observar un valor de <span class="math inline">\(|t|\)</span> o mayor, cuando asumimos que <span class="math inline">\(\hatβ_{1} = 0\)</span>. A esta probabilidad se le conoce normalmente como <em>valor-p</em>. Cuando el valor de <em>p</em> es muy pequeño (e.g. p&lt;0.05) <em>rechazamos la hipótesis nula</em>, es decir, hay evidencia de relación entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>. Si el <em>valor-p</em> es mas grande (e.g. &gt;0.05), no se rechaza la hipotesis nula.</p>
+<p>Otro estadístico a tener en cuenta es el estadístico <span class="math inline">\(R^{2}\)</span>, comunmente conocido como <strong>coeficiente de proporcionalidad</strong>. Esta se usa como una manera alternativa de ver que tan bien ajustado está el modelo. <span class="math inline">\(R^{2}\)</span> usualmente toma valores entre 0 y 1, y es independiente de la escala de <span class="math inline">\(Y\)</span>. El coefiente de proporcionalidad frecuentemente se calcula como:</p>
+<p><span class="math display">\[R^{2} = \frac{TSS-RSS}{RSS} = 1 - \frac{RSS}{TSS}\]</span></p>
+<p>Donde <span class="math inline">\(TSS = \sum(y_{1} - \overline{y})^{2}\)</span> esla suma total de todos las cuadrados. Este indice mide la varianza total de la respuesta <span class="math inline">\(Y\)</span> o la cantidad de variabilidad de la respuesta antes de la regresión. Por otra parte, el RSS mide la cantidad de variabilidad que no se explica luego de realizar la regresión. Asumiendo estas definiciones podemos decir que <span class="math inline">\(TSS - RSS\)</span> mide la la cantidad de variabilidad de la respues que es explicada a causa de la regresión. Por lo tanto, <span class="math inline">\(R^{2}\)</span> <em>mide la proporción de la variablidad de <span class="math inline">\(Y\)</span> que es explicada por <span class="math inline">\(X\)</span></em>. Cuando <span class="math inline">\(R^{2}\)</span> es cercano 1, una gran proporción de la variablidad en la respuesta es explicada por el modelo. Un valor de <span class="math inline">\(R^{2}\)</span> cercano a 0 indicaría que la regresió no explica la variabilidad de la respuesta.</p>
+</div>
+</div>
+<div id="regresión-lineal-de-multiples-variables" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Regresión lineal de multiples variables<a href="regresiones-lineales.html#regresión-lineal-de-multiples-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Comunmente, las asociaciones entre variables no son unicamente entre dos variables. Por lo tanto, las respuestas a predicciones están dadas por más de un predictor. Para esto usualmente utilizamos una regresión de multiples variables. En este paradigma, la relacion entre cada predictor y la respuesta esta modulada por su propio parametro (i.e. pendiente). Este tipo de regresión lineal está dada por una cantidad de predictores <em>p</em>, y se denota matemáticamente de la siguiente manera,</p>
+<p><span class="math display">\[Y ≈ β_{0} + β_{1}X_{1} + β_{2}X_{2} + … + β_{p}X_{p} + ε\]</span></p>
+<p>Donde <span class="math inline">\(X_{j}\)</span> representa del <span class="math inline">\(j-ésimo\)</span> predictor y <span class="math inline">\(β_{j}\)</span> cuantifica la asociación entre la variable y la respuesta. Esto se puede interpretar como <span class="math inline">\(β_{j}\)</span> es el efecto <em>promedio</em> de <span class="math inline">\(Y\)</span> por cada unidad de incremento en <span class="math inline">\(X_{j}\)</span> cuando <em>cuando todos los otros predictores se mantienen constantes</em>. Excepto por la asuncion de constancia, esta definicion de pendientes no difiere marcadamente en interpretacion con relacion a lo discutido anteriormente sobre regresiones lineales. Al igual que en la regresión lineal de una varible, los coeficientes de regresión <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> son desconocidos, por lo tanto, lo que estimamos es <span class="math inline">\(\hatβ_{0}\)</span>, <span class="math inline">\(\hatβ_{1}\)</span>,…, <span class="math inline">\(\hatβ_{p}\)</span>, lo cual hace que nuestra formula de regresión lineal cambie un poco</p>
+<p><span class="math display">\[\hat{y} = \hatβ_{0} + \hatβ_{1}x_{1} + \hatβ_{2}x_{2} + … + \hatβ_{p}X_{p} + ε\]</span></p>
+<p>Por lo tanto, en regresiones multiples, existen tantas pendientes como predictores en la function. Es entonces extender, de alguna forma, el resultado de extender un modelo de regresion simple para tener en cuenta un mayor numero de variables predictoras. Hay que tambien anotar que este tipo de regresion es diferente a los modelos de regresion multivariada. En estos ultimos, existen multiples variables de respuesta, en vez de solo una como es el caso de la regresion multiple.</p>
+<div id="mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo<a href="regresiones-lineales.html#mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Similar a lo que se discutia sobre regresiones lineales simples, los parámetros en estos modelos son estimados utilizando mínimos cuadros. Sin embargo, en este caso, utilizamos la siguente formula,</p>
+<p><span class="math display">\[RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hat{y}_{i})^{2}\]</span></p>
+<p><span class="math display">\[RSS ≡ \sum_{i = 1}^{n}(y_{i} - \hatβ_{0} - \hatβ_{1}x_{i1} - \hatβ_{2}x_{i2} - … - \hatβ_{p}X_{ip})^{2}\]</span></p>
+<p>Los valores de <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span> que minimizan la ecuación anterior son coeficientes estimados de regresión de los mínimos cuadradros multiples. Existen alternativas para estimar estos coeficientes como maxima varosimilitud.</p>
+</div>
+<div id="mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo-1" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Mediciones de error para regresiones de multiples variables para los coeficientes y el modelo<a href="regresiones-lineales.html#mediciones-de-error-para-regresiones-de-multiples-variables-para-los-coeficientes-y-el-modelo-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Las regresiones multiples tambien tienen hipótesis asociadas a las relaciones entre variables. Existen dos niveles de hipotesis en este tipo de regresiones. Primero, existe una relacion general entre los predictores y la respuesta? Segundo, existe una relacion particular entre cada predictor y la respuesta? Por ahora, nos enfocaremos en el primer aspecto. El segundo aspecto es congruente con las interpretaciones discutidas en regresiones de una variable (excepto por la asuncion de constancia en la interpretacion).</p>
+<p>Nos preguntarnos por lo tanto si todos los coeficientes de la regresión son igual a cero, es decir, si <span class="math inline">\(β_{1} = β_{2} = ... = β_{p} = 0\)</span>. Dado esto, la <em>hipótesis nula</em> sería,</p>
+<p><span class="math inline">\(H_{0}: β_{1} = β_{2} = ... = β_{p} = 0\)</span></p>
+<p>Y la <em>hipótesis alternativa</em>,</p>
+<p><span class="math inline">\(H_{\alpha}:\)</span> Donde por lo menos uno de los <span class="math inline">\(β_{j} = 0\)</span>,</p>
+<p>Para probar estas hipótesis utilizamos el <strong>estadístico F</strong>. Este estadistico se define matemáticamente de la siguiente manera:</p>
+<p><span class="math display">\[F = \frac{(TSS - RSS)/p}{RSS/(n-p-1)}\]</span></p>
+<p>Donde, <span class="math inline">\(TSS = \sum(y_{i} - \overline{y})^2\)</span> y <span class="math inline">\(RSS = \sum(y_{i} - \hat{y_{i}})^2\)</span>. Si las asunciones del modelo son correctas entonces podemos decir que,</p>
+<p><span class="math display">\[E[RSS/(n-p-1)] = \delta^{2}\]</span></p>
+<p>Además, si <span class="math inline">\(H_{0}\)</span> es verdadera, entonces,</p>
+<p><span class="math display">\[E[(TSS-RSS)/p] = \delta^{2}\]</span></p>
+<p>Esto quiere decir que cuando no hay una relación estadistica entre la repuesta y los predictores, el <em>estadístico F</em> tomaría valores cerca a 1. Sin embargo, si la hipotesis nula fuese rechazada, entocnes el <em>estadístico F</em> tomaría valores mayores a 1, es decir, <span class="math inline">\(E[(TSS - RSS)/p] &gt; \alpha^{2}\)</span>.</p>
+<p>Igualmente, a veces queremos encontrar si los coeficientes de un subcojunto <em>q</em> son iguales a cero. Para el caso de la hipótesis nula esto se escribiría matemáticamente como,</p>
+<p><span class="math display">\[H_{0}: β_{p-q+1} = β_{p-q+2} += … = β_{p} = 0\]</span></p>
+<p>Si queremos probar una modelo que contenga todas las variables <em>excepción</em> de las <em>q</em>. Supongamos que la suma de cuadrados de los residuos para este modelo es <span class="math inline">\(RSS_{0}\)</span>, entonces la formar de calcular el <em>estadístico F</em> sería.</p>
+<p><span class="math display">\[F = \frac{(RSS_{0} - RSS)/q}{RSS/(n-p-1)}\]</span></p>
+<p>Algo que debemos tener en cuenta cuando estemos realizando la elección de variables en una regresión lineal de multiples variables funciona para cada asociación entre los predicttores y la variable respuuesta, cuando <em>p</em> es relativamente pequeño e casi tan pequeño como <em>n</em>. Cuando <span class="math inline">\(p &gt; n\)</span> hay más coificientes <span class="math inline">\(β_{j}\)</span> para estimar que el número de observaciones que se necesita para estimar esos coeficientes. Dado este caso no podemos usar una regresión lineal multiple usando mínimos caudrados, por ello debemos usar otras alternativas, entre las cuales se encuentran: seleccion hacia adelante, seleccion desde atras y seleccion mixta, de las cuales hablaremos más adelante.</p>
+</div>
+<div id="interacciones-entre-variables" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Interacciones entre variables<a href="regresiones-lineales.html#interacciones-entre-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Usar una de las bases de datos para ejemplificar esto. Hablar sobre como los resultados pueden cambiar cuando se usar una o varias variables; discutir esto cuando se tienen las interacciones y cuando no se tienen encuenta.</p>
+</div>
+<div id="comparaciones-y-decisiones-entre-modelos-de-multiples-variables" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Comparaciones y decisiones entre modelos de multiples variables<a href="regresiones-lineales.html#comparaciones-y-decisiones-entre-modelos-de-multiples-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hablar del valor p (NOTA: Ya hablé de este un poquito en regresiones de una variables). Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow’s C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.</p>
+</div>
+<div id="asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="section level3 hasAnchor" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas<a href="regresiones-lineales.html#asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hablar sobre no linearidad, correlaciones de los errores, variancia no constante en el error, datos atipicos, Punto de alto apalancamiento (high-leverage) y colinearidad. Podriamos mostrar ejemplos a acá tambien.</p>
 <ul>
 <li><p>Definiciones generales (teorico):
 – Simple
 – Multiple
 — Distinguir de multivariada
 – Asunciones
-– Confounders (factores de confusion)
+– Confounders (factores de confusion: En el libro no lo explican si no hasta que se abran de Clasificaciones)
 – Interacciones
-– data augmentation
+– data augmentation (Este no lo hablan el cap de regresiones)
 – Mediciones de error (RMSE; MSE; MAE; etc)
 – Comparaciones multimodelo (AIC, AICc, BIC)</p></li>
 <li><p>Implementacion (codigo y explicacion):
@@ -115,13 +331,15 @@
 </ul>
 
 </div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="que-es-machine-learning.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="qué-es-machine-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="clasificaciones.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -175,6 +393,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

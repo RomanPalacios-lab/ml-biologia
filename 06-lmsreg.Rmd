@@ -1,0 +1,9 @@
+# Selección de modelos lineares y regularización
+
+## Selección de subconjuntos
+
+## Métodos de contracción
+
+## Métodos de reducción dimensiones
+
+## Consideraciones en dimensiones altas

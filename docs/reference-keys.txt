@@ -4,7 +4,7 @@ tipos-de-machine-learning
 definiciones-relevantes-a-machine-learning
 tipos-de-particiones-de-datos-en-machine-learning
 introducción-a-los-artículos-y-datasets-que-se-usarán-en-este-librillo
-capítulo-3-regresiones-lineales
+regresiones-lineales
 regresión-lineal-univariada
 mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo
 regresión-lineal-de-multiples-variables
@@ -27,3 +27,11 @@ comparación-de-métodos-de-clasificación
 métodos-de-remuestreo
 validación-cruzada
 boopstrap-o-arranque
+selección-de-modelos-lineares-y-regularización
+selección-de-subconjuntos
+métodos-de-contracción
+métodos-de-reducción-dimensiones
+consideraciones-en-dimensiones-altas
+métodos-basados-en-árboles
+lightgbm
+xgboost

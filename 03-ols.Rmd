@@ -1,4 +1,4 @@
-# Capítulo 3: Regresiones lineales
+# Regresiones lineales
 
 Las regresiones lineales estan entre las herramientas más utilizadas para cuantificar y describir la asociacion entre variables o predecir los valores de una respuesta. En esta aproximacion metodologica, la respuesta en el modelo supervisado es continua. Los modelos de regresion lineal son usualmente percibidos como poco flexibles. Sin embargo, estos modelos pueden llegar a incluir niveles de flexibilidad y complejidad comparables con otros modelos usualmente vistos como mas flexibles. Los modelos lineales son un excelente punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones o casos especiales de regresiones lineales.
 
