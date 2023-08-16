@@ -32,7 +32,7 @@ Para el caso de las regesiones logísticas, los coeficientes $β_{0}$ y $β_{1}$
 
 $$l(β_{0}, β_{1}) = \prod_{i:y_{1} = 1}p(X) \prod_{i’:y_{i’=0}}(1-p(x_{i’}))$$
 
-En donde los β_{0}$ y $β_{1}$ que se van a elegir son aquellos que *maximicen* la función de la verosimilitud de los datos observados. La ecuación anterior, nos da la probabilidad de observador *0* y *1* en nuestros datos.
+En donde los $β_{0}$ y $β_{1}$ que se van a elegir son aquellos que *maximicen* la función de la verosimilitud de los datos observados. La ecuación anterior, nos da la probabilidad de observador *0* y *1* en nuestros datos.
 
 Al igual como ya lo hemos visto en los otros modelos, para el caso de la regresión logística, podemos medir que tan precisa fue la estimación de los coeficientes por medio del error estándar. Para ello, utilizamos el **estadístico z**. Para el caso del *estadístico z*, tenemos que está asociado con $β_{1}$ lo cual es igual a $\hat{β_{1}}/SE(\hat{β_{1}})$. Con esto, podemos decir que un valor grande de *z* es evidencia en contra de la hipótesis nula $H_{0}: β_{1}=0$, esto implicaría que la hipótesis nula es $p(X)=\frac{e^{β_{0}}}{1+ e^{β_{0}}}$.
 
