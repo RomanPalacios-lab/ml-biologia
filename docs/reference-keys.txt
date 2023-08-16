@@ -17,6 +17,7 @@ clasificaciones
 estimación-de-coeficiente-en-regresiones-logísticas
 regresiones-logísticas-múltiples-y-para-2-clases-de-respuestas
 análisis-discriminante-lineal
+teorema-de-bayes-para-las-clasificaciones
 análisis-discriminante-lineal-para-p-1
 análisis-discriminante-lineal-para-p-1-1
 análisis-discrimimante-cuadratico

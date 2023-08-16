@@ -169,9 +169,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.0.2" data-path="clasificaciones.html"><a href="clasificaciones.html#regresiones-logísticas-múltiples-y-para-2-clases-de-respuestas"><i class="fa fa-check"></i><b>4.0.2</b> Regresiones logísticas múltiples y para &gt;2 clases de respuestas</a></li>
 <li class="chapter" data-level="4.1" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal"><i class="fa fa-check"></i><b>4.1</b> Análisis discriminante lineal</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1"><i class="fa fa-check"></i><b>4.1.1</b> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span></a></li>
-<li class="chapter" data-level="4.1.2" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1"><i class="fa fa-check"></i><b>4.1.2</b> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span></a></li>
-<li class="chapter" data-level="4.1.3" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discrimimante-cuadratico"><i class="fa fa-check"></i><b>4.1.3</b> Análisis discrimimante cuadratico</a></li>
+<li class="chapter" data-level="4.1.1" data-path="clasificaciones.html"><a href="clasificaciones.html#teorema-de-bayes-para-las-clasificaciones"><i class="fa fa-check"></i><b>4.1.1</b> Teorema de Bayes para las clasificaciones</a></li>
+<li class="chapter" data-level="4.1.2" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1"><i class="fa fa-check"></i><b>4.1.2</b> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1"><i class="fa fa-check"></i><b>4.1.3</b> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discrimimante-cuadratico"><i class="fa fa-check"></i><b>4.1.4</b> Análisis discrimimante cuadratico</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="clasificaciones.html"><a href="clasificaciones.html#k-vecinos-más-cercanos"><i class="fa fa-check"></i><b>4.2</b> K-vecinos más cercanos</a></li>
 <li class="chapter" data-level="4.3" data-path="clasificaciones.html"><a href="clasificaciones.html#comparación-de-métodos-de-clasificación"><i class="fa fa-check"></i><b>4.3</b> Comparación de métodos de clasificación</a></li>
@@ -235,14 +236,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="análisis-discriminante-lineal" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Análisis discriminante lineal<a href="clasificaciones.html#análisis-discriminante-lineal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El <strong>análisis discriminante lineal</strong> es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores <em>X</em> separadamente en cada una de las clases respuesta (<em>Y</em>), y luego usamos el <strong>teorema de Bayes</strong> para encontrar lo estimados para <span class="math inline">\(Pr(Y = k|X=x)\)</span>. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística.</p>
-<div id="análisis-discriminante-lineal-para-p-1" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="teorema-de-bayes-para-las-clasificaciones" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Teorema de Bayes para las clasificaciones<a href="clasificaciones.html#teorema-de-bayes-para-las-clasificaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cuando queremos clasificar una observación en una de las <em>K</em> clases, donde <span class="math inline">\(K \ge 2\)</span>. Es decir, la respuesta categórica de la variable <em>Y</em> puede tomar <em>K</em> valores distintos.</p>
+<p>La <em>función de densidad</em> de <em>X</em> nos ayuda a encontrar cuando una observación es de la clase <em>k</em>th, esta se denota como <span class="math inline">\(f_{k}(X) ≡ Pr(X = x|Y = k)\)</span>. Esto quiere decir que si <span class="math inline">\(f_{k}(x)\)</span> es relativamente grande, la probabilidad de que uno observación pertenezca a clase <em>k</em>th es <span class="math inline">\(X ≈ x\)</span>, es decir, es alta. Por otro lado, si <span class="math inline">\(f_{k}(x)\)</span> es bajo, la probabilidad de que <em>k</em>th sea <span class="math inline">\(X ≈ x\)</span> es baja también. Por esto, el <em>Teorema de Bayes</em> dice que</p>
+<p><span class="math display">\[Pr(Y = k|X = x) = \frac{\pi_{k}f_{k}(x)}{\sum{l=1}^{K}f_{l}(x)}\]</span></p>
+<p>En donde <span class="math inline">\({\pi_{k}\)</span> representa la probabilidad <em>a priori</em> de observar una observación elegida al azar que provenga de <em>k</em>th. <span class="math inline">\({\pi_{k}\)</span> puede estimarse fácilmente si tenemos una muestra aleatoria de <em>Y</em>s de la población.</p>
+<p><em>Nota: Nos referimos a <span class="math inline">\(p_{k}(x)\)</span> como la probabilidad <strong>posterior</strong> de una observación de <span class="math inline">\(X = x\)</span> de pertenecer a la clase <span class="math inline">\(k\)</span>th. Esto quiere decir la probabilidad de que la observación pertenezca a la clase <span class="math inline">\(k\)</span>th <span class="math inline">\(dada\)</span> el valor del predictor para esa observación</em></p>
 </div>
-<div id="análisis-discriminante-lineal-para-p-1-1" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="análisis-discriminante-lineal-para-p-1" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="análisis-discrimimante-cuadratico" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Análisis discrimimante cuadratico<a href="clasificaciones.html#análisis-discrimimante-cuadratico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="análisis-discriminante-lineal-para-p-1-1" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="análisis-discrimimante-cuadratico" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Análisis discrimimante cuadratico<a href="clasificaciones.html#análisis-discrimimante-cuadratico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
 <div id="k-vecinos-más-cercanos" class="section level2 hasAnchor" number="4.2">

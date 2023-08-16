@@ -57,6 +57,19 @@ Por otro lado, a veces necesitamos clasificar una variable respuesta que tiene m
 
 El **análisis discriminante lineal** es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores *X* separadamente en cada una de las clases respuesta (*Y*), y luego usamos el **teorema de Bayes** para encontrar lo estimados para $Pr(Y = k|X=x)$. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística. 
 
+### Teorema de Bayes para las clasificaciones
+
+Cuando queremos clasificar una observación en una de las *K* clases, donde $K \ge 2$. Es decir, la respuesta categórica de la variable *Y* puede tomar *K* valores distintos. 
+
+La *función de densidad* de *X* nos ayuda a encontrar cuando una observación es de la clase *k*th, esta se denota como $f_{k}(X) ≡ Pr(X = x|Y = k)$. Esto quiere decir que si $f_{k}(x)$ es relativamente grande, la probabilidad de que uno observación pertenezca a clase *k*th es $X ≈ x$, es decir, es alta. Por otro lado, si $f_{k}(x)$ es bajo, la probabilidad de que *k*th sea $X ≈ x$ es baja también. Por esto, el *Teorema de Bayes* dice que
+
+$$Pr(Y = k|X = x) = \frac{\pi_{k}f_{k}(x)}{\sum{l=1}^{K}f_{l}(x)}$$
+
+En donde ${\pi_{k}$ representa la probabilidad *a priori* de observar una observación elegida al azar que provenga de *k*th. ${\pi_{k}$ puede estimarse fácilmente si tenemos una muestra aleatoria de *Y*s de la población.
+
+*Nota: Nos referimos a $p_{k}(x)$ como la probabilidad **posterior** de una observación de $X = x$ de pertenecer a la clase $k$th. Esto quiere decir la probabilidad de que la observación pertenezca a la clase $k$th $dada$ el valor del predictor para esa observación*
+
+
 ### Análisis discriminante lineal para $p = 1$
 
 ### Análisis discriminante lineal para $p > 1$
