@@ -14,6 +14,7 @@ interacciones-entre-variables
 comparaciones-y-decisiones-entre-modelos-de-multiples-variables
 asunsiones-y-posibles-problemas-de-las-regresiones-lineales-y-cómo-lidiar-con-ellas
 clasificaciones
+regresión-logística
 estimación-de-coeficiente-en-regresiones-logísticas
 regresiones-logísticas-múltiples-y-para-2-clases-de-respuestas
 análisis-discriminante-lineal

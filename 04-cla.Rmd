@@ -4,7 +4,7 @@ En muchas situaciones de la vida real, la variable respuesta es cualitativa en l
 
 Independientemente de cuál de estos tres métodos utilicemos, para las clasificaciones también tenemos un set de observaciones de entrenamientos $(x_{1}, y_{1})$,…,$(x_{n}, y_{n})$, las cuales se usan para construir el clasificador. Lo que buscamos es que nuestro clasificador sea bueno para clasificar los datos de entrenamiento, al igual que en las observaciones de prueba que no fueron usadas para entrenar el clasificador.
 
-##Regresión logística
+## Regresión logística
 
 Los modelos de regresión logística modelas la **probabilidad** de que *Y* pertenezca a una categoría en particular. Pero cómo se modela la relación entre $p(X) = Pr(Y = 1|X)$ y *Y*. Para encontrar estas probabilidades podemos usar un modelo de regresión lineal.
 
@@ -65,7 +65,7 @@ La *función de densidad* de *X* nos ayuda a encontrar cuando una observación e
 
 $$Pr(Y = k|X = x) = \frac{\pi_{k}f_{k}(x)}{\sum{l=1}^{K}f_{l}(x)}$$
 
-En donde ${\pi_{k}$ representa la probabilidad *a priori* de observar una observación elegida al azar que provenga de *k*th. ${\pi_{k}$ puede estimarse fácilmente si tenemos una muestra aleatoria de *Y*s de la población.
+En donde ${\pi_{k}}$ representa la probabilidad *a priori* de observar una observación elegida al azar que provenga de *k*th. ${\pi_{k}}$ puede estimarse fácilmente si tenemos una muestra aleatoria de *Y*s de la población.
 
 *Nota: Nos referimos a $p_{k}(x)$ como la probabilidad **posterior** de una observación de $X = x$ de pertenecer a la clase $k$th. Esto quiere decir la probabilidad de que la observación pertenezca a la clase $k$th $dada$ el valor del predictor para esa observación*
 
