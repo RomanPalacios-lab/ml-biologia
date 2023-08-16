@@ -1,7 +1,68 @@
 # Clasificaciones
 
-## Regresión logística
+En muchas situaciones de la vida real, la variable respuesta es cualitativa en lugar de cuantitativa, también llamadas variables categóricas. Las **clasificaciones** son la manera por la cual se pueden predecir la respuesta de las variables cualitativas. Hay que tener un par de cosas en cuenta con respecto a la clasificación. La primera es que *clasificar* se refiere a predecir la respuesta de una variable cuantitativa para una observación, es decir, estamos *clasificando* esa observación a la cual se le asigna una categoría o clase, y la segunda, los métodos de clasificación predicen la probabilidad de cada categoría de una variable cualitativa. En este capitulo vamos a discutir tres métodos de clasificación: regresión logística, análisis discriminante lineal y el k-vecinos más cercanos.
+
+Independientemente de cuál de estos tres métodos utilicemos, para las clasificaciones también tenemos un set de observaciones de entrenamientos $(x_{1}, y_{1})$,…,$(x_{n}, y_{n})$, las cuales se usan para construir el clasificador. Lo que buscamos es que nuestro clasificador sea bueno para clasificar los datos de entrenamiento, al igual que en las observaciones de prueba que no fueron usadas para entrenar el clasificador.
+
+##Regresión logística
+
+Los modelos de regresión logística modelas la **probabilidad** de que *Y* pertenezca a una categoría en particular. Pero cómo se modela la relación entre $p(X) = Pr(Y = 1|X)$ y *Y*. Para encontrar estas probabilidades podemos usar un modelo de regresión lineal.
+
+$$p(X) = β_{0} + β_{1}X$$
+
+No obstante, al utilizar esta ecuación, podemos obtener resultados mayores que *1* y menores que *0*, por la tanto, las probabilidades deben de caer entre *0* y *1*. Para evitar que $P(X) < 0$ para algunos valores de *X* y $P(X) < 1$ para otros valores *X*, debemos modelar nuestra ecuación para que nuestros resultados caigan entre 0 y 1 para todos los valores de *X*. En regresiones logísticas, utilizamos la función logística, la cual está dada por
+
+$$P(X) = \frac{e^{ β_{0} + β_{1}X }}{1 + e^{ β_{0} + β_{1}X }}$$
+
+Para poder ajustar el modelo, utilizamos algo llamado método de **máxima verosimilitud**. Cuando graficamos la función logística en un plano, vamos a encontrar que va a dar una curva en *forma de S*. 
+
+La ecuación puede ser simplificada de la siguiente manera
+
+$$\frac{P(X)}{1 – P(X)} = e^{ β_{0} + β_{1}X }$$
+
+La cantidad dada por $p(X)/[1 – p(X)]$ es conocida como posibilidades, y puede tomar valores entre $0$ e $\infty$. Valores de posibilidades hacer de $0$ e $\infty$ indica muy bajas o muy altas probabilidades, respectivamente. Si aplicamos logaritmo a ambos lados de la ecuación tendremos que
+
+$$log(\frac{P(X)}{1 – p(X)} = β_{0} + β_{1}X)$$
+
+La parte de la izquierda esta ecuación es conocida como *función logit*, *log-odds* o *logit*, que es básicamente la transformación de $p(X)$. En los modelos de regresión logística, el incremento de una unidad de *X* cambia los log-odds por $β_{1}$, esto también se puede ver como la multiplicación de las posibilidades por $ e^{β_{1}}$. *Note: dado que la relación entre $p(X)$ y $X$ no es una línea recta, $β_{1}$ **no** corresponde al cambio de $p(X)$ asociado con el incremento en una unidad en $X$*.
+
+### Estimación de coeficiente en regresiones logísticas
+
+Para el caso de las regesiones logísticas, los coeficientes $β_{0}$ y $β_{1}$ son desconocidos, así que los tenemos que estimar utilizando el set de datos de entrenamiento. Para esto utilizamos un método conocido como **máxima verosimilitud**. Este método busca encontrar un $\hat{β_{0}}$ y un $\hat{β_{1}}$ que al ser momento de ser incluidos en el modelo para $p(X)$ de como resultado números entre *0* y *1*. La ecuación de la **función de la verosimilitud** está dada por
+
+$$l(β_{0}, β_{1}) = \prod_{i:y_{1} = 1}p(X) \prod_{i’:y_{i’=0}}(1-p(x_{i’}))$$
+
+En donde los β_{0}$ y $β_{1}$ que se van a elegir son aquellos que *maximicen* la función de la verosimilitud de los datos observados. La ecuación anterior, nos da la probabilidad de observador *0* y *1* en nuestros datos.
+
+Al igual como ya lo hemos visto en los otros modelos, para el caso de la regresión logística, podemos medir que tan precisa fue la estimación de los coeficientes por medio del error estándar. Para ello, utilizamos el **estadístico z**. Para el caso del *estadístico z*, tenemos que está asociado con $β_{1}$ lo cual es igual a $\hat{β_{1}}/SE(\hat{β_{1}})$. Con esto, podemos decir que un valor grande de *z* es evidencia en contra de la hipótesis nula $H_{0}: β_{1}=0$, esto implicaría que la hipótesis nula es $p(X)=\frac{e^β_{0}}{1+ e^β_{0}}$.
+
+### Regresiones logísticas múltiples y para >2 clases de respuestas
+
+Para el caso de las regresiones logísticas, estas se pueden utilizar para predecir problemas de variables binarias usan múltiples predictores. Para ello, usamos la siguiente ecuación
+
+$$log(\frac{p(X)}{1-p(X)}) = β_{0} + β_{1}X_{1} +…+ β_{p}X_{p}$$
+
+Donde $X = (X_{1},…,X_{p})$ indican una cantidad *p* de predictores. Esta ecuación se puede reescribir como
+
+
+$$p(X) = \frac{e^{ β_{0} + β_{1}X_{1}+…++ β_{p}X_{p}}}{1+ e^{β_{0} + β_{1}X_{1}+…++ β_{p}X_{p}}}$$
+
+En este caso, utilizamos el método de *máxima verosimilitud* para estimar $β_{0}$, $β_{1}$,…, $β_{p}$.
+
+**Para poder explicar más a detalle esta sección, nos toca utilizar ejemplos, en especial para explicar lo de variables de confusión (confounding variables)**.
+
+Por otro lado, a veces necesitamos clasificar una variable respuesta que tiene mas de dos clases. Para esto usualmente usamos el **análisis discriminante lineal**.
 
 ## Análisis discriminante lineal
 
-## Comparasión de métodos de clasificación
+El **análisis discriminante lineal** es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores *X* separadamente en cada una de las clases respuesta (*Y*), y luego usamos el **teorema de Bayes** para encontrar lo estimados para $Pr(Y = k|X=x)$. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística. 
+
+### Análisis discriminante lineal para $p = 1$
+
+### Análisis discriminante lineal para $p > 1$
+
+### Análisis discrimimante cuadratico
+
+## K-vecinos más cercanos
+
+## Comparación de métodos de clasificación

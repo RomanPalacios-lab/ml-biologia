@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitulo 4 Clasificaciones | Introducción al uso de machine learning en biología</title>
   <meta name="description" content="Capitulo 4 Clasificaciones | Introducción al uso de machine learning en biología" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitulo 4 Clasificaciones | Introducción al uso de machine learning en biología" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-08-12" />
+<meta name="date" content="2023-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -161,9 +165,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="clasificaciones.html"><a href="clasificaciones.html"><i class="fa fa-check"></i><b>4</b> Clasificaciones</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="clasificaciones.html"><a href="clasificaciones.html#regresión-logística"><i class="fa fa-check"></i><b>4.1</b> Regresión logística</a></li>
-<li class="chapter" data-level="4.2" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal"><i class="fa fa-check"></i><b>4.2</b> Análisis discriminante lineal</a></li>
-<li class="chapter" data-level="4.3" data-path="clasificaciones.html"><a href="clasificaciones.html#comparasión-de-métodos-de-clasificación"><i class="fa fa-check"></i><b>4.3</b> Comparasión de métodos de clasificación</a></li>
+<li class="chapter" data-level="4.0.1" data-path="clasificaciones.html"><a href="clasificaciones.html#estimación-de-coeficiente-en-regresiones-logísticas"><i class="fa fa-check"></i><b>4.0.1</b> Estimación de coeficiente en regresiones logísticas</a></li>
+<li class="chapter" data-level="4.0.2" data-path="clasificaciones.html"><a href="clasificaciones.html#regresiones-logísticas-múltiples-y-para-2-clases-de-respuestas"><i class="fa fa-check"></i><b>4.0.2</b> Regresiones logísticas múltiples y para &gt;2 clases de respuestas</a></li>
+<li class="chapter" data-level="4.1" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal"><i class="fa fa-check"></i><b>4.1</b> Análisis discriminante lineal</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1"><i class="fa fa-check"></i><b>4.1.1</b> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1"><i class="fa fa-check"></i><b>4.1.2</b> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discrimimante-cuadratico"><i class="fa fa-check"></i><b>4.1.3</b> Análisis discrimimante cuadratico</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="clasificaciones.html"><a href="clasificaciones.html#k-vecinos-más-cercanos"><i class="fa fa-check"></i><b>4.2</b> K-vecinos más cercanos</a></li>
+<li class="chapter" data-level="4.3" data-path="clasificaciones.html"><a href="clasificaciones.html#comparación-de-métodos-de-clasificación"><i class="fa fa-check"></i><b>4.3</b> Comparación de métodos de clasificación</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html"><i class="fa fa-check"></i><b>5</b> Métodos de remuestreo</a>
 <ul>
@@ -191,14 +202,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="clasificaciones" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Capitulo 4</span> Clasificaciones<a href="clasificaciones.html#clasificaciones" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="regresión-logística" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Regresión logística<a href="clasificaciones.html#regresión-logística" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En muchas situaciones de la vida real, la variable respuesta es cualitativa en lugar de cuantitativa, también llamadas variables categóricas. Las <strong>clasificaciones</strong> son la manera por la cual se pueden predecir la respuesta de las variables cualitativas. Hay que tener un par de cosas en cuenta con respecto a la clasificación. La primera es que <em>clasificar</em> se refiere a predecir la respuesta de una variable cuantitativa para una observación, es decir, estamos <em>clasificando</em> esa observación a la cual se le asigna una categoría o clase, y la segunda, los métodos de clasificación predicen la probabilidad de cada categoría de una variable cualitativa. En este capitulo vamos a discutir tres métodos de clasificación: regresión logística, análisis discriminante lineal y el k-vecinos más cercanos.</p>
+<p>Independientemente de cuál de estos tres métodos utilicemos, para las clasificaciones también tenemos un set de observaciones de entrenamientos <span class="math inline">\((x_{1}, y_{1})\)</span>,…,<span class="math inline">\((x_{n}, y_{n})\)</span>, las cuales se usan para construir el clasificador. Lo que buscamos es que nuestro clasificador sea bueno para clasificar los datos de entrenamiento, al igual que en las observaciones de prueba que no fueron usadas para entrenar el clasificador.</p>
+<p>##Regresión logística</p>
+<p>Los modelos de regresión logística modelas la <strong>probabilidad</strong> de que <em>Y</em> pertenezca a una categoría en particular. Pero cómo se modela la relación entre <span class="math inline">\(p(X) = Pr(Y = 1|X)\)</span> y <em>Y</em>. Para encontrar estas probabilidades podemos usar un modelo de regresión lineal.</p>
+<p><span class="math display">\[p(X) = β_{0} + β_{1}X\]</span></p>
+<p>No obstante, al utilizar esta ecuación, podemos obtener resultados mayores que <em>1</em> y menores que <em>0</em>, por la tanto, las probabilidades deben de caer entre <em>0</em> y <em>1</em>. Para evitar que <span class="math inline">\(P(X) &lt; 0\)</span> para algunos valores de <em>X</em> y <span class="math inline">\(P(X) &lt; 1\)</span> para otros valores <em>X</em>, debemos modelar nuestra ecuación para que nuestros resultados caigan entre 0 y 1 para todos los valores de <em>X</em>. En regresiones logísticas, utilizamos la función logística, la cual está dada por</p>
+<p><span class="math display">\[P(X) = \frac{e^{ β_{0} + β_{1}X }}{1 + e^{ β_{0} + β_{1}X }}\]</span></p>
+<p>Para poder ajustar el modelo, utilizamos algo llamado método de <strong>máxima verosimilitud</strong>. Cuando graficamos la función logística en un plano, vamos a encontrar que va a dar una curva en <em>forma de S</em>.</p>
+<p>La ecuación puede ser simplificada de la siguiente manera</p>
+<p><span class="math display">\[\frac{P(X)}{1 – P(X)} = e^{ β_{0} + β_{1}X }\]</span></p>
+<p>La cantidad dada por <span class="math inline">\(p(X)/[1 – p(X)]\)</span> es conocida como posibilidades, y puede tomar valores entre <span class="math inline">\(0\)</span> e <span class="math inline">\(\infty\)</span>. Valores de posibilidades hacer de <span class="math inline">\(0\)</span> e <span class="math inline">\(\infty\)</span> indica muy bajas o muy altas probabilidades, respectivamente. Si aplicamos logaritmo a ambos lados de la ecuación tendremos que</p>
+<p><span class="math display">\[log(\frac{P(X)}{1 – p(X)} = β_{0} + β_{1}X)\]</span></p>
+<p>La parte de la izquierda esta ecuación es conocida como <em>función logit</em>, <em>log-odds</em> o <em>logit</em>, que es básicamente la transformación de <span class="math inline">\(p(X)\)</span>. En los modelos de regresión logística, el incremento de una unidad de <em>X</em> cambia los log-odds por <span class="math inline">\(β_{1}\)</span>, esto también se puede ver como la multiplicación de las posibilidades por $ e^{β_{1}}$. <em>Note: dado que la relación entre <span class="math inline">\(p(X)\)</span> y <span class="math inline">\(X\)</span> no es una línea recta, <span class="math inline">\(β_{1}\)</span> <strong>no</strong> corresponde al cambio de <span class="math inline">\(p(X)\)</span> asociado con el incremento en una unidad en <span class="math inline">\(X\)</span></em>.</p>
+<div id="estimación-de-coeficiente-en-regresiones-logísticas" class="section level3 hasAnchor" number="4.0.1">
+<h3><span class="header-section-number">4.0.1</span> Estimación de coeficiente en regresiones logísticas<a href="clasificaciones.html#estimación-de-coeficiente-en-regresiones-logísticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para el caso de las regesiones logísticas, los coeficientes <span class="math inline">\(β_{0}\)</span> y <span class="math inline">\(β_{1}\)</span> son desconocidos, así que los tenemos que estimar utilizando el set de datos de entrenamiento. Para esto utilizamos un método conocido como <strong>máxima verosimilitud</strong>. Este método busca encontrar un <span class="math inline">\(\hat{β_{0}}\)</span> y un <span class="math inline">\(\hat{β_{1}}\)</span> que al ser momento de ser incluidos en el modelo para <span class="math inline">\(p(X)\)</span> de como resultado números entre <em>0</em> y <em>1</em>. La ecuación de la <strong>función de la verosimilitud</strong> está dada por</p>
+<p><span class="math display">\[l(β_{0}, β_{1}) = \prod_{i:y_{1} = 1}p(X) \prod_{i’:y_{i’=0}}(1-p(x_{i’}))\]</span></p>
+<p>En donde los β_{0}$ y <span class="math inline">\(β_{1}\)</span> que se van a elegir son aquellos que <em>maximicen</em> la función de la verosimilitud de los datos observados. La ecuación anterior, nos da la probabilidad de observador <em>0</em> y <em>1</em> en nuestros datos.</p>
+<p>Al igual como ya lo hemos visto en los otros modelos, para el caso de la regresión logística, podemos medir que tan precisa fue la estimación de los coeficientes por medio del error estándar. Para ello, utilizamos el <strong>estadístico z</strong>. Para el caso del <em>estadístico z</em>, tenemos que está asociado con <span class="math inline">\(β_{1}\)</span> lo cual es igual a <span class="math inline">\(\hat{β_{1}}/SE(\hat{β_{1}})\)</span>. Con esto, podemos decir que un valor grande de <em>z</em> es evidencia en contra de la hipótesis nula <span class="math inline">\(H_{0}: β_{1}=0\)</span>, esto implicaría que la hipótesis nula es <span class="math inline">\(p(X)=\frac{e^β_{0}}{1+ e^β_{0}}\)</span>.</p>
 </div>
-<div id="análisis-discriminante-lineal" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Análisis discriminante lineal<a href="clasificaciones.html#análisis-discriminante-lineal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="regresiones-logísticas-múltiples-y-para-2-clases-de-respuestas" class="section level3 hasAnchor" number="4.0.2">
+<h3><span class="header-section-number">4.0.2</span> Regresiones logísticas múltiples y para &gt;2 clases de respuestas<a href="clasificaciones.html#regresiones-logísticas-múltiples-y-para-2-clases-de-respuestas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para el caso de las regresiones logísticas, estas se pueden utilizar para predecir problemas de variables binarias usan múltiples predictores. Para ello, usamos la siguiente ecuación</p>
+<p><span class="math display">\[log(\frac{p(X)}{1-p(X)}) = β_{0} + β_{1}X_{1} +…+ β_{p}X_{p}\]</span></p>
+<p>Donde <span class="math inline">\(X = (X_{1},…,X_{p})\)</span> indican una cantidad <em>p</em> de predictores. Esta ecuación se puede reescribir como</p>
+<p><span class="math display">\[p(X) = \frac{e^{ β_{0} + β_{1}X_{1}+…++ β_{p}X_{p}}}{1+ e^{β_{0} + β_{1}X_{1}+…++ β_{p}X_{p}}}\]</span></p>
+<p>En este caso, utilizamos el método de <em>máxima verosimilitud</em> para estimar <span class="math inline">\(β_{0}\)</span>, <span class="math inline">\(β_{1}\)</span>,…, <span class="math inline">\(β_{p}\)</span>.</p>
+<p><strong>Para poder explicar más a detalle esta sección, nos toca utilizar ejemplos, en especial para explicar lo de variables de confusión (confounding variables)</strong>.</p>
+<p>Por otro lado, a veces necesitamos clasificar una variable respuesta que tiene mas de dos clases. Para esto usualmente usamos el <strong>análisis discriminante lineal</strong>.</p>
 </div>
-<div id="comparasión-de-métodos-de-clasificación" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Comparasión de métodos de clasificación<a href="clasificaciones.html#comparasión-de-métodos-de-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="análisis-discriminante-lineal" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Análisis discriminante lineal<a href="clasificaciones.html#análisis-discriminante-lineal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El <strong>análisis discriminante lineal</strong> es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores <em>X</em> separadamente en cada una de las clases respuesta (<em>Y</em>), y luego usamos el <strong>teorema de Bayes</strong> para encontrar lo estimados para <span class="math inline">\(Pr(Y = k|X=x)\)</span>. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística.</p>
+<div id="análisis-discriminante-lineal-para-p-1" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="análisis-discriminante-lineal-para-p-1-1" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="análisis-discrimimante-cuadratico" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Análisis discrimimante cuadratico<a href="clasificaciones.html#análisis-discrimimante-cuadratico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="k-vecinos-más-cercanos" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> K-vecinos más cercanos<a href="clasificaciones.html#k-vecinos-más-cercanos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="comparación-de-métodos-de-clasificación" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Comparación de métodos de clasificación<a href="clasificaciones.html#comparación-de-métodos-de-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -268,7 +319,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
