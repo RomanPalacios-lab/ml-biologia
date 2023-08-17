@@ -75,6 +75,9 @@ En donde ${\pi_{k}}$ representa la probabilidad *a priori* de observar una obser
 Asumamos que solo tenemos un predictor, es decir, $p = 1$. Para obtener un estimado de $f_{k}(x)$ usamos la ecuación anterior para poder estimar $p_{k}(x)$. Lo que buscamos es clasificar una observación a la clase en la cual $p_{k}(x)$ es mas alto. Asumamos de nuevo $f_{k}(x)$ es *normal* o *Gausiana*. Con un solo estimador, la densidad normal toma la forma de
 
 $$f_{k}(x) = \frac{1}{\sqrt{2\pi}\delta_{k}}exp(-\frac{1}{2\delta_{k}^{2}}(x-\mu_{k})^2)$$
+Donde $\mu_{k}$ y $\delta_{k}^{2}$ son la media y la varianza de los parámetros para las *k*th clases. Asumamos que la varianza esta compartida entre todas las *K* clases, es decir, $\delta_{1}^{2} = …=\delta_{1}^{K}$, lo cual se puede denotar como $\delta^{2}$, ahora reemplacemos algunos términos de las dos ecuaciones anteriores
+
+$$p_{k}(x) = \frac{\mu_{k}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{k})^2)}{\sum{l=1}^{K}\mu_{l}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{l})^2)}$$
 
 
 ### Análisis discriminante lineal para $p > 1$
