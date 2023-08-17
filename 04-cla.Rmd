@@ -63,7 +63,7 @@ Cuando queremos clasificar una observación en una de las *K* clases, donde $K \
 
 La *función de densidad* de *X* nos ayuda a encontrar cuando una observación es de la clase *k*th, esta se denota como $f_{k}(X) ≡ Pr(X = x|Y = k)$. Esto quiere decir que si $f_{k}(x)$ es relativamente grande, la probabilidad de que uno observación pertenezca a clase *k*th es $X ≈ x$, es decir, es alta. Por otro lado, si $f_{k}(x)$ es bajo, la probabilidad de que *k*th sea $X ≈ x$ es baja también. Por esto, el *Teorema de Bayes* dice que
 
-$$Pr(Y = k|X = x) = \frac{\pi_{k}f_{k}(x)}{\sum{l=1}^{K}f_{l}(x)}$$
+$$Pr(Y = k|X = x) = \frac{\pi_{k}f_{k}(x)}{\sum_{l=1}^{K}f_{l}(x)}$$
 
 En donde ${\pi_{k}}$ representa la probabilidad *a priori* de observar una observación elegida al azar que provenga de *k*th. ${\pi_{k}}$ puede estimarse fácilmente si tenemos una muestra aleatoria de *Y*s de la población.
 
@@ -74,7 +74,7 @@ En donde ${\pi_{k}}$ representa la probabilidad *a priori* de observar una obser
 
 Asumamos que solo tenemos un predictor, es decir, $p = 1$. Para obtener un estimado de $f_{k}(x)$ usamos la ecuación anterior para poder estimar $p_{k}(x)$. Lo que buscamos es clasificar una observación a la clase en la cual $p_{k}(x)$ es mas alto. Asumamos de nuevo $f_{k}(x)$ es *normal* o *Gausiana*. Con un solo estimador, la densidad normal toma la forma de
 
-$$$f_{k}(x) = \frac{1}{\sqrt{2\pi}\delta_{k}}exp(-\frac{1}{2\delta_{k}^{2}}(x-\mu_{k})^2)$$
+$$f_{k}(x) = \frac{1}{\sqrt{2\pi}\delta_{k}}exp(-\frac{1}{2\delta_{k}^{2}}(x-\mu_{k})^2)$$
 
 
 ### Análisis discriminante lineal para $p > 1$
