@@ -80,7 +80,7 @@ Donde $\mu_{k}$ y $\delta_{k}^{2}$ son la media y la varianza de los parámetros
 $$p_{k}(x) = \frac{\pi_{k}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{k})^2)}{\sum_{l=1}^{K}\pi_{l}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{l})^2)}$$
 Esta ecuación puede ser simplificada y cancelaciones, pero primero debemos tener en cuenta que para clasificar el valor de $X = x$, neces itamos encontrar la clases donde la función $p_{k}(X)$ sea mayor. Ahora, apliquemos logaritmos, simplifiquemos y cancelemos algunos términos que no depende de *k* de la ecuación anterior. Con esto podemos ver que es equivalente a asignar *x* a la clase con el puntaje discrimante más alto
 
-$$\delta_{k}(x) = x ⋅ \frac {\mu_{k}}{\delta^{2}} - \frac{\mu_{k}^{2}}{2\delta^{2}} + log(\pi_{k})}$$
+$$\delta_{k}(x) = x ⋅ \frac{\mu_{k}}{\delta^{2}} - \frac{\mu_{k}^{2}}{2\delta^{2}} + log(\pi_{k})$$
 Aquí podemos notar que $\delta_{k}(x)$ es una función linear de *x*. Además, si hay $K = 2$ clases y $\pi{1} = \pi{2} = 0.5$, podemos decir que el límite de decisión es 
 
 $$x = \frac{\mu_{1} + \mu_{2}}{2}$$
