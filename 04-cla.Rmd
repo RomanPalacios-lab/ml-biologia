@@ -78,7 +78,22 @@ $$f_{k}(x) = \frac{1}{\sqrt{2\pi}\delta_{k}}exp(-\frac{1}{2\delta_{k}^{2}}(x-\mu
 Donde $\mu_{k}$ y $\delta_{k}^{2}$ son la media y la varianza de los parámetros para las *k*th clases. Asumamos que la varianza esta compartida entre todas las *K* clases, es decir, $\delta_{1}^{2} = …=\delta_{1}^{K}$, lo cual se puede denotar como $\delta^{2}$, ahora reemplacemos algunos términos de las dos ecuaciones anteriores
 
 $$p_{k}(x) = \frac{\pi_{k}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{k})^2)}{\sum_{l=1}^{K}\pi_{l}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{l})^2)}$$
+Esta ecuación puede ser simplificada y cancelaciones, pero primero debemos tener en cuenta que para clasificar el valor de $X = x$, neces itamos encontrar la clases donde la función $p_{k}(X)$ sea mayor. Ahora, apliquemos logaritmos, simplifiquemos y cancelemos algunos términos que no depende de *k* de la ecuación anterior. Con esto podemos ver que es equivalente a asignar *x* a la clase con el puntaje discrimante más alto
 
+$$\delta_{k}(x) = x ⋅ \frac {\mu_{k}}{\delta^{2}} - \frac{\mu_{k}^{2}}{2\delta^{2}} + log(\pi_{k})}$$
+Aquí podemos notar que $\delta_{k}(x)$ es una función linear de *x*. Además, si hay $K = 2$ clases y $\pi{1} = \pi{2} = 0.5$, podemos decir que el límite de decisión es 
+
+$$x = \frac{\mu_{1} + \mu_{2}}{2}$$
+En la práctica, no sabemos cual es el valor de algunos parámetros, ($\mu_{K}$, $\pi_{k}$, $\delta^{2}$), pero tenemos los datos de entrenamiento, los cuales podemos usar para estimar esos parametros. Las ecuaciones para estimar esos parámetros estas dadas por las siguiente escuaciones, comenzando con la media
+
+$$\hat\mu_{k} = \frac{1}{n_{k}} \sum_{i:y_{i} = k}x_{i}$$
+$\hat\pi_{k}$, la cual es la probabilidad *a priori* de que una observación pertenezca a la *k*th clase, está dada por
+
+$$\hat\pi_{k} = \frac{n_{k}}{n}$$
+La varianza está dada por
+
+$$\hat\delta_{k} = \sum_{k=1}^{K}\frac{n_{k} - 1}{n - K} ⋅ \hat\delta_{k}^{2}$$
+Para estas tres ecuaciones, *n* denota el número total de observaciones de entrenamiento y $n_{k}$ el número de observaciones de entrenamiento en la clase *k*th.
 
 ### Análisis discriminante lineal para $p > 1$
 
