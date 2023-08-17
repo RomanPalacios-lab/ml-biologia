@@ -72,6 +72,11 @@ En donde ${\pi_{k}}$ representa la probabilidad *a priori* de observar una obser
 
 ### Análisis discriminante lineal para $p = 1$
 
+Asumamos que solo tenemos un predictor, es decir, $p = 1$. Para obtener un estimado de $f_{k}(x)$ usamos la ecuación anterior para poder estimar $p_{k}(x)$. Lo que buscamos es clasificar una observación a la clase en la cual $p_{k}(x)$ es mas alto. Asumamos de nuevo $f_{k}(x)$ es *normal* o *Gausiana*. Con un solo estimador, la densidad normal toma la forma de
+
+$$$f_{k}(x) = \frac{1}{\sqrt{2\pi}\delta_{k}}exp(-\frac{1}{2\delta_{k}^{2}}(x-\mu_{k})^2)$$
+
+
 ### Análisis discriminante lineal para $p > 1$
 
 ### Análisis discrimimante cuadratico
