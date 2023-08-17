@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-08-16" />
+<meta name="date" content="2023-08-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,7 +269,7 @@ Donde <span class="math inline">\(\mu_{k}\)</span> y <span class="math inline">\
 <p><span class="math display">\[p_{k}(x) = \frac{\pi_{k}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{k})^2)}{\sum_{l=1}^{K}\pi_{l}\frac{1}{\sqrt{2\pi}\delta}exp(-\frac{1}{2\delta^{2}}(x-\mu_{l})^2)}\]</span>
 Esta ecuación puede ser simplificada y cancelaciones, pero primero debemos tener en cuenta que para clasificar el valor de <span class="math inline">\(X = x\)</span>, neces itamos encontrar la clases donde la función <span class="math inline">\(p_{k}(X)\)</span> sea mayor. Ahora, apliquemos logaritmos, simplifiquemos y cancelemos algunos términos que no depende de <em>k</em> de la ecuación anterior. Con esto podemos ver que es equivalente a asignar <em>x</em> a la clase con el puntaje discrimante más alto</p>
 <p><span class="math display">\[\delta_{k}(x) = x ⋅ \frac{\mu_{k}}{\delta^{2}} - \frac{\mu_{k}^{2}}{2\delta^{2}} + log(\pi_{k})\]</span>
-Aquí podemos notar que <span class="math inline">\(\delta_{k}(x)\)</span> es una función linear de <em>x</em>. Además, si hay <span class="math inline">\(K = 2\)</span> clases y <span class="math inline">\(\pi{1} = \pi{2} = 0.5\)</span>, podemos decir que el límite de decisión es</p>
+Aquí podemos notar que <span class="math inline">\(\delta_{k}(x)\)</span> es una función linear de <em>x</em>. Además, si hay <span class="math inline">\(K = 2\)</span> clases y <span class="math inline">\(\pi_{1} = \pi_{2} = 0.5\)</span>, podemos decir que el límite de decisión es</p>
 <p><span class="math display">\[x = \frac{\mu_{1} + \mu_{2}}{2}\]</span>
 En la práctica, no sabemos cual es el valor de algunos parámetros, (<span class="math inline">\(\mu_{K}\)</span>, <span class="math inline">\(\pi_{k}\)</span>, <span class="math inline">\(\delta^{2}\)</span>), pero tenemos los datos de entrenamiento, los cuales podemos usar para estimar esos parametros. Las ecuaciones para estimar esos parámetros estas dadas por las siguiente escuaciones, comenzando con la media</p>
 <p><span class="math display">\[\hat\mu_{k} = \frac{1}{n_{k}} \sum_{i:y_{i} = k}x_{i}\]</span>
