@@ -252,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="análisis-discriminante-lineal" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Análisis discriminante lineal<a href="clasificaciones.html#análisis-discriminante-lineal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El <strong>análisis discriminante lineal</strong> es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores <em>X</em> separadamente en cada una de las clases respuesta (<em>Y</em>), y luego usamos el <strong>teorema de Bayes</strong> para encontrar lo estimados para <span class="math inline">\(Pr(Y = k|X=x)\)</span>. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística.</p>
+<p>El <strong>análisis discriminante lineal</strong> (LDA por sus siglas en inglés, Linear Discriminant Analysis) es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores <em>X</em> separadamente en cada una de las clases respuesta (<em>Y</em>), y luego usamos el <strong>teorema de Bayes</strong> para encontrar lo estimados para <span class="math inline">\(Pr(Y = k|X=x)\)</span>. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística.</p>
 <div id="teorema-de-bayes-para-las-clasificaciones" class="section level3 hasAnchor" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Teorema de Bayes para las clasificaciones<a href="clasificaciones.html#teorema-de-bayes-para-las-clasificaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Cuando queremos clasificar una observación en una de las <em>K</em> clases, donde <span class="math inline">\(K \ge 2\)</span>. Es decir, la respuesta categórica de la variable <em>Y</em> puede tomar <em>K</em> valores distintos.</p>
@@ -281,6 +281,22 @@ Para estas tres ecuaciones, <em>n</em> denota el número total de observaciones 
 </div>
 <div id="análisis-discriminante-lineal-para-p-1-1" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora, asumamos que nuestro clasificador LDA tiene multiples predictores. Para esto tendríamos que asumir que <span class="math inline">\(X = (X_{1}, X_{2},...,X_{p})\)</span> tiene una distribución <em>Gausiana multiple</em>, con una media vectorial para una clase específica y una matriz de covarianza común. <em>Nota: la distribució Gausiana multivariada asume que cada predictor individual tiene una distribución normal unidimensional con algún grado de correlación entre pares de predictores</em>. La <em>densidad Gausiana mulvariada</em> se define como</p>
+<p><span class="math display">\[f(x) = \frac{1}{(2\pi)^{p/2}|/sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^{T}\sum^{-1}(x - \mu))\]</span>
+Para esto caso, se asume que el clasificador LDA escoje una observación de la clase <em>k</em>th de una distribució Gausiana multivariada <span class="math inline">\(N(\mu_{k}, \sum)\)</span>, donde <span class="math inline">\(\mu_{k}\)</span> es el vector de una media clase específica, y <span class="math inline">\(\sum\)</span> es una matriz de covarianza que es común para todas las clases <em>K</em>. La función discriminante cuando <span class="math inline">\(p &gt; 1\)</span> se denota como</p>
+<p><span class="math display">\[\delta_{k}(X) = x^{T}\sum^{-1}\mu_{k}-\frac{1}{2}\mu_{k}^{T}\sum^{-1}\mu_{k} + log\pi_{k}\]</span>
+Al igual que en otros clasificadores, tenemos que estimar los parámetrros que son desconocidos <span class="math inline">\(\mu_{1},...,\mu_{k}\)</span>, <span class="math inline">\(\pi_{1},...,\pi_{k}\)</span>, <span class="math inline">\(\sum\)</span>), las formulas para hallar estos parámetros son parecidas a las que vimos anteriormente para LDA de un solo predictor. Asimismo, para el caso de LDA buscamos que el modelo tengo una tasa de error baja al momento de clasificar, sin embargo, hay un par de salvedades</p>
+<ul>
+<li>Los erros de entrenamiento usualmente van a ser más bajo que los erros de prueba. En otras palabras, entre más alta seta se la relación de los parámetros <em>p</em> con el número de muestras <em>n</em>, más posibilidad hay de que el sobreajuste tenga un rol en el error.</li>
+<li>El clasifcador <em>nulo</em> va a tener una tasa de error que solo es un poquito más alta que la tasa de error del set de entrenamiento de LDA.</li>
+</ul>
+<p>Cuando estamos corriendo nuestro LDA nos podemos encontrar con dos tipos de error:</p>
+<ul>
+<li><em>Falso positivo</em>: que son la fracción de ejemplos negativos que fueron clasificados como positivos.</li>
+<li><em>Falso negativo</em>: que son la fracción de ejemplos positivos que fueron clasificados como negativos.</li>
+</ul>
+<p>Durante nuestro análisis de LDA lo que queremos es reducir la tasa del error lo más posible, para esto buscamos encontrar el punto en el cual el error general, el de falsos negativos y el de falsos positivos sea el más bajo.</p>
+<p>Una de las gráficas más populares para visualizar dos tipos de errores al mismo tiempo en la <em>curva ROC</em> (por sus siglas en inglés, receiver operating characterictics). Con esta podemos ver qué efectivo ha isdo nuestor clasificador, el cual resume todos los posibles umbrales, en una parte de la curva conocida como <em>area bajo la curva</em> o <em>AUC</em> (por sus siglas en inglésl area under the curve); entre más alto el AUC mejor.</p>
 </div>
 <div id="análisis-discrimimante-cuadratico" class="section level3 hasAnchor" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> Análisis discrimimante cuadratico<a href="clasificaciones.html#análisis-discrimimante-cuadratico" class="anchor-section" aria-label="Anchor link to header"></a></h3>

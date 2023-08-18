@@ -55,7 +55,7 @@ Por otro lado, a veces necesitamos clasificar una variable respuesta que tiene m
 
 ## Análisis discriminante lineal
 
-El **análisis discriminante lineal** es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores *X* separadamente en cada una de las clases respuesta (*Y*), y luego usamos el **teorema de Bayes** para encontrar lo estimados para $Pr(Y = k|X=x)$. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística. 
+El **análisis discriminante lineal** (LDA por sus siglas en inglés, Linear Discriminant Analysis) es un método que busca determinar a qué grupo pertenece un individuo. Es decir, nosotros modelamos la distribución de los predictores *X* separadamente en cada una de las clases respuesta (*Y*), y luego usamos el **teorema de Bayes** para encontrar lo estimados para $Pr(Y = k|X=x)$. Cuando se asume una distribución normal, este modelo se comparta de una manera similar a la regresión logística. 
 
 ### Teorema de Bayes para las clasificaciones
 
@@ -96,6 +96,26 @@ $$\hat\delta_{k} = \sum_{k=1}^{K}\frac{n_{k} - 1}{n - K} ⋅ \hat\delta_{k}^{2}$
 Para estas tres ecuaciones, *n* denota el número total de observaciones de entrenamiento y $n_{k}$ el número de observaciones de entrenamiento en la clase *k*th.
 
 ### Análisis discriminante lineal para $p > 1$
+
+Ahora, asumamos que nuestro clasificador LDA tiene multiples predictores. Para esto tendríamos que asumir que $X = (X_{1}, X_{2},...,X_{p})$ tiene una distribución *Gausiana multiple*, con una media vectorial para una clase específica y una matriz de covarianza común. *Nota: la distribució Gausiana multivariada asume que cada predictor individual tiene una distribución normal unidimensional con algún grado de correlación entre pares de predictores*. La *densidad Gausiana mulvariada* se define como
+
+$$f(x) = \frac{1}{(2\pi)^{p/2}|/sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^{T}\sum^{-1}(x - \mu))$$
+Para esto caso, se asume que el clasificador LDA escoje una observación de la clase *k*th de una distribució Gausiana multivariada $N(\mu_{k}, \sum)$, donde $\mu_{k}$ es el vector de una media clase específica, y $\sum$ es una matriz de covarianza que es común para todas las clases *K*. La función discriminante cuando $p > 1$ se denota como
+
+$$\delta_{k}(X) = x^{T}\sum^{-1}\mu_{k}-\frac{1}{2}\mu_{k}^{T}\sum^{-1}\mu_{k} + log\pi_{k}$$
+Al igual que en otros clasificadores, tenemos que estimar los parámetrros que son desconocidos $\mu_{1},...,\mu_{k}$, $\pi_{1},...,\pi_{k}$, $\sum$), las formulas para hallar estos parámetros son parecidas a las que vimos anteriormente para LDA de un solo predictor. Asimismo, para el caso de LDA buscamos que el modelo tengo una tasa de error baja al momento de clasificar, sin embargo, hay un par de salvedades
+
+* Los erros de entrenamiento usualmente van a ser más bajo que los erros de prueba. En otras palabras, entre más alta seta se la relación de los parámetros *p* con el número de muestras *n*, más posibilidad hay de que el sobreajuste tenga un rol en el error.
+* El clasifcador *nulo* va a tener una tasa de error que solo es un poquito más alta que la tasa de error del set de entrenamiento de LDA.
+
+Cuando estamos corriendo nuestro LDA nos podemos encontrar con dos tipos de error:
+
+* *Falso positivo*: que son la fracción de ejemplos negativos que fueron clasificados como positivos.
+* *Falso negativo*: que son la fracción de ejemplos positivos que fueron clasificados como negativos.
+
+Durante nuestro análisis de LDA lo que queremos es reducir la tasa del error lo más posible, para esto buscamos encontrar el punto en el cual el error general, el de falsos negativos y el de falsos positivos sea el más bajo.
+
+Una de las gráficas más populares para visualizar dos tipos de errores al mismo tiempo en la *curva ROC* (por sus siglas en inglés, receiver operating characterictics). Con esta podemos ver qué efectivo ha isdo nuestor clasificador, el cual resume todos los posibles umbrales, en una parte de la curva conocida como *area bajo la curva* o *AUC* (por sus siglas en inglésl area under the curve); entre más alto el AUC mejor.
 
 ### Análisis discrimimante cuadratico
 
