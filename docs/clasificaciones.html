@@ -175,10 +175,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.1" data-path="clasificaciones.html"><a href="clasificaciones.html#teorema-de-bayes-para-las-clasificaciones"><i class="fa fa-check"></i><b>4.2.1</b> Teorema de Bayes para las clasificaciones</a></li>
 <li class="chapter" data-level="4.2.2" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1"><i class="fa fa-check"></i><b>4.2.2</b> Análisis discriminante lineal para <span class="math inline">\(p = 1\)</span></a></li>
 <li class="chapter" data-level="4.2.3" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1"><i class="fa fa-check"></i><b>4.2.3</b> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span></a></li>
-<li class="chapter" data-level="4.2.4" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discrimimante-cuadratico"><i class="fa fa-check"></i><b>4.2.4</b> Análisis discrimimante cuadratico</a></li>
+<li class="chapter" data-level="4.2.4" data-path="clasificaciones.html"><a href="clasificaciones.html#análisis-discrimimante-cuadrático"><i class="fa fa-check"></i><b>4.2.4</b> Análisis discrimimante cuadrático</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="clasificaciones.html"><a href="clasificaciones.html#k-vecinos-más-cercanos"><i class="fa fa-check"></i><b>4.3</b> K-vecinos más cercanos</a></li>
-<li class="chapter" data-level="4.4" data-path="clasificaciones.html"><a href="clasificaciones.html#comparación-de-métodos-de-clasificación"><i class="fa fa-check"></i><b>4.4</b> Comparación de métodos de clasificación</a></li>
+<li class="chapter" data-level="4.3" data-path="clasificaciones.html"><a href="clasificaciones.html#clasificador-bayesiano-ingenuo"><i class="fa fa-check"></i><b>4.3</b> Clasificador bayesiano ingenuo</a></li>
+<li class="chapter" data-level="4.4" data-path="clasificaciones.html"><a href="clasificaciones.html#k-vecinos-más-cercanos"><i class="fa fa-check"></i><b>4.4</b> K-vecinos más cercanos</a></li>
+<li class="chapter" data-level="4.5" data-path="clasificaciones.html"><a href="clasificaciones.html#comparación-de-métodos-de-clasificación"><i class="fa fa-check"></i><b>4.5</b> Comparación de métodos de clasificación</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html"><i class="fa fa-check"></i><b>5</b> Métodos de remuestreo</a>
 <ul>
@@ -282,7 +283,7 @@ Para estas tres ecuaciones, <em>n</em> denota el número total de observaciones 
 <div id="análisis-discriminante-lineal-para-p-1-1" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Análisis discriminante lineal para <span class="math inline">\(p &gt; 1\)</span><a href="clasificaciones.html#análisis-discriminante-lineal-para-p-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora, asumamos que nuestro clasificador LDA tiene multiples predictores. Para esto tendríamos que asumir que <span class="math inline">\(X = (X_{1}, X_{2},...,X_{p})\)</span> tiene una distribución <em>Gausiana multiple</em>, con una media vectorial para una clase específica y una matriz de covarianza común. <em>Nota: la distribució Gausiana multivariada asume que cada predictor individual tiene una distribución normal unidimensional con algún grado de correlación entre pares de predictores</em>. La <em>densidad Gausiana mulvariada</em> se define como</p>
-<p><span class="math display">\[f(x) = \frac{1}{(2\pi)^{p/2}|/sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^{T}\sum^{-1}(x - \mu))\]</span>
+<p><span class="math display">\[f(x) = \frac{1}{(2\pi)^{p/2}|\sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^{T}\sum^{-1}(x - \mu))\]</span>
 Para esto caso, se asume que el clasificador LDA escoje una observación de la clase <em>k</em>th de una distribució Gausiana multivariada <span class="math inline">\(N(\mu_{k}, \sum)\)</span>, donde <span class="math inline">\(\mu_{k}\)</span> es el vector de una media clase específica, y <span class="math inline">\(\sum\)</span> es una matriz de covarianza que es común para todas las clases <em>K</em>. La función discriminante cuando <span class="math inline">\(p &gt; 1\)</span> se denota como</p>
 <p><span class="math display">\[\delta_{k}(X) = x^{T}\sum^{-1}\mu_{k}-\frac{1}{2}\mu_{k}^{T}\sum^{-1}\mu_{k} + log\pi_{k}\]</span>
 Al igual que en otros clasificadores, tenemos que estimar los parámetrros que son desconocidos <span class="math inline">\(\mu_{1},...,\mu_{k}\)</span>, <span class="math inline">\(\pi_{1},...,\pi_{k}\)</span>, <span class="math inline">\(\sum\)</span>), las formulas para hallar estos parámetros son parecidas a las que vimos anteriormente para LDA de un solo predictor. Asimismo, para el caso de LDA buscamos que el modelo tengo una tasa de error baja al momento de clasificar, sin embargo, hay un par de salvedades</p>
@@ -298,15 +299,33 @@ Al igual que en otros clasificadores, tenemos que estimar los parámetrros que s
 <p>Durante nuestro análisis de LDA lo que queremos es reducir la tasa del error lo más posible, para esto buscamos encontrar el punto en el cual el error general, el de falsos negativos y el de falsos positivos sea el más bajo.</p>
 <p>Una de las gráficas más populares para visualizar dos tipos de errores al mismo tiempo en la <em>curva ROC</em> (por sus siglas en inglés, receiver operating characterictics). Con esta podemos ver qué efectivo ha isdo nuestor clasificador, el cual resume todos los posibles umbrales, en una parte de la curva conocida como <em>area bajo la curva</em> o <em>AUC</em> (por sus siglas en inglésl area under the curve); entre más alto el AUC mejor.</p>
 </div>
-<div id="análisis-discrimimante-cuadratico" class="section level3 hasAnchor" number="4.2.4">
-<h3><span class="header-section-number">4.2.4</span> Análisis discrimimante cuadratico<a href="clasificaciones.html#análisis-discrimimante-cuadratico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="análisis-discrimimante-cuadrático" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Análisis discrimimante cuadrático<a href="clasificaciones.html#análisis-discrimimante-cuadrático" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Usualmente usamos el análisis discrimimante cuadrático o QDA (por sus siglas en inglés; quadratic disminant analysis) cuando las observaciones dentro de clase son elegidas de una distribución Gausiana multivariada con una media clase-específica y una matriz de covarianza común para todas las clases <em>K</em>. QDA asume que cada calse tiene su propia matriz de covarianza. Es decir, cada observación de de la clase <em>k</em>th está por la forma <span class="math inline">\(X ~ N(\mu_{k}, \sum_{k})\)</span>, donde <span class="math inline">\(\sum_{k}\)</span> es una matriz de covarianza para la clase <em>k</em>th. Bajo estas asunciones, el clasificador de Bayes asigna para una observación <span class="math inline">\(X = x\)</span> a una clase donde <span class="math inline">\(\delta_{k}(x)\)</span> sea más alto, esto está dado por</p>
+<p><span class="math display">\[\delta_{k}(x) = -\frac{1}{2}(x-\mu_{k}^{T})\sum_{k}^{-1}(x-\mu_{k}^{T})+log\pi_{k}-\frac{1}{2}log|\sum_{k}|\]</span>
+QDA estima una matriz de varianza separada para cada clase, para un total de <span class="math inline">\(Kp(p+1)/2\)</span> parámetros. Esto hace que QDA sea un clasificador más flexible que LDA. Usualmente se recomienda utilizar QDA si el set de entrenaminto es grande, para que a así la varianza del clasificador no sea un problema o por si la asunción de tener una matriz de covarianza común para las cada clase <em>K</em> no se puede obtener.</p>
 </div>
 </div>
-<div id="k-vecinos-más-cercanos" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> K-vecinos más cercanos<a href="clasificaciones.html#k-vecinos-más-cercanos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="clasificador-bayesiano-ingenuo" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Clasificador bayesiano ingenuo<a href="clasificaciones.html#clasificador-bayesiano-ingenuo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El clasificador bayesiano ingueno o naive Bayes asume que todas las características son independientes en cda clase. Este es particularmente útil cuando <em>p</em> es muy grande y otros métodos como LDA y QDA no son capaces de manejar tantos datos.</p>
+<p>El naive Bayes gausiana sume que <span class="math inline">\(\sum_{k}\)</span> es diagonal, es decir</p>
+<p><span class="math display">\[\delta_{k}(x) = \frac{1}{2}\sum_{j=1}^{p}[\frac{(x_{j} - \mu_{kj})^{2}}{\delta_{kj}^{2}}] + log\pi_{k}\]</span>
+Asimismo, el naive Bayes se puede usar para vectores con caracteríticas mixtas (cualitativas y cuantitativas). Si <span class="math inline">\(X_{j}\)</span> es cualitativa se puede reemplezar <span class="math inline">\(f_{kj}(x_{j})\)</span> con la función de masa de probabilida (histograma) sobre categorías discretas. <em>Nota: a pesar de las asunciones, el naive Bayes usualmente produce bueno resultados de clasificación</em>.</p>
 </div>
-<div id="comparación-de-métodos-de-clasificación" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Comparación de métodos de clasificación<a href="clasificaciones.html#comparación-de-métodos-de-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="k-vecinos-más-cercanos" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> K-vecinos más cercanos<a href="clasificaciones.html#k-vecinos-más-cercanos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En cap►1tulos anteriores hablamos brevemente sobre K-vecinos más cercanos o KNN (por sus siglas en inglés, k-nearest neighbors). Para hacer predicciones para un observación de <span class="math inline">\(X = x\)</span>, las observaciones <em>K</em> de entrenamiento que son cercanas a <em>x</em> son identificadas. Luego, <em>X</em> es asignada a una de las clases cuya plurarlidad corresponda a una de las observaciones a las que pertenece. Es decir que KNN es una método completamente no paramétrico. Este método requiere la selección de <em>K</em>, los vecinos más cercanos, es decir, realizamos el KNN con dos valores de <span class="math inline">\(K: K = 1\)</span> y un valor de <em>K</em> que es escogido automaticamente usando un método llamado <em>validación cruzada</em>, del cual hablaremos de manera más intensiva en el próximo capítulo.</p>
+<p><em>Nota: KNN no hace asunsiones somre la forma de la límite de decisión, además de no decirnos cual(es) de los predictores son los más importantes. Igualmente, este método es mucho más flexible que QDA</em>.</p>
+</div>
+<div id="comparación-de-métodos-de-clasificación" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Comparación de métodos de clasificación<a href="clasificaciones.html#comparación-de-métodos-de-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Anteriormente vimos como se pueden utilizar cada uno de los métodos de clasificación, al igual de los parámetros y las asunciones que tienen en cuenta. Sin embargo, cada uno de estos se puede utilizar dependiendo de lo que estemos buscando. Aquí vamos a dar en resumen de que implicada cada uno de estos métodos.</p>
+<ul>
+<li>La regresió logística es ampliamente usada como la clasificación, pero en particular cuando se tiene que <span class="math inline">\(k = 2\)</span>.</li>
+<li>LDA es útil cuando <em>n</em> es pequeño o cuando las calses están bien separadas, y las asuncions gausianas son razonables. Además, cuando <span class="math inline">\(k &gt; 2\)</span>.</li>
+<li>Naive bayes es particularmente útil cuando <em>p</em> es muy grande.</li>
+</ul>
 
 </div>
 </div>

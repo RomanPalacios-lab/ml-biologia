@@ -21,7 +21,8 @@ análisis-discriminante-lineal
 teorema-de-bayes-para-las-clasificaciones
 análisis-discriminante-lineal-para-p-1
 análisis-discriminante-lineal-para-p-1-1
-análisis-discrimimante-cuadratico
+análisis-discrimimante-cuadrático
+clasificador-bayesiano-ingenuo
 k-vecinos-más-cercanos
 comparación-de-métodos-de-clasificación
 métodos-de-remuestreo

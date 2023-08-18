@@ -99,7 +99,7 @@ Para estas tres ecuaciones, *n* denota el número total de observaciones de entr
 
 Ahora, asumamos que nuestro clasificador LDA tiene multiples predictores. Para esto tendríamos que asumir que $X = (X_{1}, X_{2},...,X_{p})$ tiene una distribución *Gausiana multiple*, con una media vectorial para una clase específica y una matriz de covarianza común. *Nota: la distribució Gausiana multivariada asume que cada predictor individual tiene una distribución normal unidimensional con algún grado de correlación entre pares de predictores*. La *densidad Gausiana mulvariada* se define como
 
-$$f(x) = \frac{1}{(2\pi)^{p/2}|/sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^{T}\sum^{-1}(x - \mu))$$
+$$f(x) = \frac{1}{(2\pi)^{p/2}|\sum|^{1/2}}exp(-\frac{1}{2}(x - \mu)^{T}\sum^{-1}(x - \mu))$$
 Para esto caso, se asume que el clasificador LDA escoje una observación de la clase *k*th de una distribució Gausiana multivariada $N(\mu_{k}, \sum)$, donde $\mu_{k}$ es el vector de una media clase específica, y $\sum$ es una matriz de covarianza que es común para todas las clases *K*. La función discriminante cuando $p > 1$ se denota como
 
 $$\delta_{k}(X) = x^{T}\sum^{-1}\mu_{k}-\frac{1}{2}\mu_{k}^{T}\sum^{-1}\mu_{k} + log\pi_{k}$$
@@ -117,8 +117,32 @@ Durante nuestro análisis de LDA lo que queremos es reducir la tasa del error lo
 
 Una de las gráficas más populares para visualizar dos tipos de errores al mismo tiempo en la *curva ROC* (por sus siglas en inglés, receiver operating characterictics). Con esta podemos ver qué efectivo ha isdo nuestor clasificador, el cual resume todos los posibles umbrales, en una parte de la curva conocida como *area bajo la curva* o *AUC* (por sus siglas en inglésl area under the curve); entre más alto el AUC mejor.
 
-### Análisis discrimimante cuadratico
+### Análisis discrimimante cuadrático
+
+Usualmente usamos el análisis discrimimante cuadrático o QDA (por sus siglas en inglés; quadratic disminant analysis) cuando las observaciones dentro de clase son elegidas de una distribución Gausiana multivariada con una media clase-específica y una matriz de covarianza común para todas las clases *K*. QDA asume que cada calse tiene su propia matriz de covarianza. Es decir, cada observación de de la clase *k*th está por la forma $X ~ N(\mu_{k}, \sum_{k})$, donde $\sum_{k}$ es una matriz de covarianza para la clase *k*th. Bajo estas asunciones, el clasificador de Bayes asigna para una observación $X = x$ a una clase donde $\delta_{k}(x)$ sea más alto, esto está dado por
+
+$$\delta_{k}(x) = -\frac{1}{2}(x-\mu_{k}^{T})\sum_{k}^{-1}(x-\mu_{k}^{T})+log\pi_{k}-\frac{1}{2}log|\sum_{k}|$$
+QDA estima una matriz de varianza separada para cada clase, para un total de $Kp(p+1)/2$ parámetros. Esto hace que QDA sea un clasificador más flexible que LDA. Usualmente se recomienda utilizar QDA si el set de entrenaminto es grande, para que a así la varianza del clasificador no sea un problema o por si la asunción de tener una matriz de covarianza común para las cada clase *K* no se puede obtener.
+
+## Clasificador bayesiano ingenuo
+
+El clasificador bayesiano ingueno o naive Bayes asume que todas las características son independientes en cda clase. Este es particularmente útil cuando *p* es muy grande y otros métodos como LDA y QDA no son capaces de manejar tantos datos.
+
+El naive Bayes gausiana sume que $\sum_{k}$ es diagonal, es decir
+
+$$\delta_{k}(x) = \frac{1}{2}\sum_{j=1}^{p}[\frac{(x_{j} - \mu_{kj})^{2}}{\delta_{kj}^{2}}] + log\pi_{k}$$
+Asimismo, el naive Bayes se puede usar para vectores con caracteríticas mixtas (cualitativas y cuantitativas). Si $X_{j}$ es cualitativa se puede reemplezar $f_{kj}(x_{j})$ con la función de masa de probabilida (histograma) sobre categorías discretas. *Nota: a pesar de las asunciones, el naive Bayes usualmente produce bueno resultados de clasificación*. 
 
 ## K-vecinos más cercanos
 
+En cap►1tulos anteriores hablamos brevemente sobre K-vecinos más cercanos o KNN (por sus siglas en inglés, k-nearest neighbors). Para hacer predicciones para un observación de $X = x$, las observaciones *K* de entrenamiento que son cercanas a *x* son identificadas. Luego, *X* es asignada a una de las clases cuya plurarlidad corresponda a una de las observaciones a las que pertenece. Es decir que KNN es una método completamente no paramétrico. Este método requiere la selección de *K*, los vecinos más cercanos, es decir, realizamos el KNN con dos valores de $K: K = 1$ y un valor de *K* que es escogido automaticamente usando un método llamado *validación cruzada*, del cual hablaremos de manera más intensiva en el próximo capítulo.
+
+*Nota: KNN no hace asunsiones somre la forma de la límite de decisión, además de no decirnos cual(es) de los predictores son los más importantes. Igualmente, este método es mucho más flexible que QDA*.
+
 ## Comparación de métodos de clasificación
+
+Anteriormente vimos como se pueden utilizar cada uno de los métodos de clasificación, al igual de los parámetros y las asunciones que tienen en cuenta. Sin embargo, cada uno de estos se puede utilizar dependiendo de lo que estemos buscando. Aquí vamos a dar en resumen de que implicada cada uno de estos métodos.
+
+* La regresió logística es ampliamente usada como la clasificación, pero en particular cuando se tiene que $k = 2$.
+* LDA es útil cuando *n* es pequeño o cuando las calses están bien separadas, y las asuncions gausianas son razonables. Además, cuando $k > 2$.
+* Naive bayes es particularmente útil cuando *p* es muy grande.
