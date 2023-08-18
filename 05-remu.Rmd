@@ -4,7 +4,7 @@ Los métodos de remuestreo son de las herramientas más valiosas en la estadíst
 
 ## Validación cruzada
 
-Antes de comenzar, recordemos un par de conceptos que vamos usar exhaustivamente a lo largo de este capítulo. El *error de prueba* es el error promedio que resulta de usar uno de los métodos de aprendizaje estadístico para predecir la respuesta en una nueva observación, uno que no fue usada en el método de entrenamiento. Por otro lado, el *error de entrenamiento* se puede calcular aplicando el método de aprendizaje estadístico sobre las observaciones usadas en su entrenamiento. * **Nota**: el error de entrenamiento usualmente sobreestima el error de prueba.* 
+Antes de comenzar, recordemos un par de conceptos que vamos usar exhaustivamente a lo largo de este capítulo. El *error de prueba* es el error promedio que resulta de usar uno de los métodos de aprendizaje estadístico para predecir la respuesta en una nueva observación, uno que no fue usada en el método de entrenamiento. Por otro lado, el *error de entrenamiento* se puede calcular aplicando el método de aprendizaje estadístico sobre las observaciones usadas en su entrenamiento. ***Nota**: el error de entrenamiento usualmente sobreestima el error de prueba.* 
 
 ### Conjunto de validación
 
