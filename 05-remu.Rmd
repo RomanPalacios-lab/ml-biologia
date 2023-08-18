@@ -2,4 +2,14 @@
 
 ## Validación cruzada
 
+### Set de validación
+
+### Validación cruzada dejando un elemento fuera (LOOCV)
+
+### Validación cruzada de K-interaciones (k-fold CV)
+
+### Sesgo y varianza para validación cruzada de K-interaciones
+
+### Validación cruzada en problemas de clasificación
+ 
 ## Boopstrap (o arranque)
