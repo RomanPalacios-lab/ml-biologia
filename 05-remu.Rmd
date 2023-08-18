@@ -1,8 +1,19 @@
 # Métodos de remuestreo
 
+Los métodos de remuestreo son de las herramientas más valiosas en la estadística moderna, dado que esta elije muestras del set de prueba y reajustando el modelo de interés de cada muestra con el fin de obtener información adicional sonre el modelo que ajustamos que de otro modo no estaría disponible con solo ajustar el modelo una vez usando las datos de entrenamiento. En este capítulo hablaremos sobre dos de los métodos de remuestreo más usados, *validación cruzada* y *arranque/bootstrap*. Normalmente usamos *validación cruzada*  para estimar el erros de prueba asociado a un método de aprendizaje estadístico particular o para elegirr el nivel apropiado de flexibilidad. Mientras que *bootstrap* ayuda obtener una medida de precisión de los parámetros estimados o de un método de aprendizaje estadístico particular. Estos dos métodos estiman predicciones de error par los set de prueba, para la desviación estándar y el sesgo de los estimados de nuestros parámetros.
+
 ## Validación cruzada
 
-### Set de validación
+Antes de comenzar, recordemos un par de conceptos que vamos usar exhaustivamente a lo largo de este capítulo. El *error de prueba* es el error promedio que resulta de usar uno de los métodos de aprendizaje estadístico para predecir la respuesta en una nueva observación, uno que no fue usada en el método de entrenamiento. Por otro lado, el *error de entrenamiento* se puede calcular aplicando el método de aprendizaje estadístico sobre las observaciones usadas en su entrenamiento. * **Nota**: el error de entrenamiento usualmente sobreestima el error de prueba.* 
+
+### Conjunto de validación
+
+Al momento de estimar nuestro error de prueba asociado con el ajuste de nuestro método estadístico de interés en un conjuntos de observaciones, podemos separar nuestras observaciones en un *un conjunto de entrenamiento* y un *conjunto de validación*. En donde el modelo se ajusta utilizando el set de entrenamiento, y el modelo ajustado se usa para predecir la respuesta para las observaciones del conjunto de validación. El resultado de error del conjunto de validación nos da un estimado del error de prueba. Normalmente, esto se evalúa utilizando MSE en el caso de una respuesta cuantitativa y una tasa de clasificación errónea en el caso de una respuesta cualitativa (discreta). Aunque este método es ampliamente utilizado, hay algunas debilidades que tenemos que tener en cuenta:
+
+* El estimado de validación del error de prubea puede ser altamente variable, lo cual depende de qué observaciones son incluídas en el set de entrenamiento y cuales son incluídas en el conjunto de validación.
+* En este método solo se incluye un subconjunto de las observaciones, las cuales se utilizan para ajustar el modelo.
+* El error del set de validación usualmente tiende a sobreestimar el error de prueba para el modelo que se ajusta para todo el set de datos.
+
 
 ### Validación cruzada dejando un elemento fuera (LOOCV)
 

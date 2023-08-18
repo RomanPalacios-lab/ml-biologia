@@ -27,7 +27,7 @@ k-vecinos-más-cercanos
 comparación-de-métodos-de-clasificación
 métodos-de-remuestreo
 validación-cruzada
-set-de-validación
+conjunto-de-validación
 validación-cruzada-dejando-un-elemento-fuera-loocv
 validación-cruzada-de-k-interaciones-k-fold-cv
 sesgo-y-varianza-para-validación-cruzada-de-k-interaciones
