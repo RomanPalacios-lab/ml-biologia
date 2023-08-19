@@ -17,7 +17,9 @@ Al momento de estimar nuestro error de prueba asociado con el ajuste de nuestro 
 
 ### Validación cruzada dejando un elemento fuera (LOOCV)
 
-La validación cruzada dejando un elemento fuera (LOOCV por sus siglas en inglés, leave-one-out cross-validation) es muy similar al conjunto de validación, pero trata de resolver la resolver las debilidades que este tiene. Este tipo de validación cruzada solo usamos una sola observación $(x_{1}, y_{1})$ para el set de validación, y el resto de observaciones ${(x_{2}, y_{2}),...,(x_{n}, y_{n})}$ se usan para el set de entrenamiento. Dado que $(x_{1}, y_{1})$ no fue usada para ajustar el proceso, $MSE_{1} = (y_{1} - \haty_{1})^{2}$ provee una aproximación del estimado no sesgado para el error de prueba. No obstante, $MSE_{1}$ es un estimado muy variable, dado que estimado apartir de una sola observación $(x_{1}, y_{1})$.
+La validación cruzada dejando un elemento fuera (LOOCV por sus siglas en inglés, leave-one-out cross-validation) es muy similar al conjunto de validación, pero trata de resolver la resolver las debilidades que este tiene. Este tipo de validación cruzada solo usamos una sola observación $(x_{1}, y_{1})$ para el set de validación, y el resto de observaciones ${(x_{2}, y_{2}),...,(x_{n}, y_{n})}$ se usan para el set de entrenamiento. Dado que $(x_{1}, y_{1})$ no fue usada para ajustar el proceso, $MSE_{1} = (y_{1} - \haty_{1})^{2}$ provee una aproximación del estimado no sesgado para el error de prueba. No obstante, $MSE_{1}$ es un estimado muy variable, dado que estimado apartir de una sola observación $(x_{1}, y_{1})$. El estimado de LOOCV para el MSE de prueba es el promedio de los *n* estimados del error de prueba
+
+$$CV_{n} = \frac{1}{n}\sum_{i=1}^{n}MSE_{i}$$
 
 ### Validación cruzada de K-interaciones (k-fold CV)
 
