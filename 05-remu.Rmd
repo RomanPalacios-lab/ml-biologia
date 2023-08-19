@@ -19,9 +19,17 @@ Al momento de estimar nuestro error de prueba asociado con el ajuste de nuestro 
 
 La validación cruzada dejando un elemento fuera (LOOCV por sus siglas en inglés, leave-one-out cross-validation) es muy similar al conjunto de validación, pero trata de resolver la resolver las debilidades que este tiene. Este tipo de validación cruzada solo usamos una sola observación $(x_{1}, y_{1})$ para el set de validación, y el resto de observaciones ${(x_{2}, y_{2}),...,(x_{n}, y_{n})}$ se usan para el set de entrenamiento. Dado que $(x_{1}, y_{1})$ no fue usada para ajustar el proceso, $MSE_{1} = (y_{1} - \hat{y_{1}})^{2}$ provee una aproximación del estimado no sesgado para el error de prueba. No obstante, $MSE_{1}$ es un estimado muy variable, dado que estimado apartir de una sola observación $(x_{1}, y_{1})$. El estimado de LOOCV para el MSE de prueba es el promedio de los *n* estimados del error de prueba
 
-$$CV_{n} = \frac{1}{n}\sum_{i=1}^{n}MSE_{i}$$
+$$CV_{n} = \frac{1}{n}\sum_{i=1}^{n}(\frac{y_{i} - \hat{y_{i}}}{1 - h_{i}})^{2}$$
+En donde, $\hat{y_{i}}$ es el *i*th valor ajustado usando el justo original de mínimos cuadrados, y *h*th es el apalancamiento (leverage). ***Nota**: esto es como un MSE ordinario, excepto que contiene el residual *i*th dividido por $1-h_{i}$.* Aunque LOOCV ha demostrado ser un método muy útil para hacer remuestreo, pero cada interación está correlacionada, lo cual hace que media tenga una varianza muy alta. No obstante, existe otro método que podemos usar para evitar esto, *validación cruzada de K-iteraciones*.
 
-### Validación cruzada de K-interaciones (k-fold CV)
+
+### Validación cruzada de K-iteraciones (*k-fold* CV)
+
+La validación cruzada de K-iteraciones es un método alternativo al LOOCV. En el k-fold CV se hacen divisiones aleatorias del set de observaciones para formar *k* grupos, o iteraciones, que son casi del mismo tamaño. La primera iteración es tomada como el set de validación, y el método se ajusta usando el resto de iteraciones $k - 1$. Dado que este proceso requiere varias iteraciones, cada que se corre una iteració, *k* estima el error de prueba, $MSE_{1}, MSE_{2},...,MSE_{k}$. Para computar el *k-fold* CV utilizamos la siguiente formula.
+
+
+$$CV_{k} = \frac{1}{k}\sum_{i=1}^{k}MSE_{i}$$
+Cuando vamos a correr este método usalmente utilizamos un $k = 5$ 0 $k = 10$, esto hace que sea muy sencillo de correr en cualquier método de aprendizaje estadístico, dado que la validación cruzada solo va a correr 5 o 10 veces.
 
 ### Sesgo y varianza para validación cruzada de K-interaciones
 

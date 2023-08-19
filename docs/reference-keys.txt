@@ -29,7 +29,7 @@ métodos-de-remuestreo
 validación-cruzada
 conjunto-de-validación
 validación-cruzada-dejando-un-elemento-fuera-loocv
-validación-cruzada-de-k-interaciones-k-fold-cv
+validación-cruzada-de-k-iteraciones-k-fold-cv
 sesgo-y-varianza-para-validación-cruzada-de-k-interaciones
 validación-cruzada-en-problemas-de-clasificación
 boopstrap-o-arranque
