@@ -29,7 +29,7 @@ La validación cruzada de K-iteraciones es un método alternativo al LOOCV. En e
 
 
 $$CV_{k} = \frac{1}{k}\sum_{i=1}^{k}MSE_{i}$$
-Cuando vamos a correr este método usalmente utilizamos un $k = 5$ 0 $k = 10$, esto hace que sea muy sencillo de correr en cualquier método de aprendizaje estadístico, dado que la validación cruzada solo va a correr 5 o 10 veces.
+Cuando vamos a correr este método usalmente utilizamos un $k = 5$ o $k = 10$, esto hace que sea muy sencillo de correr en cualquier método de aprendizaje estadístico, dado que la validación cruzada solo va a correr 5 o 10 veces.
 
 ### Sesgo y varianza para validación cruzada de K-interaciones
 
@@ -40,7 +40,7 @@ Una de las principales ventajas del *k*-fold CV es que puede estimar con mayor p
 La validación cruzada también puede ser usada en problemas de clasifición, cuando *Y* es cualitativa en lugar de cuantitativa. A diferencia de como vimos antes, el error de prueba en este caso es el número de clasificaciones erróneas. Para el caso de LOOCV, la tasa de error se denota como
 
 $$CV_{k} = \frac{1}{n}\sum_{i=1}^{n}Err_{i}$$
-Donde $Err_{i} = I(y_{i} \neq \hat_{y_{i}})$. El error para *k*-fold CV y el error para el set de validación son definidos análogamente.
+Donde $Err_{i} = I(y_{i} \neq \hat{y_{i}})$. El error para *k*-fold CV y el error para el set de validación son definidos análogamente.
 
  
 ## Boopstrap (o arranque)
