@@ -23,9 +23,9 @@ $$CV_{n} = \frac{1}{n}\sum_{i=1}^{n}(\frac{y_{i} - \hat{y_{i}}}{1 - h_{i}})^{2}$
 En donde, $\hat{y_{i}}$ es el *i*th valor ajustado usando el justo original de mínimos cuadrados, y *h*th es el apalancamiento (leverage). ***Nota**: esto es como un MSE ordinario, excepto que contiene el residual *i*th dividido por $1-h_{i}$.* Aunque LOOCV ha demostrado ser un método muy útil para hacer remuestreo, pero cada interación está correlacionada, lo cual hace que media tenga una varianza muy alta. No obstante, existe otro método que podemos usar para evitar esto, *validación cruzada de K-iteraciones*.
 
 
-### Validación cruzada de K-iteraciones (*k-fold* CV)
+### Validación cruzada de K-iteraciones (*k*-fold CV)
 
-La validación cruzada de K-iteraciones es un método alternativo al LOOCV. En el k-fold CV se hacen divisiones aleatorias del set de observaciones para formar *k* grupos, o iteraciones, que son casi del mismo tamaño. La primera iteración es tomada como el set de validación, y el método se ajusta usando el resto de iteraciones $k - 1$. Dado que este proceso requiere varias iteraciones, cada que se corre una iteració, *k* estima el error de prueba, $MSE_{1}, MSE_{2},...,MSE_{k}$. Para computar el *k-fold* CV utilizamos la siguiente formula.
+La validación cruzada de K-iteraciones es un método alternativo al LOOCV. En el *k*-fold CV se hacen divisiones aleatorias del set de observaciones para formar *k* grupos, o iteraciones, que son casi del mismo tamaño. La primera iteración es tomada como el set de validación, y el método se ajusta usando el resto de iteraciones $k - 1$. Dado que este proceso requiere varias iteraciones, cada que se corre una iteració, *k* estima el error de prueba, $MSE_{1}, MSE_{2},...,MSE_{k}$. Para computar el *k*-fold CV utilizamos la siguiente formula.
 
 
 $$CV_{k} = \frac{1}{k}\sum_{i=1}^{k}MSE_{i}$$
@@ -33,6 +33,14 @@ Cuando vamos a correr este método usalmente utilizamos un $k = 5$ 0 $k = 10$, e
 
 ### Sesgo y varianza para validación cruzada de K-interaciones
 
+Una de las principales ventajas del *k*-fold CV es que puede estimar con mayor precisión el error de prueba que el LOOCV, esto se debe a la relación de costo y beneficio con respecto al sesgo y la varianza. Dado que el *k*-fold CV utiliza un $k = 5$ o un $k = 10$, el valor del sesgo es usualmente intermadio, debido a que cada set de entrenamiento contiene $(k-1)n/k$ observaciones. No obstante, esto causa que el estimado de predicción del error tenga un sesgo así arriba -tiende a aumentar-, pero el sesgo disminuye cuando $K = n$ (LOOCV), sin embargo, este estimado tiene una alta varianza. Por esto, utilizar un $k = 5$ o un $k = 10$ provee un buen compromiso para la relación costo-beneficio de sesgo y varianza, dado que los estimaddos para la tasa de error de prueba no sufren de sesgo ni de varianza alta.
+
 ### Validación cruzada en problemas de clasificación
+
+La validación cruzada también puede ser usada en problemas de clasifición, cuando *Y* es cualitativa en lugar de cuantitativa. A diferencia de como vimos antes, el error de prueba en este caso es el número de clasificaciones erróneas. Para el caso de LOOCV, la tasa de error se denota como
+
+$$CV_{k} = \frac{1}{n}\sum_{i=1}^{n}Err_{i}$$
+Donde $Err_{i} = I(y_{i} \neq \hat_{y_{i}})$. El error para *k*-fold CV y el error para el set de validación son definidos análogamente.
+
  
 ## Boopstrap (o arranque)
