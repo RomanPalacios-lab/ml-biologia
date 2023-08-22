@@ -1,4 +1,4 @@
-# Regresiones lineales
+# Capítulo 3: Regresiones lineales
 
 Las regresiones lineales estan entre las herramientas más utilizadas para cuantificar y describir la asociacion entre variables o predecir los valores de una respuesta. En esta aproximacion metodologica, la respuesta en el modelo supervisado es continua. Los modelos de regresion lineal son usualmente percibidos como poco flexibles. Sin embargo, estos modelos pueden llegar a incluir niveles de flexibilidad y complejidad comparables con otros modelos usualmente vistos como mas flexibles. Los modelos lineales son un excelente punto de partida para entender métodos más avanzados, ya que, muchos de esos métodos son extensiones o casos especiales de regresiones lineales.
 
@@ -153,30 +153,41 @@ Algo que debemos tener en cuenta cuando estemos realizando la elección de varia
 
 ### Interacciones entre variables
 
-Usar una de las bases de datos para ejemplificar esto. Hablar sobre como los resultados pueden cambiar cuando se usar una o varias variables; discutir esto cuando se tienen las interacciones y cuando no se tienen encuenta.
+En general, los modelos que hasta el momento se han introducido asumen efectos aditivos entre variables. Especificamente, estos modelos asumen que aunque pueden existir asociaciones entre variables, estas interacciones no son importantes en las interpretaciones de los parametros del modelo. Por ejemplo, la pendientes entre un predictor y respuesta en un modelo de regresiones multiple, es unicamente valida cuando se mantiene constante la asociacion entre todos los otros predictores y la respuesta. Esta asuncion es bastante restrictiva en diferentes situaciones donde realmente existe algun tipo de interaccion cruzada entre predictores con respecto a la respuesta.
+
+
+Nuevamente definimos un modelo de regresion lineal con multiples predictores,
+
+$$Y = β_{0} + β_{1}X_{1} +β_{2}X_{2} + ε$$
+
+En esta definicion, un incremento en una unidad de $X_{1}$ tiene un cambio promedio en $Y$ que esta modelada por $β_{1}$. Esta asociacion es por lo tanto independiente de la relacion entre $X_{2}$ y $Y$. Sin embargo, esta asuncion se puede generalizar al incluir nuevos parametros en el modelo. Por ejemplo, podemos tener en cuenta la interaccion entre $X_{1}$ y $X_{2}$ con respecto a $Y$ tras incluir el termino β_{3}X_{1}X_{2},
+
+$$ Y = β_{0} + β_{1}X_{1} + β_{2}X_{2} + β_{3}X_{1}X_{2} +ε $$
+
+Con este nuevo termino, β_{3}X_{1}X_{2}, se asume que existe una asociacion entre $X_{1}$ y $X_{2}$ con la respuesta. Por lo tanto, este nuevo parametro relaja la asuncion de aditividad en el modelo de regresion lineal.
+
+Por ultimo, es de alta relevancia recalcar que para inluir interacciones de forma validad en un modelo lineal multiple es importante tener en cuenta los **efectos principales** de los predictores. Por ejemplo, un modelo que incluya el termino $β_{3}X_{1}X_{2}$ debe tambien incluir tanto $β_{1}X_{1}$ como $β_{2}X_{2}$.
+
 
 ### Comparaciones y decisiones entre modelos de multiples variables
 
-Hablar del valor p (NOTA: Ya hablé de este un poquito en regresiones de una variables). Introducir a metodos para decidir cual es el mejor modelo (AICc, AIC, BIC, adjusted R2, Mallow's C), aunque creo que esto lo vamos expandir mas un poco mas adelante.Hablar sobre seleccion de varibles: seleccion hacia adelante, seleccion desde atras, seleccion mixta.
+Existen diferentes paradigmas para la seleccion de modelos/variables en una perspectiva de machine learning. Estas aproximaciones generalmente son congruentes con otras desarroladas o usadas frecuentemente en otros campos. Aqui bremente nos centramos en la descripcion del ajuste (entre otras) a partir de valores de AICc, AIC, BIC, $R^2$ ajustado, Mallow's C. Tambien discutimos de forma breve seleccion hacia adelante, seleccion desde atras, ademas de seleccion mixta. Sin embargo, tambien notamos que patrones de seleccion de modelo (e intrinsecamente de variables) tambien pueden ser descritos usando *p*-valores asociados con modelos especificos o variables.
+
+- **AICc, AIC, y BIC:** AIC (Criterio de Información de Akaike) es una medida que evalúa la calidad de un modelo en función del ajuste a los datos y la cantidad de parámetros que utiliza. Valores menores de AIC son un indicativo de un mejor ajuste, mediado por menor complejidad. AICc (AIC corregido) es una versión ajustada del AIC. Esta alternativa, más apropiada para conjuntos de datos pequeños (e.g. n<30), toma en cuenta la cantidad de observaciones y parámetros para evitar sobreajuste. Finalmente, BIC (Criterio de Información Bayesiana) es similar al AIC, pero aplica una penalización más fuerte por la complejidad del modelo. El BIC promueve por lo tanto la selección de modelos más simples y ayuda a prevenir el sobreajuste.
+
+- **$R^2$ adjustado:** El $R^2$ mide la proporción de la varianza total en la variable dependiente que es explicada por el modelo. Sin embargo, los valores de $R^2$ pueden aumentar artificialmente al agregar más predictores, incluso si no mejoran el ajuste. El $R^2$ ajustado considera la cantidad de predictores y ajusta el valor de $R^2$ tras penalizar la inclusión innecesaria de variables.
+
+- **Mallow's C:** El criterio de Mallow (C de Mallow) es una métrica que combina el ajuste del modelo y la cantidad de predictores. Evalúa el compromiso entre el ajuste del modelo y la complejidad. Un valor menor de C indica un mejor equilibrio entre ajuste y parsimonia. Esta aproximacion es por lo tanto similar a los criterios AIC, BIC, discutidos anteriormente.
+
+Para comparar modelos existen aproximaciones formales que permiten una aproximacion sistematica al problema de definir cuales son los mejores modelos o variables para incluir:
+
+- **Selección hacia adelante:** En este enfoque se inicia con un modelo nulo (e.g. solamente con el intercepto) y se agregan variables una a una según su contribución al ajuste. En cada paso, se elige la variable que maximiza la mejora en algún criterio de ajuste. Como criterio se puede usar AIC o BIC, entre otros. Con base al mismo criterio se puede tambien definir cuando parar el algoritmo (e.g. cuando no hay mejora significativa al agregar mas variables).
+
+- **Selección desde atrás:** La selección desde atrás comienza con un modelo que incluye todas las variables. En cada paso, por lo tanto, se elimina la variable que menos contribuye al ajuste según algún criterio. Continúa hasta que ninguna eliminación adicional mejore el ajuste. Tambien se puede combinar con AIC o BIC, entre otros.
+
+- **Selección mixta:** La selección mixta es una combinación de la selección hacia adelante y desde atrás. Comienza con un modelo nulo. En cada paso se decide si agregar una nueva variable o eliminar una existente. Esta decision se basa en algun criterio de ajuste. 
+
 
 ### Asunsiones y posibles problemas de las regresiones lineales y cómo lidiar con ellas
 
-Hablar sobre no linearidad, correlaciones de los errores, variancia no constante en el error, datos atipicos, Punto de alto apalancamiento (high-leverage) y colinearidad. Podriamos mostrar ejemplos a acá tambien.
-
-
-- Definiciones generales (teorico):
--- Simple
--- Multiple
---- Distinguir de multivariada
--- Asunciones
--- Confounders (factores de confusion: En el libro no lo explican si no hasta que se abran de Clasificaciones)
--- Interacciones
--- data augmentation (Este no lo hablan el cap de regresiones)
--- Mediciones de error (RMSE; MSE; MAE; etc)
--- Comparaciones multimodelo (AIC, AICc, BIC)
-
-- Implementacion (codigo y explicacion):
--- Ejemplo de reg simple
--- Ejemplo de reg multiple
--- Data augmentation
---- Mediciones de error y comparacion multimodelo
+No hay que olvidar que los patrones en datos experimentales normalmente no provienen de aproximaciones lineales. Esta complejidad implica que, en muchos casos, los modelos discutidos en este capitulo son muy simples y no capturan los patrones generales de muchos conjuntos de datos. Extensiones a estos modelos lineales permiten entonces ajustar esta aproximacion a datos que no relaciones entre variables que no siguen patrones lineales (e.g. data augmentation; inclusion de terminos de orden >1). Otras limitaciones con estos modelos incluyen la existencia de variables correlacionadas en los datos, desviaciones en varianza entre predictores, la existencia de datos atipidos o datos de alto apalancamiento (high-leverage).

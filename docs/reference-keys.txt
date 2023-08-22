@@ -4,7 +4,7 @@ tipos-de-machine-learning
 definiciones-relevantes-a-machine-learning
 tipos-de-particiones-de-datos-en-machine-learning
 introducción-a-los-artículos-y-datasets-que-se-usarán-en-este-librillo
-regresiones-lineales
+capítulo-3-regresiones-lineales
 regresión-lineal-univariada
 mediciones-de-error-para-regresiones-lineales-univariadas-para-los-coeficientes-y-el-modelo
 regresión-lineal-de-multiples-variables
