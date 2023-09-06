@@ -53,13 +53,13 @@ Donde, $\alpha_{X}^{2} = Var(X)$, $\alpha_{Y}^{2} = Var(Y)$, y $\alpha_{XY} = Co
 
 Como hemos visto antes, usualmente las cantidades $\alpha_{X}^{2}$, $\alpha_{Y}^{2}$, y $\alpha_{XY}$ son desconocidas, por tanto debemos cuantificar los estimados, los cuales se representan como, $\hat{\alpha}_{X}^{2}$, $\hat{\alpha}_{Y}^{2}$, y $\hat{\alpha}_{XY}$, por lo tanto, nuestra ecuación se representaría como,
 
-$$\hat{\alpha} = \frac{\hat{\alpha_{Y}^{2}} - \hat{\alpha_{XY}}}{\hat{\alpha_{X}^{2}} + \hat{\alpha_{Y}^{2}} – 2\hat{\alpha_{XY}}}$$.
+$$\hat{\alpha} = \frac{\hat{\alpha}_{Y}^{2} - \hat{\alpha}_{XY}}{\hat{\alpha}_{X}^{2} + \hat{\alpha}_{Y}^{2} – 2\hat{\alpha}_{XY}}$$.
 
 Una de las ventajas de usar bootstrap es que podemos computar -emular- el proceso que estamos corriendo para obtener nuestras muestra que podemos utilizar para estimar la variabilidad de $\hat{\alpha}$ sin necesidad de general muestras adicionales. En otras palabras, lo que se hace es que, en lugar de obtener muestras independientes de la población, obtenemos conjuntos de datos diferentes por medio de repetir las observaciones *que ya se tienen para el grupo de datos original* **con un reemplazo**. Cada uno de estos grupos de Bootstrap es creado por medio del muestreo **con reemplazos**, el cual es del **mismo tamaño** del conjunto de datos original. Como resultado, algunas de las observaciones aparecen mas de una vez en un conjunto de datos de bootstrap o puede que no aparezcan en ninguno.
 
-Para estimar el error estándar en estos conjuntos de Bootstrap, tenemos que cada conjunto se denota como $Z^{*1}$, por lo tanto, $\alpha$ se denotaría como $\hat{\alpha^{*1}}$. Igualmente, este procedimiento puede ser repetido $B$ veces. Si tenemos $B$ conjuntos de bootstrap, entonces cada conjunto se denotaría como, $Z^{*1}$, $Z^{*2}$,…$Z^{*B}$, y $B$, y los estimados de $\alpha$ serían $\hat{\alpha^{*1}}$, $\hat{\alpha^{*2}}$,…, $\hat{\alpha^{*B}}$. Con esto, podemos estimar el error estándar de este boopstrap usando la siguiente formula
+Para estimar el error estándar en estos conjuntos de Bootstrap, tenemos que cada conjunto se denota como $Z^{*1}$, por lo tanto, $\alpha$ se denotaría como $\hat{\alpha^{*1}}$. Igualmente, este procedimiento puede ser repetido $B$ veces. Si tenemos $B$ conjuntos de bootstrap, entonces cada conjunto se denotaría como, $Z^{*1}$, $Z^{*2}$,…$Z^{*B}$, y $B$, y los estimados de $\alpha$ serían $\hat{\alpha}^{*1}$, $\hat{\alpha}^{*2}$,…, $\hat{\alpha}^{*B}$. Con esto, podemos estimar el error estándar de este boopstrap usando la siguiente formula
 
-$$SE_{B}(\hat{\alpha}) = sqrt{\frac{1}{B - 1}\sum_{r=1}^{B}(\hat{\alpha^{*r}} - \overline{\hat{\alpha^{*2}}})^2}$$.
+$$SE_{B}(\hat{\alpha}) = sqrt{\frac{1}{B - 1}\sum_{r=1}^{B}(\hat{\alpha}^{*r} - \overline{\hat{\alpha}^{*2}})^2}$$.
 
 A su vez, esta ecuación sirve para estimar el error estándar de $\hat{\alpha}$ estimado del conjunto de datos original.
 
