@@ -33,6 +33,7 @@ validación-cruzada-de-k-iteraciones-k-fold-cv
 sesgo-y-varianza-para-validación-cruzada-de-k-interaciones
 validación-cruzada-en-problemas-de-clasificación
 boopstrap-o-arranque
+otros-usos-del-bootstrap
 selección-de-modelos-lineares-y-regularización
 selección-de-subconjuntos
 métodos-de-contracción
