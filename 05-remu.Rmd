@@ -45,15 +45,15 @@ Donde $Err_{i} = I(y_{i} \neq \hat{y_{i}})$. El error para *k*-fold CV y el erro
  
 ## Boopstrap (o arranque)
 
-Bootstrap o arranque es uno de los métodos de remuestreo mas aplicados, dado que puede usarse para cuantificar la incertidumbre que está asociada a uno estimado en particular o a un método de aprendizaje estadístico. Este método es especialmente útil cuando se necesita medir la variabilidad de un estimado cuando este es muy difícil de obtener usando otro método o no cuando el resultado no se estima por defecto en el programa estadístico que estamos usando. Usualmente, boopstrap se usa para minimizar $Var(\alphaX + (1 - \alpha) Y)$, donde $\alpha$ se estima como,
+Bootstrap o arranque es uno de los métodos de remuestreo mas aplicados, dado que puede usarse para cuantificar la incertidumbre que está asociada a uno estimado en particular o a un método de aprendizaje estadístico. Este método es especialmente útil cuando se necesita medir la variabilidad de un estimado cuando este es muy difícil de obtener usando otro método o no cuando el resultado no se estima por defecto en el programa estadístico que estamos usando. Usualmente, boopstrap se usa para minimizar $Var(\alpha X + (1 - \alpha) Y)$, donde $\alpha$ se estima como,
 
-$$\alpha = \frac{\alpha_{Y}^{2} - \alphaXY}{\alpha_{X}^{2} + \alpha_{Y}^{2} - 2\alpha_{XY}}$$,
+$$\alpha = \frac{\alpha_{Y}^{2} - \alpha_{XY}}{\alpha_{X}^{2} + \alpha_{Y}^{2} - 2\alpha_{XY}}$$,
 
 Donde, $\alpha_{X}^{2} = Var(X)$, $\alpha_{Y}^{2} = Var(Y)$, y $\alpha_{XY} = Cov(X, Y)$.
 
-Como hemos visto antes, usualmente las cantidades $\alpha_{X}^{2}$, $\alpha_{Y}^{2}$, y $\alpha_{XY}$ son desconocidas, por tanto debemos cuantificar los estimados, los cuales se representan como, $\hat{\alpha_{X}^{2}}$, $\hat{\alpha_{Y}^{2}}$, y $\hat{\alpha_{XY}}$, por lo tanto, nuestra ecuación se representaría como,
+Como hemos visto antes, usualmente las cantidades $\alpha_{X}^{2}$, $\alpha_{Y}^{2}$, y $\alpha_{XY}$ son desconocidas, por tanto debemos cuantificar los estimados, los cuales se representan como, $\hat{\alpha}_{X}^{2}$, $\hat{\alpha}_{Y}^{2}$, y $\hat{\alpha}_{XY}$, por lo tanto, nuestra ecuación se representaría como,
 
-$$\hat{\alpha} = \frac{\hat{\alpha_{Y}^{2}} - \hat{\alphaXY}}{\hat{\alpha_{X}^{2}} + \hat{\alpha_{Y}^{2}} – 2\hat{\alpha_{XY}}}$$.
+$$\hat{\alpha} = \frac{\hat{\alpha_{Y}^{2}} - \hat{\alpha_{XY}}}{\hat{\alpha_{X}^{2}} + \hat{\alpha_{Y}^{2}} – 2\hat{\alpha_{XY}}}$$.
 
 Una de las ventajas de usar bootstrap es que podemos computar -emular- el proceso que estamos corriendo para obtener nuestras muestra que podemos utilizar para estimar la variabilidad de $\hat{\alpha}$ sin necesidad de general muestras adicionales. En otras palabras, lo que se hace es que, en lugar de obtener muestras independientes de la población, obtenemos conjuntos de datos diferentes por medio de repetir las observaciones *que ya se tienen para el grupo de datos original* **con un reemplazo**. Cada uno de estos grupos de Bootstrap es creado por medio del muestreo **con reemplazos**, el cual es del **mismo tamaño** del conjunto de datos original. Como resultado, algunas de las observaciones aparecen mas de una vez en un conjunto de datos de bootstrap o puede que no aparezcan en ninguno.
 
