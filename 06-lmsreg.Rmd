@@ -1,5 +1,11 @@
 # Selección de modelos lineares y regularización
 
+En este capítulos vamos a extender lo que sabemos hasta ahora de modelos lineales. En otras palabras, vamos ahabalr sobre cómmo podemos mejorar los modelos lineales simples, por medio de reemplazar los ajuste de mínimos caudrados con procedimientos alternativos de ajuste. Lo cual hace que haya una mejor la *precisión de la predicción* y la *interpretabilidad del modelo*.
+
+* *Precisión de la predicción*: Esto provee la relación verdadera entre la respuesta y los predictores es aproximadamente lineal, donde los estimados de mínimos cuadrados tendrían un bajo sesgo. Cuando el número de observaciones *n* es mayor al número de variables *p*, entonces los estimados de mínimos cuadrados van a tender a tener baja varianza, lo cual causa que este sea efectivo en observaciones de prueba. Mientras que cuando *n* no es mucho más grande que *p*, entonces hay una alta variablilldad en el ajuste de los mínimos cuadrados, lo cual resulta en una sobreestimación y baja predictabilidad en observaciones futuras que no fueron utilizadas en el modelo. Cuando el número de predictores es mayor que el número de observaciones, no hay un solo estimado del coeficiente de mínimos cuadrados, es decir, la varianza es infinita, lo cual no permite que se puede usar este método. Por medio de *restringir* o *contraer* los coeficientes estimados podemos reducir la varianza a costo de aumentar el sesgo. Esto puede dar como resultados el mejorar al precisión, lo cual permite predecir la respoestado de observaciones que no fueron usadas en el modelo de entrenamiento.
+
+* *Interpretabilidad del modelo*: 
+
 ## Selección de subconjuntos
 
 
