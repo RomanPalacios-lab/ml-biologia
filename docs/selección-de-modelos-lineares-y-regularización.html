@@ -200,8 +200,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos lineares y regularización</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#selección-de-subconjuntos"><i class="fa fa-check"></i><b>6.1</b> Selección de subconjuntos</a></li>
-<li class="chapter" data-level="6.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-contracción"><i class="fa fa-check"></i><b>6.2</b> Métodos de contracción</a></li>
+<li class="chapter" data-level="6.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#selección-de-subconjuntos"><i class="fa fa-check"></i><b>6.1</b> Selección de subconjuntos</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#selección-del-mejor-subconjunto"><i class="fa fa-check"></i><b>6.1.1</b> Selección del mejor subconjunto</a></li>
+<li class="chapter" data-level="6.1.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#selección-paso-a-paso"><i class="fa fa-check"></i><b>6.1.2</b> Selección paso a paso</a></li>
+<li class="chapter" data-level="6.1.3" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#selección-del-modelo-óptimo"><i class="fa fa-check"></i><b>6.1.3</b> Selección del modelo óptimo</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-contracción"><i class="fa fa-check"></i><b>6.2</b> Métodos de contracción</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-crestas"><i class="fa fa-check"></i><b>6.2.1</b> Regresión de crestas</a></li>
+<li class="chapter" data-level="6.2.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#section"><i class="fa fa-check"></i><b>6.2.2</b> </a></li>
+</ul></li>
 <li class="chapter" data-level="6.3" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-reducción-dimensiones"><i class="fa fa-check"></i><b>6.3</b> Métodos de reducción dimensiones</a></li>
 <li class="chapter" data-level="6.4" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#consideraciones-en-dimensiones-altas"><i class="fa fa-check"></i><b>6.4</b> Consideraciones en dimensiones altas</a></li>
 </ul></li>
@@ -233,9 +242,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Capitulo 6</span> Selección de modelos lineares y regularización<a href="selección-de-modelos-lineares-y-regularización.html#selección-de-modelos-lineares-y-regularización" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="selección-de-subconjuntos" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Selección de subconjuntos<a href="selección-de-modelos-lineares-y-regularización.html#selección-de-subconjuntos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="selección-del-mejor-subconjunto" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Selección del mejor subconjunto<a href="selección-de-modelos-lineares-y-regularización.html#selección-del-mejor-subconjunto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="selección-paso-a-paso" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Selección paso a paso<a href="selección-de-modelos-lineares-y-regularización.html#selección-paso-a-paso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="selección-hacia-adelante" class="section level4 hasAnchor" number="6.1.2.1">
+<h4><span class="header-section-number">6.1.2.1</span> Selección hacia adelante<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-adelante" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="selección-hacia-atras" class="section level4 hasAnchor" number="6.1.2.2">
+<h4><span class="header-section-number">6.1.2.2</span> Selección hacia atras<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-atras" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="selección-híbrida" class="section level4 hasAnchor" number="6.1.2.3">
+<h4><span class="header-section-number">6.1.2.3</span> Selección híbrida<a href="selección-de-modelos-lineares-y-regularización.html#selección-híbrida" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="selección-del-modelo-óptimo" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Selección del modelo óptimo<a href="selección-de-modelos-lineares-y-regularización.html#selección-del-modelo-óptimo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cp-aic-bic-y-r2-ajustado" class="section level4 hasAnchor" number="6.1.3.1">
+<h4><span class="header-section-number">6.1.3.1</span> Cp, AIC, BIC y R2 ajustado<a href="selección-de-modelos-lineares-y-regularización.html#cp-aic-bic-y-r2-ajustado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="validación-y-validación-cruzada" class="section level4 hasAnchor" number="6.1.3.2">
+<h4><span class="header-section-number">6.1.3.2</span> Validación y validación cruzada<a href="selección-de-modelos-lineares-y-regularización.html#validación-y-validación-cruzada" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
 </div>
 <div id="métodos-de-contracción" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Métodos de contracción<a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-contracción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="regresión-de-crestas" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Regresión de crestas<a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-crestas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="section" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> </h3>
+</div>
 </div>
 <div id="métodos-de-reducción-dimensiones" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Métodos de reducción dimensiones<a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-reducción-dimensiones" class="anchor-section" aria-label="Anchor link to header"></a></h2>

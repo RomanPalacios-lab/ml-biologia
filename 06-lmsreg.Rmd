@@ -2,7 +2,27 @@
 
 ## Selección de subconjuntos
 
+### Selección del mejor subconjunto
+
+### Selección paso a paso
+
+#### Selección hacia adelante
+
+#### Selección hacia atras
+
+#### Selección híbrida
+
+### Selección del modelo óptimo
+
+#### Cp, AIC, BIC y R2 ajustado
+
+#### Validación y validación cruzada
+
 ## Métodos de contracción
+
+### Regresión de crestas
+
+### 
 
 ## Métodos de reducción dimensiones
 
