@@ -208,11 +208,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-contracción"><i class="fa fa-check"></i><b>6.2</b> Métodos de contracción</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-crestas"><i class="fa fa-check"></i><b>6.2.1</b> Regresión de crestas</a></li>
-<li class="chapter" data-level="6.2.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#section"><i class="fa fa-check"></i><b>6.2.2</b> </a></li>
+<li class="chapter" data-level="6.2.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-crestas-ridge-regression"><i class="fa fa-check"></i><b>6.2.1</b> Regresión de crestas (ridge regression)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#el-lasso"><i class="fa fa-check"></i><b>6.2.2</b> El Lasso</a></li>
+<li class="chapter" data-level="6.2.3" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#selección-de-ajuste-de-parámetros"><i class="fa fa-check"></i><b>6.2.3</b> Selección de ajuste de parámetros</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-reducción-dimensiones"><i class="fa fa-check"></i><b>6.3</b> Métodos de reducción dimensiones</a></li>
-<li class="chapter" data-level="6.4" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#consideraciones-en-dimensiones-altas"><i class="fa fa-check"></i><b>6.4</b> Consideraciones en dimensiones altas</a></li>
+<li class="chapter" data-level="6.3" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-reducción-dimensiones"><i class="fa fa-check"></i><b>6.3</b> Métodos de reducción dimensiones</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-componentes-principales"><i class="fa fa-check"></i><b>6.3.1</b> Regresión de componentes principales</a></li>
+<li class="chapter" data-level="6.3.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#mínimos-cuadrados-parciales"><i class="fa fa-check"></i><b>6.3.2</b> Mínimos cuadrados parciales</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#consideraciones-en-dimensiones-altas"><i class="fa fa-check"></i><b>6.4</b> Consideraciones en dimensiones altas</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#datos-de-alta-dimensionalidad"><i class="fa fa-check"></i><b>6.4.1</b> Datos de alta dimensionalidad</a></li>
+<li class="chapter" data-level="6.4.2" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#qué-hay-de-malo-con-la-alta-dimensionalidad"><i class="fa fa-check"></i><b>6.4.2</b> ¿Qué hay de malo con la alta dimensionalidad?</a></li>
+<li class="chapter" data-level="6.4.3" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#regresión-en-alta-dimensionalidad"><i class="fa fa-check"></i><b>6.4.3</b> Regresión en alta dimensionalidad</a></li>
+<li class="chapter" data-level="6.4.4" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html#interpretando-los-resultados-en-alta-dimensionalidad"><i class="fa fa-check"></i><b>6.4.4</b> Interpretando los resultados en alta dimensionalidad</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="métodos-basados-en-árboles.html"><a href="métodos-basados-en-árboles.html"><i class="fa fa-check"></i><b>7</b> Métodos basados en árboles</a>
 <ul>
@@ -259,8 +270,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="selección-del-modelo-óptimo" class="section level3 hasAnchor" number="6.1.3">
 <h3><span class="header-section-number">6.1.3</span> Selección del modelo óptimo<a href="selección-de-modelos-lineares-y-regularización.html#selección-del-modelo-óptimo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="cp-aic-bic-y-r2-ajustado" class="section level4 hasAnchor" number="6.1.3.1">
-<h4><span class="header-section-number">6.1.3.1</span> Cp, AIC, BIC y R2 ajustado<a href="selección-de-modelos-lineares-y-regularización.html#cp-aic-bic-y-r2-ajustado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="c_p-aic-bic-y-r2-ajustado" class="section level4 hasAnchor" number="6.1.3.1">
+<h4><span class="header-section-number">6.1.3.1</span> <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> y <span class="math inline">\(R^{2}\)</span> ajustado<a href="selección-de-modelos-lineares-y-regularización.html#c_p-aic-bic-y-r2-ajustado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
 <div id="validación-y-validación-cruzada" class="section level4 hasAnchor" number="6.1.3.2">
 <h4><span class="header-section-number">6.1.3.2</span> Validación y validación cruzada<a href="selección-de-modelos-lineares-y-regularización.html#validación-y-validación-cruzada" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -269,19 +280,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="métodos-de-contracción" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Métodos de contracción<a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-contracción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="regresión-de-crestas" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Regresión de crestas<a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-crestas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="regresión-de-crestas-ridge-regression" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Regresión de crestas (ridge regression)<a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-crestas-ridge-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="por-qué-la-regresión-de-crestas-es-mejor-que-los-mínimos-cuadrados" class="section level4 hasAnchor" number="6.2.1.1">
+<h4><span class="header-section-number">6.2.1.1</span> ¿Por qué la regresión de crestas es <em>mejor</em> que los mínimos cuadrados?<a href="selección-de-modelos-lineares-y-regularización.html#por-qué-la-regresión-de-crestas-es-mejor-que-los-mínimos-cuadrados" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
-<div id="section" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> </h3>
+</div>
+<div id="el-lasso" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> El Lasso<a href="selección-de-modelos-lineares-y-regularización.html#el-lasso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="otra-formulación-para-regresión-de-crestas-y-el-lasso" class="section level4 hasAnchor" number="6.2.2.1">
+<h4><span class="header-section-number">6.2.2.1</span> Otra formulación para regresión de crestas y El Lasso<a href="selección-de-modelos-lineares-y-regularización.html#otra-formulación-para-regresión-de-crestas-y-el-lasso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="propiedad-de-selección-de-variables-de-the-lasso" class="section level4 hasAnchor" number="6.2.2.2">
+<h4><span class="header-section-number">6.2.2.2</span> Propiedad de selección de variables de The Lasso<a href="selección-de-modelos-lineares-y-regularización.html#propiedad-de-selección-de-variables-de-the-lasso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="comparación-entre-el-lasso-y-la-regresión-de-crestas" class="section level4 hasAnchor" number="6.2.2.3">
+<h4><span class="header-section-number">6.2.2.3</span> Comparación entre El Lasso y la regresión de crestas<a href="selección-de-modelos-lineares-y-regularización.html#comparación-entre-el-lasso-y-la-regresión-de-crestas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="un-caso-especies-para-la-regresión-de-crestas-y-el-lasso" class="section level4 hasAnchor" number="6.2.2.4">
+<h4><span class="header-section-number">6.2.2.4</span> Un caso especies para la regresión de crestas y El Lasso<a href="selección-de-modelos-lineares-y-regularización.html#un-caso-especies-para-la-regresión-de-crestas-y-el-lasso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="interpretación-bayesiana-para-la-regresión-de-crestas-y-el-lasso" class="section level4 hasAnchor" number="6.2.2.5">
+<h4><span class="header-section-number">6.2.2.5</span> Interpretación Bayesiana para la regresión de crestas y El Lasso<a href="selección-de-modelos-lineares-y-regularización.html#interpretación-bayesiana-para-la-regresión-de-crestas-y-el-lasso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="selección-de-ajuste-de-parámetros" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Selección de ajuste de parámetros<a href="selección-de-modelos-lineares-y-regularización.html#selección-de-ajuste-de-parámetros" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
 <div id="métodos-de-reducción-dimensiones" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Métodos de reducción dimensiones<a href="selección-de-modelos-lineares-y-regularización.html#métodos-de-reducción-dimensiones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="regresión-de-componentes-principales" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Regresión de componentes principales<a href="selección-de-modelos-lineares-y-regularización.html#regresión-de-componentes-principales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="una-descripción-general-del-análisis-de-componentes-principales" class="section level4 hasAnchor" number="6.3.1.1">
+<h4><span class="header-section-number">6.3.1.1</span> Una descripción general del análisis de componentes principales<a href="selección-de-modelos-lineares-y-regularización.html#una-descripción-general-del-análisis-de-componentes-principales" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="el-enfoque-de-regresión-de-componentes-principales" class="section level4 hasAnchor" number="6.3.1.2">
+<h4><span class="header-section-number">6.3.1.2</span> El enfoque de regresión de componentes principales<a href="selección-de-modelos-lineares-y-regularización.html#el-enfoque-de-regresión-de-componentes-principales" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="mínimos-cuadrados-parciales" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Mínimos cuadrados parciales<a href="selección-de-modelos-lineares-y-regularización.html#mínimos-cuadrados-parciales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
 </div>
 <div id="consideraciones-en-dimensiones-altas" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Consideraciones en dimensiones altas<a href="selección-de-modelos-lineares-y-regularización.html#consideraciones-en-dimensiones-altas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="datos-de-alta-dimensionalidad" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Datos de alta dimensionalidad<a href="selección-de-modelos-lineares-y-regularización.html#datos-de-alta-dimensionalidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="qué-hay-de-malo-con-la-alta-dimensionalidad" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> ¿Qué hay de malo con la alta dimensionalidad?<a href="selección-de-modelos-lineares-y-regularización.html#qué-hay-de-malo-con-la-alta-dimensionalidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="regresión-en-alta-dimensionalidad" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Regresión en alta dimensionalidad<a href="selección-de-modelos-lineares-y-regularización.html#regresión-en-alta-dimensionalidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="interpretando-los-resultados-en-alta-dimensionalidad" class="section level3 hasAnchor" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> Interpretando los resultados en alta dimensionalidad<a href="selección-de-modelos-lineares-y-regularización.html#interpretando-los-resultados-en-alta-dimensionalidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
+</div>
 </div>
 </div>
             </section>

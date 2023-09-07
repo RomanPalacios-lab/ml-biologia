@@ -2,6 +2,8 @@
 
 ## Selección de subconjuntos
 
+
+
 ### Selección del mejor subconjunto
 
 ### Selección paso a paso
@@ -12,18 +14,55 @@
 
 #### Selección híbrida
 
+
+
 ### Selección del modelo óptimo
 
-#### Cp, AIC, BIC y R2 ajustado
+#### $C_{p}$, $AIC$, $BIC$ y $R^{2}$ ajustado
 
 #### Validación y validación cruzada
 
+
+
 ## Métodos de contracción
 
-### Regresión de crestas
+### Regresión de crestas (ridge regression)
 
-### 
+#### ¿Por qué la regresión de crestas es *mejor* que los mínimos cuadrados?
+
+### El Lasso
+
+#### Otra formulación para regresión de crestas y El Lasso
+
+#### Propiedad de selección de variables de The Lasso
+
+#### Comparación entre El Lasso y la regresión de crestas
+
+####  Un caso especies para la regresión de crestas y El Lasso
+
+#### Interpretación Bayesiana para la regresión de crestas y El Lasso
+
+### Selección de ajuste de parámetros
+
+
 
 ## Métodos de reducción dimensiones
 
+### Regresión de componentes principales
+
+#### Una descripción general del análisis de componentes principales
+
+#### El enfoque de regresión de componentes principales
+
+### Mínimos cuadrados parciales
+
+
 ## Consideraciones en dimensiones altas
+
+### Datos de alta dimensionalidad
+
+### ¿Qué hay de malo con la alta dimensionalidad?
+
+### Regresión en alta dimensionalidad
+
+### Interpretando los resultados en alta dimensionalidad
