@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-09-06" />
+<meta name="date" content="2023-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,6 +194,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html#boopstrap-o-arranque"><i class="fa fa-check"></i><b>5.2</b> Boopstrap (o arranque)</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html#otros-usos-del-bootstrap"><i class="fa fa-check"></i><b>5.2.1</b> Otros usos del bootstrap</a></li>
+<li class="chapter" data-level="5.2.2" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html#pre-validación"><i class="fa fa-check"></i><b>5.2.2</b> Pre-validación</a></li>
+<li class="chapter" data-level="5.2.3" data-path="métodos-de-remuestreo.html"><a href="métodos-de-remuestreo.html#bootstrap-versus-permutaciones"><i class="fa fa-check"></i><b>5.2.3</b> Bootstrap versus permutaciones</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="selección-de-modelos-lineares-y-regularización.html"><a href="selección-de-modelos-lineares-y-regularización.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos lineares y regularización</a>
@@ -279,6 +281,17 @@ Donde <span class="math inline">\(Err_{i} = I(y_{i} \neq \hat{y_{i}})\)</span>. 
 <div id="otros-usos-del-bootstrap" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Otros usos del bootstrap<a href="métodos-de-remuestreo.html#otros-usos-del-bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En algunas ocasiones utilizar Bootstrap requiere pensar un poco, este es el caso para series de tiempo. Cuando se tienen series de tiempo no podemos muestrear las observaciones con reemplazos, por eso lo que se hace es crear bloques consecutivos de observaciones y muestrear esos reemplazos. Luego de esto, se pegan juntos esto bloque de muestras para obtener el conjunto de datos de Bootstrap.</p>
+<p>Como discutimos previamente, podemos usar bootstrap para calcular el error estándar de un estimado. Igualmente, podemos calcular el intérvalo de confianza del <em>porcentil del boostrap</em> para un estimado/parámetro.</p>
+</div>
+<div id="pre-validación" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Pre-validación<a href="métodos-de-remuestreo.html#pre-validación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El proceso de pre-validación puede ser usada para comparar dos conjuntos de predictores. La pre-validación se diseñó para comparar predictores derivados adaptativamente con predictores fijos y predefinidos. Esto, con el fin de formar una versió <em>pre-validada</em> de los predictores adaptativos. Paricularmente, una versión más <em>fiel</em> que no se ha <em>visto</em> en la respuesta <span class="math inline">\(y\)</span>.</p>
+<p><strong>Creo que acá podemos hacer algo parecido a lo que hacen en las diapositvas mostrando el proceso de como se hace la prevalidacion y poner un ejemplo</strong></p>
+</div>
+<div id="bootstrap-versus-permutaciones" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Bootstrap versus permutaciones<a href="métodos-de-remuestreo.html#bootstrap-versus-permutaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Muchas personas tienden a confundir bootstrap con pruebas de permutación, sin embargo, estas tienen ciertas diferencias. Las muestras del bootstrap son estimados apartir de la población y usa los resultados para estimar el error estándar y el intérvalo de confianza. Mientras que el método de permutación muestrea de un estimado de distribución <em>nulo</em> de kis datos, y se usa para estimar el <em>valor-p</em> y Tasas de descubrimiento falso para pruebas de hipótesis.</p>
+<p>Igualmente, podemos usar bootstrap para probar hipótesis nulas en situaciones simples, por ejemplo, si <span class="math inline">\(\theta = 0\)</span> es la hipótesis nula, podemos verificar si el intérvalo de confianza de <span class="math inline">\(\theta\)</span> contiene cero. A la vez, podemos adaptar bootstrap para una distribución nula simple, pero no hay una ventaja significativa sobre el método de permutación en este caso.</p>
 
 </div>
 </div>

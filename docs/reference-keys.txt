@@ -34,6 +34,8 @@ sesgo-y-varianza-para-validación-cruzada-de-k-interaciones
 validación-cruzada-en-problemas-de-clasificación
 boopstrap-o-arranque
 otros-usos-del-bootstrap
+pre-validación
+bootstrap-versus-permutaciones
 selección-de-modelos-lineares-y-regularización
 selección-de-subconjuntos
 métodos-de-contracción

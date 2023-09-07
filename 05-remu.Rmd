@@ -67,3 +67,17 @@ A su vez, esta ecuación sirve para estimar el error estándar de $\hat{\alpha}$
 ### Otros usos del bootstrap
 
 En algunas ocasiones utilizar Bootstrap requiere pensar un poco, este es el caso para series de tiempo. Cuando se tienen series de tiempo no podemos muestrear las observaciones con reemplazos, por eso lo que se hace es crear bloques consecutivos de observaciones y muestrear esos reemplazos. Luego de esto, se pegan juntos esto bloque de muestras para obtener el conjunto de datos de Bootstrap.
+
+Como discutimos previamente, podemos usar bootstrap para calcular el error estándar de un estimado. Igualmente, podemos calcular el intérvalo de confianza del *porcentil del boostrap* para un estimado/parámetro. 
+
+### Pre-validación
+
+El proceso de pre-validación puede ser usada para comparar dos conjuntos de predictores. La pre-validación se diseñó para comparar predictores derivados adaptativamente con predictores fijos y predefinidos. Esto, con el fin de formar una versió *pre-validada* de los predictores adaptativos. Paricularmente, una versión más *fiel* que no se ha *visto* en la respuesta $y$.
+
+**Creo que acá podemos hacer algo parecido a lo que hacen en las diapositvas mostrando el proceso de como se hace la prevalidacion y poner un ejemplo**
+
+### Bootstrap versus permutaciones
+
+Muchas personas tienden a confundir bootstrap con pruebas de permutación, sin embargo, estas tienen ciertas diferencias. Las  muestras del bootstrap son estimados apartir de la población y usa los resultados para estimar el error estándar y el intérvalo de confianza. Mientras que el método de permutación muestrea de un estimado de distribución *nulo* de kis datos, y se usa para estimar el *valor-p* y Tasas de descubrimiento falso para pruebas de hipótesis.
+
+Igualmente, podemos usar bootstrap para probar hipótesis nulas en situaciones simples, por ejemplo, si $\theta = 0$ es la hipótesis nula, podemos verificar si el intérvalo de confianza de $\theta$ contiene cero. A la vez, podemos adaptar bootstrap para una distribución nula simple, pero no hay una ventaja significativa sobre el método de permutación en este caso.
