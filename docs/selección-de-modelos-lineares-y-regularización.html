@@ -270,22 +270,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores <em>p</em>. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores <span class="math inline">\(\binom{p}{2} = p(p-1)/2\)</span>, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber <span class="math inline">\(2^p\)</span> posibilidades que debemos considerar para poder elegir el mejor subconjunto.</p>
 <p>Para llevar a cabo la selección del mejor subconjunto necesitamos seguir los siguientes pasos:</p>
 <ol style="list-style-type: decimal">
-<li>AAA</li>
-<li>Para <span class="math inline">\(k = 1, 2, ...p:\)</span>
+<li>Supongamos que <span class="math inline">\(M_{0}\)</span> es el <em>modelo nulo</em>, el cual contiene no predictores. Este modelo solamente predice la media de muestra para cada observación.</li>
+<li>Para <span class="math inline">\(k = 1, 2,..., p:\)</span>
 <ol style="list-style-type: lower-alpha">
 <li>Ajustar todos los modelos <span class="math inline">\(\binom{p}{k}\)</span> que contengan el predictor <em>k</em>.</li>
-<li>Elegir el modelos entre todos los modelos <span class="math inline">\(\binom{p}{k}\)</span>, a este lo llamaremos <span class="math inline">\(M_{k}\)</span></li>
+<li>Elegir el modelos entre todos los modelos <span class="math inline">\(\binom{p}{k}\)</span>, a este lo llamaremos <span class="math inline">\(M_{k}\)</span>. En este paso, el <em>mejor</em> modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el <span class="math inline">\(R^2\)</span> más grande.</li>
 </ol></li>
-<li></li>
+<li>En este último paso, seleccionamos el mejor modelos entre <span class="math inline">\(M_{0},...,M_{p}\)</span> usando validación cruzada para predecir el error, <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> o <span class="math inline">\(R^{2}\)</span> ajustado.</li>
 </ol>
+<p>Aunque la selección del mejor subconjunto es muy utilizada, usualmente es computalmente difícil de realizar si el número de predictores es muy alto. Cuando <em>p</em> es muy grande, mayor el espacio de búsqueda -esto puede sobre estimar los datos y aumentar la varianza de los coeficientes de los estimados-, más alta será la probabilidad de encontrar un model que se vea bien en los datos de entrenamiento, aunque puede que no tenga el mayor poder predictivo sobre los datos futuros.</p>
 </div>
 <div id="selección-paso-a-paso" class="section level3 hasAnchor" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Selección paso a paso<a href="selección-de-modelos-lineares-y-regularización.html#selección-paso-a-paso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Debido a las diferentes complicaciones que tiene la <em>selección del mejor subconjunto</em>, se tienen otro tipo de métodos que usan modelos más restrictivo, lo cual los hace alternativas muchas más atractivos que la <em>selección del mejor subconjunto</em>. Este método es conocido como <em>selección paso a paso</em>, dentro de este hay tres diferentes tipos: selección hacia adelante, selección hacia atrás y selección hídrida.</p>
 <div id="selección-hacia-adelante" class="section level4 hasAnchor" number="6.1.2.1">
 <h4><span class="header-section-number">6.1.2.1</span> Selección hacia adelante<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-adelante" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Este tipo de selección tiene el nombre de selección hacia a delanta, porque comienza con un modelo que no contiene ningún predictor al comienzo, pero a medida que el modelo está corriendo se añaden variables al modelo una a la vez, hasta que todos las predictores estén dentro del modelo. Particularmente, solo las variables que causen un <em>mejoramiento adicional</em> al ajuste del modelo. este modelo funciona de la siguiente manera:</p>
+<ol style="list-style-type: decimal">
+<li>Supongamos que <span class="math inline">\(M_{0}\)</span> es el <em>modelo nulo</em>, el cual contiene no predictores.</li>
+<li>Para <span class="math inline">\(k = 0, 2,..., p - 1:\)</span>
+2.1) Ajustar todos los modelos <span class="math inline">\(p - k\)</span> que aumenten los predictores <span class="math inline">\(M_{k}\)</span> con un predictor adicional.
+2.2) Elegir el modelos entre todos los modelos <span class="math inline">\(\p - k\)</span>, a este lo llamaremos <span class="math inline">\(M_{k + 1}\)</span>. En este paso, el <em>mejor</em> modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el <span class="math inline">\(R^2\)</span> más grande.</li>
+<li>En este último paso, seleccionamos el mejor modelos entre <span class="math inline">\(M_{0},...,M_{p}\)</span> usando validación cruzada para predecir el error, <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> o <span class="math inline">\(R^{2}\)</span> ajustado.</li>
+</ol>
 </div>
-<div id="selección-hacia-atras" class="section level4 hasAnchor" number="6.1.2.2">
-<h4><span class="header-section-number">6.1.2.2</span> Selección hacia atras<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-atras" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="selección-hacia-atrás" class="section level4 hasAnchor" number="6.1.2.2">
+<h4><span class="header-section-number">6.1.2.2</span> Selección hacia atrás<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-atrás" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
 <div id="selección-híbrida" class="section level4 hasAnchor" number="6.1.2.3">
 <h4><span class="header-section-number">6.1.2.3</span> Selección híbrida<a href="selección-de-modelos-lineares-y-regularización.html#selección-híbrida" class="anchor-section" aria-label="Anchor link to header"></a></h4>

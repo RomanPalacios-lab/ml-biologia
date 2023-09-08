@@ -26,18 +26,30 @@ Para llevar a cabo este método, debemos ajustar separadamente regresiones de m�
 Para llevar a cabo la selección del mejor subconjunto necesitamos seguir los siguientes pasos:
 
 
-1) AAA
-2) Para $k = 1, 2, ...p:$
+1) Supongamos que $M_{0}$ es el *modelo nulo*, el cual contiene no predictores. Este modelo solamente predice la media de muestra para cada observación.
+2) Para $k = 1, 2,..., p:$
     a) Ajustar todos los modelos $\binom{p}{k}$ que contengan el predictor *k*.
-    b) Elegir el modelos entre todos los modelos $\binom{p}{k}$, a este lo llamaremos $M_{k}$
-3)
+    b) Elegir el modelos entre todos los modelos $\binom{p}{k}$, a este lo llamaremos $M_{k}$. En este paso, el *mejor* modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el $R^2$ más grande.
+3) En este último paso, seleccionamos el mejor modelos entre $M_{0},...,M_{p}$ usando validación cruzada para predecir el error, $C_{p}$, $AIC$, $BIC$ o $R^{2}$ ajustado.
+
+Aunque la selección del mejor subconjunto es muy utilizada, usualmente es computalmente difícil de realizar si el número de predictores es muy alto. Cuando *p* es muy grande, mayor el espacio de búsqueda -esto puede sobre estimar los datos y aumentar la varianza de los coeficientes de los estimados-, más alta será la probabilidad de encontrar un model que se vea bien en los datos de entrenamiento, aunque puede que no tenga el mayor poder predictivo sobre los datos futuros.
 
 
 ### Selección paso a paso
 
+Debido a las diferentes complicaciones que tiene la *selección del mejor subconjunto*, se tienen otro tipo de métodos que usan modelos más restrictivo, lo cual los hace alternativas muchas más atractivos que la *selección del mejor subconjunto*. Este método es conocido como *selección paso a paso*, dentro de este hay tres diferentes tipos: selección hacia adelante, selección hacia atrás y selección hídrida.
+
 #### Selección hacia adelante
 
-#### Selección hacia atras
+Este tipo de selección tiene el nombre de selección hacia a delanta, porque comienza con un modelo que no contiene ningún predictor al comienzo, pero a medida que el modelo está corriendo se añaden variables al modelo una a la vez, hasta que todos las predictores estén dentro del modelo. Particularmente, solo las variables que causen un *mejoramiento adicional* al ajuste del modelo. este modelo funciona de la siguiente manera:
+
+1) Supongamos que $M_{0}$ es el *modelo nulo*, el cual contiene no predictores.
+2) Para $k = 0, 2,..., p - 1:$
+    2.1) Ajustar todos los modelos $p - k$ que aumenten los predictores $M_{k}$ con un predictor adicional.
+    2.2) Elegir el modelos entre todos los modelos $\p - k$, a este lo llamaremos $M_{k + 1}$. En este paso, el *mejor* modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el $R^2$ más grande.
+3) En este último paso, seleccionamos el mejor modelos entre $M_{0},...,M_{p}$ usando validación cruzada para predecir el error, $C_{p}$, $AIC$, $BIC$ o $R^{2}$ ajustado.
+
+#### Selección hacia atrás
 
 #### Selección híbrida
 

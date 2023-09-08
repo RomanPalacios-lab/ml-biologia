@@ -41,7 +41,7 @@ selección-de-subconjuntos
 selección-del-mejor-subconjunto
 selección-paso-a-paso
 selección-hacia-adelante
-selección-hacia-atras
+selección-hacia-atrás
 selección-híbrida
 selección-del-modelo-óptimo
 c_p-aic-bic-y-r2-ajustado
