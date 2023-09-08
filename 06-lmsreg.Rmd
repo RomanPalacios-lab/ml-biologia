@@ -65,7 +65,7 @@ Selección hacia adelante tiene muchas ventajas con respecto a la selección del
 
 
 
-## Métodos de contracción
+## Métodos de contracción (Cristian)
 
 ### Regresión de crestas (ridge regression)
 
@@ -84,26 +84,3 @@ Selección hacia adelante tiene muchas ventajas con respecto a la selección del
 #### Interpretación Bayesiana para la regresión de crestas y El Lasso
 
 ### Selección de ajuste de parámetros
-
-
-
-## Métodos de reducción dimensiones
-
-### Regresión de componentes principales
-
-#### Una descripción general del análisis de componentes principales
-
-#### El enfoque de regresión de componentes principales
-
-### Mínimos cuadrados parciales
-
-
-## Consideraciones en dimensiones altas
-
-### Datos de alta dimensionalidad
-
-### ¿Qué hay de malo con la alta dimensionalidad?
-
-### Regresión en alta dimensionalidad
-
-### Interpretando los resultados en alta dimensionalidad

@@ -1,5 +1,8 @@
-# Métodos basados en árboles
+# Métodos basados en árboles (Jhan)
 
-## lightGBM
+## Decision trees
+## Boosting and bagging
 
-## XGboost
+### lightGBM (Cristian)
+
+### XGboost (Cristian)
