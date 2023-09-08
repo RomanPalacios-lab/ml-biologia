@@ -8,7 +8,7 @@ En este capítulos vamos a extender lo que sabemos hasta ahora de modelos lineal
 
 Hay diferentes alternativas para ajustar el uso de los mínimos cuadrados.
 
-* *selección de subconjunto*: Este procedimiento trata de identificar un subconjunto de *p* predictores que se cree que están relacionados con la respuesta, para luego ajustar el modelo usado en los mínimos caudrados para reducir el conjunto de variables.
+* *Selección de subconjunto*: Este procedimiento trata de identificar un subconjunto de *p* predictores que se cree que están relacionados con la respuesta, para luego ajustar el modelo usado en los mínimos caudrados para reducir el conjunto de variables.
 
 * *Contracción*: Este procedimiento requiere ajustar un modelo con todos *p* predictores. Lo que hace ue haya un efecto en la reducción de la varianza, a su vez, de pendiendo del tipo de contracción que se utilice algunos de los coeficientes puede ser estimados como cero, lo que hace que el método de contracción pueda usarse para la selección de variables.
 
@@ -21,15 +21,15 @@ En esta sección vamos a hablar de dos tipos de selección de subconjuntos: sele
 
 ### Selección del mejor subconjunto
 
-Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores *p*. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores $(\binom{p}{2}) = p(p-1)/2$, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber $2^p$ posibilidades que debemos considerar para poder elegir el mejor subconjunto.
+Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores *p*. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores $\binom{p}{2} = p(p-1)/2$, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber $2^p$ posibilidades que debemos considerar para poder elegir el mejor subconjunto.
 
 Para llevar a cabo la selección del mejor subconjunto necesitamos seguir los siguientes pasos:
 
 
 1. AAA
-2.  para $k = 1, 2, ...p:$
-  a. Ajustar todos los modelos $(\binom{p}{k})$ que contengan el predictor *k*.
-  b.
+2.  Para $k = 1, 2, ...p:$
+  - Ajustar todos los modelos $\binom{p}{k}$ que contengan el predictor *k*.
+  - Elegir el modelos entre todos los modelos $\binom{p}{k}$, a este lo llamaremos $M_{k}$
 3.
 
 
