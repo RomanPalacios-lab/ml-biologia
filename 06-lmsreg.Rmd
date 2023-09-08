@@ -25,15 +25,12 @@ Para llevar a cabo este método, debemos ajustar separadamente regresiones de m�
 
 Para llevar a cabo la selección del mejor subconjunto necesitamos seguir los siguientes pasos:
 
-\begin{enumerate}
-\item 
-\item  para $k = 1, 2, ...p:$
-  \begin{enumerate}
-  \item Ajustar todos los modelos $(\binom{p}{k})$ que contengan el predictor *k*.
-  \item
-  \end{enumarate}
-\item 
-\end{enumarate}
+
+1. AAA
+2.  para $k = 1, 2, ...p:$
+  a. Ajustar todos los modelos $(\binom{p}{k})$ que contengan el predictor *k*.
+  b.
+3.
 
 
 ### Selección paso a paso
