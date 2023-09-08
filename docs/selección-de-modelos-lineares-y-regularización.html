@@ -290,9 +290,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Supongamos que <span class="math inline">\(M_{0}\)</span> es el <em>modelo nulo</em>, el cual contiene no predictores.</li>
 <li>Para <span class="math inline">\(k = 0, 2,..., p - 1:\)</span>
 2.1) Ajustar todos los modelos <span class="math inline">\(p - k\)</span> que aumenten los predictores <span class="math inline">\(M_{k}\)</span> con un predictor adicional.
-2.2) Elegir el modelos entre todos los modelos <span class="math inline">\(\p - k\)</span>, a este lo llamaremos <span class="math inline">\(M_{k + 1}\)</span>. En este paso, el <em>mejor</em> modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el <span class="math inline">\(R^2\)</span> más grande.</li>
+2.2) Elegir el modelos entre todos los modelos <span class="math inline">\(p - k\)</span>, a este lo llamaremos <span class="math inline">\(M_{k + 1}\)</span>. En este paso, el <em>mejor</em> modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el <span class="math inline">\(R^2\)</span> más grande.</li>
 <li>En este último paso, seleccionamos el mejor modelos entre <span class="math inline">\(M_{0},...,M_{p}\)</span> usando validación cruzada para predecir el error, <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> o <span class="math inline">\(R^{2}\)</span> ajustado.</li>
 </ol>
+<p>Selección hacia adelante tiene muchas ventajas con respecto a la selección del mejor subconjunto, sin embargo, a veces no garantiza encontrar el mejor modelo posible paara todos los moldes <span class="math inline">\(2^{p}\)</span> que contiene el subconjunto de predictores <em>p</em>. Para explicar esto, supongamos que tenemos un conjunto de datos con <span class="math inline">\(p = 3\)</span> predicotres, donde el mejor modelo posible de una variable contiene <span class="math inline">\(X_{1}\)</span></p>
 </div>
 <div id="selección-hacia-atrás" class="section level4 hasAnchor" number="6.1.2.2">
 <h4><span class="header-section-number">6.1.2.2</span> Selección hacia atrás<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-atrás" class="anchor-section" aria-label="Anchor link to header"></a></h4>
