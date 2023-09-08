@@ -26,11 +26,11 @@ Para llevar a cabo este método, debemos ajustar separadamente regresiones de m�
 Para llevar a cabo la selección del mejor subconjunto necesitamos seguir los siguientes pasos:
 
 
-1. AAA
-2.  Para $k = 1, 2, ...p:$
-  - Ajustar todos los modelos $\binom{p}{k}$ que contengan el predictor *k*.
-  - Elegir el modelos entre todos los modelos $\binom{p}{k}$, a este lo llamaremos $M_{k}$
-3.
+1) AAA
+2) Para $k = 1, 2, ...p:$
+    a) Ajustar todos los modelos $\binom{p}{k}$ que contengan el predictor *k*.
+    b) Elegir el modelos entre todos los modelos $\binom{p}{k}$, a este lo llamaremos $M_{k}$
+3)
 
 
 ### Selección paso a paso
