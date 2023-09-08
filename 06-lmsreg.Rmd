@@ -45,8 +45,8 @@ Este tipo de selección tiene el nombre de selección hacia a delanta, porque co
 
 1) Supongamos que $M_{0}$ es el *modelo nulo*, el cual contiene no predictores.
 2) Para $k = 0, 2,..., p - 1:$
-    2.1) Ajustar todos los modelos $p - k$ que aumenten los predictores $M_{k}$ con un predictor adicional.
-    2.2) Elegir el modelos entre todos los modelos $p - k$, a este lo llamaremos $M_{k + 1}$. En este paso, el *mejor* modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el $R^2$ más grande.
+    a) Ajustar todos los modelos $p - k$ que aumenten los predictores $M_{k}$ con un predictor adicional.
+    b) Elegir el modelos entre todos los modelos $p - k$, a este lo llamaremos $M_{k + 1}$. En este paso, el *mejor* modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el $R^2$ más grande.
 3) En este último paso, seleccionamos el mejor modelos entre $M_{0},...,M_{p}$ usando validación cruzada para predecir el error, $C_{p}$, $AIC$, $BIC$ o $R^{2}$ ajustado.
 
 Selección hacia adelante tiene muchas ventajas con respecto a la selección del mejor subconjunto, sin embargo, a veces no garantiza encontrar el mejor modelo posible paara todos los moldes $2^{p}$ que contiene el subconjunto de predictores *p*. Para explicar esto, supongamos que tenemos un conjunto de datos con $p = 3$ predicotres, donde el mejor modelo posible de una variable contiene $X_{1}$
