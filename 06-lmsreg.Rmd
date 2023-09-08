@@ -21,7 +21,19 @@ En esta sección vamos a hablar de dos tipos de selección de subconjuntos: sele
 
 ### Selección del mejor subconjunto
 
-Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores *p*. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores $(\frac{p}{2}) = p(p-1)/2$, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber $2^p$ posibilidades que debemos considerar para poder elegir el mejor subconjunto.
+Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores *p*. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores $(\binom{p}{2}) = p(p-1)/2$, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber $2^p$ posibilidades que debemos considerar para poder elegir el mejor subconjunto.
+
+Para llevar a cabo la selección del mejor subconjunto necesitamos seguir los siguientes pasos:
+
+\begin{enumerate}
+\item 
+\item  para $k = 1, 2, ...p:$
+  \begin{enumerate}
+  \item Ajustar todos los modelos $(\binom{p}{k})$ que contengan el predictor *k*.
+  \item
+  \end{enumarate}
+\item 
+\end{enumarate}
 
 
 ### Selección paso a paso

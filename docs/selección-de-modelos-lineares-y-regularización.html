@@ -267,7 +267,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>En esta sección vamos a hablar de dos tipos de selección de subconjuntos: selección del mejor subconjunto y selección paso a paso.</p>
 <div id="selección-del-mejor-subconjunto" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Selección del mejor subconjunto<a href="selección-de-modelos-lineares-y-regularización.html#selección-del-mejor-subconjunto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores <em>p</em>. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores <span class="math inline">\((\frac{p}{2}) = p(p-1)/2\)</span>, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber <span class="math inline">\(2^p\)</span> posibilidades que debemos considerar para poder elegir el mejor subconjunto.</p>
+<p>Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores <em>p</em>. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores <span class="math inline">\((\binom{p}{2}) = p(p-1)/2\)</span>, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber <span class="math inline">\(2^p\)</span> posibilidades que debemos considerar para poder elegir el mejor subconjunto.</p>
+<p>Para llevar a cabo la selección del mejor subconjunto necesitamos seguir los siguientes pasos:</p>
+\begin{enumerate}
+para <span class="math inline">\(k = 1, 2, ...p:\)</span>
+\begin{enumerate}
+Ajustar todos los modelos <span class="math inline">\((\binom{p}{k})\)</span> que contengan el predictor <em>k</em>.
+\end{enumarate}
+<p>\end{enumarate}</p>
 </div>
 <div id="selección-paso-a-paso" class="section level3 hasAnchor" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Selección paso a paso<a href="selección-de-modelos-lineares-y-regularización.html#selección-paso-a-paso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
