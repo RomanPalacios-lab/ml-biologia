@@ -10,16 +10,19 @@ Hay diferentes alternativas para ajustar el uso de los mínimos cuadrados.
 
 * *selección de subconjunto*: Este procedimiento trata de identificar un subconjunto de *p* predictores que se cree que están relacionados con la respuesta, para luego ajustar el modelo usado en los mínimos caudrados para reducir el conjunto de variables.
 
-* *Contracción*: Este procedimiento requiere ajustar un modelo con todos *p* predictores. 
+* *Contracción*: Este procedimiento requiere ajustar un modelo con todos *p* predictores. Lo que hace ue haya un efecto en la reducción de la varianza, a su vez, de pendiendo del tipo de contracción que se utilice algunos de los coeficientes puede ser estimados como cero, lo que hace que el método de contracción pueda usarse para la selección de variables.
 
-* *Reducción dimensiones*:
+* *Reducción dimensiones*: Este método tiene como objetivo *proyectar* los predictores *p* en *M* dimensiones subespaciales donde $M < p$. Lo cual se logra por medio de computar *M* *combinaciones lineares* diferentes o *proyecciones* de las variables. Luego, esta *M* proyecciones se usan como predictores para ajustar el modelos de regresión lineal por medio de mínimos cuadrados.
 
 
 ## Selección de subconjuntos
 
-
+En esta sección vamos a hablar de dos tipos de selección de subconjuntos: selección del mejor subconjunto y selección paso a paso.
 
 ### Selección del mejor subconjunto
+
+Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores *p*. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores $(\frac{p}{2}) = p(p-1)/2$, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber $2^p$ posibilidades que debemos considerar para poder elegir el mejor subconjunto.
+
 
 ### Selección paso a paso
 

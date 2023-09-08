@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-09-07" />
+<meta name="date" content="2023-09-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -259,13 +259,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hay diferentes alternativas para ajustar el uso de los mínimos cuadrados.</p>
 <ul>
 <li><p><em>selección de subconjunto</em>: Este procedimiento trata de identificar un subconjunto de <em>p</em> predictores que se cree que están relacionados con la respuesta, para luego ajustar el modelo usado en los mínimos caudrados para reducir el conjunto de variables.</p></li>
-<li><p><em>Contracción</em>: Este procedimiento requiere ajustar un modelo con todos <em>p</em> predictores.</p></li>
-<li><p><em>Reducción dimensiones</em>:</p></li>
+<li><p><em>Contracción</em>: Este procedimiento requiere ajustar un modelo con todos <em>p</em> predictores. Lo que hace ue haya un efecto en la reducción de la varianza, a su vez, de pendiendo del tipo de contracción que se utilice algunos de los coeficientes puede ser estimados como cero, lo que hace que el método de contracción pueda usarse para la selección de variables.</p></li>
+<li><p><em>Reducción dimensiones</em>: Este método tiene como objetivo <em>proyectar</em> los predictores <em>p</em> en <em>M</em> dimensiones subespaciales donde <span class="math inline">\(M &lt; p\)</span>. Lo cual se logra por medio de computar <em>M</em> <em>combinaciones lineares</em> diferentes o <em>proyecciones</em> de las variables. Luego, esta <em>M</em> proyecciones se usan como predictores para ajustar el modelos de regresión lineal por medio de mínimos cuadrados.</p></li>
 </ul>
 <div id="selección-de-subconjuntos" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Selección de subconjuntos<a href="selección-de-modelos-lineares-y-regularización.html#selección-de-subconjuntos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En esta sección vamos a hablar de dos tipos de selección de subconjuntos: selección del mejor subconjunto y selección paso a paso.</p>
 <div id="selección-del-mejor-subconjunto" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Selección del mejor subconjunto<a href="selección-de-modelos-lineares-y-regularización.html#selección-del-mejor-subconjunto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para llevar a cabo este método, debemos ajustar separadamente regresiones de mínimos caudrados para cada combinación de predictores <em>p</em>. Es decir, ajustar modelos que tenga un predictor, luego para todos los modelos que contengan dos predictores <span class="math inline">\((\frac{p}{2}) = p(p-1)/2\)</span>, y así sucesivamente. Luego, revisamos todos los modelos resultantes para identificar el mejor modelo. No obstante, debemos tener en cuenta que este tipo de selección puede ser problemático porque pueden haber <span class="math inline">\(2^p\)</span> posibilidades que debemos considerar para poder elegir el mejor subconjunto.</p>
 </div>
 <div id="selección-paso-a-paso" class="section level3 hasAnchor" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Selección paso a paso<a href="selección-de-modelos-lineares-y-regularización.html#selección-paso-a-paso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
