@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-09-11" />
+<meta name="date" content="2023-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -277,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Debido a las diferentes complicaciones que tiene la <em>selección del mejor subconjunto</em>, se tienen otro tipo de métodos que usan modelos más restrictivo, lo cual los hace alternativas muchas más atractivos que la <em>selección del mejor subconjunto</em>. Este método es conocido como <em>selección paso a paso</em>, dentro de este hay tres diferentes tipos: selección hacia adelante, selección hacia atrás y selección hídrida.</p>
 <div id="selección-hacia-adelante" class="section level4 hasAnchor" number="6.1.2.1">
 <h4><span class="header-section-number">6.1.2.1</span> Selección hacia adelante<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-adelante" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Este tipo de selección tiene el nombre de selección hacia a delanta, porque comienza con un modelo que no contiene ningún predictor al comienzo, pero a medida que el modelo está corriendo se añaden variables al modelo una a la vez, hasta que todos las predictores estén dentro del modelo. Particularmente, solo las variables que causen un <em>mejoramiento adicional</em> al ajuste del modelo. este modelo funciona de la siguiente manera:</p>
+<p>Este tipo de selección tiene el nombre de selección hacia a delanta, porque comienza con un modelo que no contiene ningún predictor al comienzo, pero a medida que el modelo está corriendo se añaden variables al modelo una a la vez, hasta que todos las predictores estén dentro del modelo. Particularmente, solo las variables que causen un <em>mejoramiento adicional</em> al ajuste del modelo. Este modelo funciona de la siguiente manera:</p>
 <ol style="list-style-type: decimal">
 <li>Supongamos que <span class="math inline">\(M_{0}\)</span> es el <em>modelo nulo</em>, el cual contiene no predictores.</li>
 <li>Para <span class="math inline">\(k = 0, 2,..., p - 1:\)</span>
@@ -287,10 +287,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 <li>En este último paso, seleccionamos el mejor modelos entre <span class="math inline">\(M_{0},...,M_{p}\)</span> usando validación cruzada para predecir el error, <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> o <span class="math inline">\(R^{2}\)</span> ajustado.</li>
 </ol>
-<p>Selección hacia adelante tiene muchas ventajas con respecto a la selección del mejor subconjunto, sin embargo, a veces no garantiza encontrar el mejor modelo posible paara todos los moldes <span class="math inline">\(2^{p}\)</span> que contiene el subconjunto de predictores <em>p</em>. Para explicar esto, supongamos que tenemos un conjunto de datos con <span class="math inline">\(p = 3\)</span> predicotres, donde el mejor modelo posible de una variable contiene <span class="math inline">\(X_{1}\)</span></p>
+<p>Selección hacia adelante tiene muchas ventajas con respecto a la selección del mejor subconjunto, sin embargo, a veces no garantiza encontrar el mejor modelo posible para todos los modelos <span class="math inline">\(2^{p}\)</span> que contiene el subconjunto de predictores <em>p</em>. Para explicar esto, supongamos que tenemos un conjunto de datos con <span class="math inline">\(p = 3\)</span> predicotres, donde el mejor modelo posible de una variable contiene <span class="math inline">\(X_{1}\)</span>, y el mejor modelo con dos variables contiene <span class="math inline">\(X_{2}\)</span> y <span class="math inline">\(X_{3}\)</span>. En este tipo de casos, la selección hacia adelante no eligirá el mejor modelo que contiene dos varibles, porque <span class="math inline">\(M_{1}\)</span> contendría <span class="math inline">\(X_{1}\)</span>, así que <span class="math inline">\(M_{2}\)</span> tendría que contener <span class="math inline">\(X_{1}\)</span> con una variable adicional.</p>
+<p>Asimismo, la selección hacia adelante puede usarse para problemas de alta dimensionalidad, donde <span class="math inline">\(n &lt; p\)</span>. Sin embargo, en este caso, es posible construir submodelos <span class="math inline">\(M_{0},...,M_{n-1}\)</span>, dado que cada submodelos se ajusta usando mínimos cuadrados donde no va a haber una única respuesta si <span class="math inline">\(p \geq n\)</span>.</p>
 </div>
 <div id="selección-hacia-atrás" class="section level4 hasAnchor" number="6.1.2.2">
 <h4><span class="header-section-number">6.1.2.2</span> Selección hacia atrás<a href="selección-de-modelos-lineares-y-regularización.html#selección-hacia-atrás" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La selección hacia atrás es una alternativa eficiente para elegir el mejor subconjunto. Esta se diferencia de la selección hacia adelante porque comienza con un modelo de mínimos cuadrados que contiene todos los predictores <em>p</em>, y en cada iteración elimina el predictor que no esté aportando al modelo, uno a la vez. Este modelo funciona de la siguiente manera:</p>
+<ol style="list-style-type: decimal">
+<li>Supongamos que <span class="math inline">\(M_{p}\)</span> es el <em>modelo nulo</em>, el cual contiene todos los predictores <em>p</em>.</li>
+<li>Para <span class="math inline">\(k = p, p - 1,..., 1:\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>Considerar todos los modelos <span class="math inline">\(k\)</span> que contienen todas las variables menos uno en <span class="math inline">\(M_{k}\)</span>, para un total de <span class="math inline">\(k - 1\)</span> predictores.</li>
+<li>Elegir el <em>mejor</em> entre todos los modelos <span class="math inline">\(k\)</span>, a este lo llamaremos <span class="math inline">\(M_{k - 1}\)</span>. En este paso, el <em>mejor</em> modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el <span class="math inline">\(R^2\)</span> más grande.</li>
+</ol></li>
+<li>En este último paso, seleccionamos el mejor modelos entre <span class="math inline">\(M_{0},...,M_{p}\)</span> usando validación cruzada para predecir el error, <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> o <span class="math inline">\(R^{2}\)</span> ajustado.</li>
+</ol>
 </div>
 <div id="selección-híbrida" class="section level4 hasAnchor" number="6.1.2.3">
 <h4><span class="header-section-number">6.1.2.3</span> Selección híbrida<a href="selección-de-modelos-lineares-y-regularización.html#selección-híbrida" class="anchor-section" aria-label="Anchor link to header"></a></h4>

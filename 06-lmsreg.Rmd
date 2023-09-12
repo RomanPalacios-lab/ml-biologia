@@ -41,7 +41,7 @@ Debido a las diferentes complicaciones que tiene la *selección del mejor subcon
 
 #### Selección hacia adelante
 
-Este tipo de selección tiene el nombre de selección hacia a delanta, porque comienza con un modelo que no contiene ningún predictor al comienzo, pero a medida que el modelo está corriendo se añaden variables al modelo una a la vez, hasta que todos las predictores estén dentro del modelo. Particularmente, solo las variables que causen un *mejoramiento adicional* al ajuste del modelo. este modelo funciona de la siguiente manera:
+Este tipo de selección tiene el nombre de selección hacia a delanta, porque comienza con un modelo que no contiene ningún predictor al comienzo, pero a medida que el modelo está corriendo se añaden variables al modelo una a la vez, hasta que todos las predictores estén dentro del modelo. Particularmente, solo las variables que causen un *mejoramiento adicional* al ajuste del modelo. Este modelo funciona de la siguiente manera:
 
 1) Supongamos que $M_{0}$ es el *modelo nulo*, el cual contiene no predictores.
 2) Para $k = 0, 2,..., p - 1:$
@@ -49,9 +49,19 @@ Este tipo de selección tiene el nombre de selección hacia a delanta, porque co
     b) Elegir el modelos entre todos los modelos $p - k$, a este lo llamaremos $M_{k + 1}$. En este paso, el *mejor* modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el $R^2$ más grande.
 3) En este último paso, seleccionamos el mejor modelos entre $M_{0},...,M_{p}$ usando validación cruzada para predecir el error, $C_{p}$, $AIC$, $BIC$ o $R^{2}$ ajustado.
 
-Selección hacia adelante tiene muchas ventajas con respecto a la selección del mejor subconjunto, sin embargo, a veces no garantiza encontrar el mejor modelo posible paara todos los moldes $2^{p}$ que contiene el subconjunto de predictores *p*. Para explicar esto, supongamos que tenemos un conjunto de datos con $p = 3$ predicotres, donde el mejor modelo posible de una variable contiene $X_{1}$
+Selección hacia adelante tiene muchas ventajas con respecto a la selección del mejor subconjunto, sin embargo, a veces no garantiza encontrar el mejor modelo posible para todos los modelos $2^{p}$ que contiene el subconjunto de predictores *p*. Para explicar esto, supongamos que tenemos un conjunto de datos con $p = 3$ predicotres, donde el mejor modelo posible de una variable contiene $X_{1}$, y el mejor modelo con dos variables contiene $X_{2}$ y $X_{3}$. En este tipo de casos, la selección hacia adelante no eligirá el mejor modelo que contiene dos varibles, porque $M_{1}$ contendría $X_{1}$, así que $M_{2}$ tendría que contener $X_{1}$ con una variable adicional.
+
+Asimismo, la selección hacia adelante puede usarse para problemas de alta dimensionalidad, donde $n < p$. Sin embargo, en este caso, es posible construir submodelos $M_{0},...,M_{n-1}$, dado que cada submodelos se ajusta usando mínimos cuadrados donde no va a haber una única respuesta si $p \geq n$. 
 
 #### Selección hacia atrás
+
+La selección hacia atrás es una alternativa eficiente para elegir el mejor subconjunto. Esta se diferencia de la selección hacia adelante porque comienza con un modelo de mínimos cuadrados que contiene todos los predictores *p*, y en cada iteración elimina el predictor que no esté aportando al modelo, uno a la vez. Este modelo funciona de la siguiente manera:
+
+1) Supongamos que $M_{p}$ es el *modelo nulo*, el cual contiene todos los predictores *p*.
+2) Para $k = p, p - 1,..., 1:$
+    a) Considerar todos los modelos $k$ que contienen todas las variables menos uno en $M_{k}$, para un total de $k - 1$ predictores.
+    b) Elegir el *mejor* entre todos los modelos $k$, a este lo llamaremos $M_{k - 1}$. En este paso, el *mejor* modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el $R^2$ más grande.
+3) En este último paso, seleccionamos el mejor modelos entre $M_{0},...,M_{p}$ usando validación cruzada para predecir el error, $C_{p}$, $AIC$, $BIC$ o $R^{2}$ ajustado.
 
 #### Selección híbrida
 
