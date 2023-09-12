@@ -302,6 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 <li>En este último paso, seleccionamos el mejor modelos entre <span class="math inline">\(M_{0},...,M_{p}\)</span> usando validación cruzada para predecir el error, <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> o <span class="math inline">\(R^{2}\)</span> ajustado.</li>
 </ol>
+<p>La selección hacia atrás buscan solamente <span class="math inline">\(1 + p(p + 1)/2\)</span> modelos, también puede ser aplicado cuando <em>p</em> es demasiado alto como para aplicar la selección del mejor subconjunto. No obstante, al igual que en la selección hacia adelante, la selección hacia atrás no garatiza encontrar el <em>mejor</em> modelo que contenga un subconjunto con <em>p</em> predictores. Uno de los requerimientos de la selección hacia atrás es que el número de muestras <em>n</em> sea mayor que el número de variables <em>p</em>.</p>
 </div>
 <div id="selección-híbrida" class="section level4 hasAnchor" number="6.1.2.3">
 <h4><span class="header-section-number">6.1.2.3</span> Selección híbrida<a href="selección-de-modelos-lineares-y-regularización.html#selección-híbrida" class="anchor-section" aria-label="Anchor link to header"></a></h4>

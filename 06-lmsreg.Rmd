@@ -63,6 +63,10 @@ La selección hacia atrás es una alternativa eficiente para elegir el mejor sub
     b) Elegir el *mejor* entre todos los modelos $k$, a este lo llamaremos $M_{k - 1}$. En este paso, el *mejor* modelo se puede identificar porque tiene el RSS más pequeño o, equivalentemente, el $R^2$ más grande.
 3) En este último paso, seleccionamos el mejor modelos entre $M_{0},...,M_{p}$ usando validación cruzada para predecir el error, $C_{p}$, $AIC$, $BIC$ o $R^{2}$ ajustado.
 
+La selección hacia atrás buscan solamente $1 + p(p + 1)/2$ modelos, también puede ser aplicado cuando *p* es demasiado alto como para aplicar la selección del mejor subconjunto. No obstante, al igual que en la selección hacia adelante, la selección hacia atrás no garatiza encontrar el *mejor* modelo que contenga un subconjunto con *p* predictores. Uno de los requerimientos de la selección hacia atrás es que el número de muestras *n* sea mayor que el número de variables *p*.
+
+
+
 #### Selección híbrida
 
 
