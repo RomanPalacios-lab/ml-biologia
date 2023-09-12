@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología</title>
-  <meta name="description" content="Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología" />
+  <title>Capitulo 7 Métodos basados en árboles (Jhan) | Introducción al uso de machine learning en biología</title>
+  <meta name="description" content="Capitulo 7 Métodos basados en árboles (Jhan) | Introducción al uso de machine learning en biología" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología" />
+  <meta property="og:title" content="Capitulo 7 Métodos basados en árboles (Jhan) | Introducción al uso de machine learning en biología" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitulo 5 Métodos de remuestreo | Introducción al uso de machine learning en biología" />
+  <meta name="twitter:title" content="Capitulo 7 Métodos basados en árboles (Jhan) | Introducción al uso de machine learning en biología" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="clasificaciones.html"/>
-<link rel="next" href="selección-de-modelos-lineares-y-regularización.html"/>
+<link rel="prev" href="selección-de-modelos-lineares-y-regularización.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -241,69 +241,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="métodos-de-remuestreo" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Capitulo 5</span> Métodos de remuestreo<a href="métodos-de-remuestreo.html#métodos-de-remuestreo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Los métodos de remuestreo son de las herramientas más valiosas en la estadística moderna, dado que esta elije muestras del set de prueba y reajustando el modelo de interés de cada muestra con el fin de obtener información adicional sonre el modelo que ajustamos que de otro modo no estaría disponible con solo ajustar el modelo una vez usando las datos de entrenamiento. En este capítulo hablaremos sobre dos de los métodos de remuestreo más usados, <em>validación cruzada</em> y <em>arranque/bootstrap</em>. Normalmente usamos <em>validación cruzada</em> para estimar el erros de prueba asociado a un método de aprendizaje estadístico particular o para elegirr el nivel apropiado de flexibilidad. Mientras que <em>bootstrap</em> ayuda obtener una medida de precisión de los parámetros estimados o de un método de aprendizaje estadístico particular. Estos dos métodos estiman predicciones de error par los set de prueba, para la desviación estándar y el sesgo de los estimados de nuestros parámetros.</p>
-<div id="validación-cruzada" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Validación cruzada<a href="métodos-de-remuestreo.html#validación-cruzada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Antes de comenzar, recordemos un par de conceptos que vamos usar exhaustivamente a lo largo de este capítulo. El <em>error de prueba</em> es el error promedio que resulta de usar uno de los métodos de aprendizaje estadístico para predecir la respuesta en una nueva observación, uno que no fue usada en el método de entrenamiento. Por otro lado, el <em>error de entrenamiento</em> se puede calcular aplicando el método de aprendizaje estadístico sobre las observaciones usadas en su entrenamiento. <em><strong>Nota</strong>: el error de entrenamiento usualmente sobreestima el error de prueba.</em></p>
-<div id="conjunto-de-validación" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Conjunto de validación<a href="métodos-de-remuestreo.html#conjunto-de-validación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Al momento de estimar nuestro error de prueba asociado con el ajuste de nuestro método estadístico de interés en un conjuntos de observaciones, podemos separar nuestras observaciones en un <em>un conjunto de entrenamiento</em> y un <em>conjunto de validación</em>. En donde el modelo se ajusta utilizando el set de entrenamiento, y el modelo ajustado se usa para predecir la respuesta para las observaciones del conjunto de validación. El resultado de error del conjunto de validación nos da un estimado del error de prueba. Normalmente, esto se evalúa utilizando MSE en el caso de una respuesta cuantitativa y una tasa de clasificación errónea en el caso de una respuesta cualitativa (discreta). Aunque este método es ampliamente utilizado, hay algunas debilidades que tenemos que tener en cuenta:</p>
-<ul>
-<li>El estimado de validación del error de prubea puede ser altamente variable, lo cual depende de qué observaciones son incluídas en el set de entrenamiento y cuales son incluídas en el conjunto de validación.</li>
-<li>En este método solo se incluye un subconjunto de las observaciones, las cuales se utilizan para ajustar el modelo.</li>
-<li>El error del set de validación usualmente tiende a sobreestimar el error de prueba para el modelo que se ajusta para todo el set de datos.</li>
-</ul>
+<div id="métodos-basados-en-árboles-jhan" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Capitulo 7</span> Métodos basados en árboles (Jhan)<a href="métodos-basados-en-árboles-jhan.html#métodos-basados-en-árboles-jhan" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="decision-trees" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Decision trees<a href="métodos-basados-en-árboles-jhan.html#decision-trees" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="validación-cruzada-dejando-un-elemento-fuera-loocv" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Validación cruzada dejando un elemento fuera (LOOCV)<a href="métodos-de-remuestreo.html#validación-cruzada-dejando-un-elemento-fuera-loocv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La validación cruzada dejando un elemento fuera (LOOCV por sus siglas en inglés, leave-one-out cross-validation) es muy similar al conjunto de validación, pero trata de resolver la resolver las debilidades que este tiene. Este tipo de validación cruzada solo usamos una sola observación <span class="math inline">\((x_{1}, y_{1})\)</span> para el set de validación, y el resto de observaciones <span class="math inline">\({(x_{2}, y_{2}),...,(x_{n}, y_{n})}\)</span> se usan para el set de entrenamiento. Dado que <span class="math inline">\((x_{1}, y_{1})\)</span> no fue usada para ajustar el proceso, <span class="math inline">\(MSE_{1} = (y_{1} - \hat{y_{1}})^{2}\)</span> provee una aproximación del estimado no sesgado para el error de prueba. No obstante, <span class="math inline">\(MSE_{1}\)</span> es un estimado muy variable, dado que estimado apartir de una sola observación <span class="math inline">\((x_{1}, y_{1})\)</span>. El estimado de LOOCV para el MSE de prueba es el promedio de los <em>n</em> estimados del error de prueba</p>
-<p><span class="math display">\[CV_{n} = \frac{1}{n}\sum_{i=1}^{n}(\frac{y_{i} - \hat{y_{i}}}{1 - h_{i}})^{2}\]</span>
-En donde, <span class="math inline">\(\hat{y_{i}}\)</span> es el <em>i</em>th valor ajustado usando el justo original de mínimos cuadrados, y <em>h</em>th es el apalancamiento (leverage). <em><strong>Nota</strong>: esto es como un MSE ordinario, excepto que contiene el residual </em>i<em>th dividido por <span class="math inline">\(1-h_{i}\)</span>.</em> Aunque LOOCV ha demostrado ser un método muy útil para hacer remuestreo, pero cada interación está correlacionada, lo cual hace que media tenga una varianza muy alta. No obstante, existe otro método que podemos usar para evitar esto, <em>validación cruzada de K-iteraciones</em>.</p>
+<div id="boosting-and-bagging" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Boosting and bagging<a href="métodos-basados-en-árboles-jhan.html#boosting-and-bagging" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="lightgbm-cristian" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> lightGBM (Cristian)<a href="métodos-basados-en-árboles-jhan.html#lightgbm-cristian" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="validación-cruzada-de-k-iteraciones-k-fold-cv" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Validación cruzada de K-iteraciones (<em>k</em>-fold CV)<a href="métodos-de-remuestreo.html#validación-cruzada-de-k-iteraciones-k-fold-cv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La validación cruzada de K-iteraciones es un método alternativo al LOOCV. En el <em>k</em>-fold CV se hacen divisiones aleatorias del set de observaciones para formar <em>k</em> grupos, o iteraciones, que son casi del mismo tamaño. La primera iteración es tomada como el set de validación, y el método se ajusta usando el resto de iteraciones <span class="math inline">\(k - 1\)</span>. Dado que este proceso requiere varias iteraciones, cada que se corre una iteració, <em>k</em> estima el error de prueba, <span class="math inline">\(MSE_{1}, MSE_{2},...,MSE_{k}\)</span>. Para computar el <em>k</em>-fold CV utilizamos la siguiente formula.</p>
-<p><span class="math display">\[CV_{k} = \frac{1}{k}\sum_{i=1}^{k}MSE_{i}\]</span>
-Cuando vamos a correr este método usalmente utilizamos un <span class="math inline">\(k = 5\)</span> o <span class="math inline">\(k = 10\)</span>, esto hace que sea muy sencillo de correr en cualquier método de aprendizaje estadístico, dado que la validación cruzada solo va a correr 5 o 10 veces.</p>
-</div>
-<div id="sesgo-y-varianza-para-validación-cruzada-de-k-interaciones" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Sesgo y varianza para validación cruzada de K-interaciones<a href="métodos-de-remuestreo.html#sesgo-y-varianza-para-validación-cruzada-de-k-interaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Una de las principales ventajas del <em>k</em>-fold CV es que puede estimar con mayor precisión el error de prueba que el LOOCV, esto se debe a la relación de costo y beneficio con respecto al sesgo y la varianza. Dado que el <em>k</em>-fold CV utiliza un <span class="math inline">\(k = 5\)</span> o un <span class="math inline">\(k = 10\)</span>, el valor del sesgo es usualmente intermadio, debido a que cada set de entrenamiento contiene <span class="math inline">\((k-1)n/k\)</span> observaciones. No obstante, esto causa que el estimado de predicción del error tenga un sesgo así arriba -tiende a aumentar-, pero el sesgo disminuye cuando <span class="math inline">\(K = n\)</span> (LOOCV), sin embargo, este estimado tiene una alta varianza. Por esto, utilizar un <span class="math inline">\(k = 5\)</span> o un <span class="math inline">\(k = 10\)</span> provee un buen compromiso para la relación costo-beneficio de sesgo y varianza, dado que los estimaddos para la tasa de error de prueba no sufren de sesgo ni de varianza alta.</p>
-</div>
-<div id="validación-cruzada-en-problemas-de-clasificación" class="section level3 hasAnchor" number="5.1.5">
-<h3><span class="header-section-number">5.1.5</span> Validación cruzada en problemas de clasificación<a href="métodos-de-remuestreo.html#validación-cruzada-en-problemas-de-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La validación cruzada también puede ser usada en problemas de clasifición, cuando <em>Y</em> es cualitativa en lugar de cuantitativa. A diferencia de como vimos antes, el error de prueba en este caso es el número de clasificaciones erróneas. Para el caso de LOOCV, la tasa de error se denota como</p>
-<p><span class="math display">\[CV_{k} = \frac{1}{n}\sum_{i=1}^{n}Err_{i}\]</span>
-Donde <span class="math inline">\(Err_{i} = I(y_{i} \neq \hat{y_{i}})\)</span>. El error para <em>k</em>-fold CV y el error para el set de validación son definidos análogamente.</p>
-</div>
-</div>
-<div id="boopstrap-o-arranque" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Boopstrap (o arranque)<a href="métodos-de-remuestreo.html#boopstrap-o-arranque" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Bootstrap o arranque es uno de los métodos de remuestreo mas aplicados, dado que puede usarse para cuantificar la incertidumbre que está asociada a uno estimado en particular o a un método de aprendizaje estadístico. Este método es especialmente útil cuando se necesita medir la variabilidad de un estimado cuando este es muy difícil de obtener usando otro método o no cuando el resultado no se estima por defecto en el programa estadístico que estamos usando. Usualmente, boopstrap se usa para minimizar <span class="math inline">\(Var(\alpha X + (1 - \alpha) Y)\)</span>, donde <span class="math inline">\(\alpha\)</span> se estima como,</p>
-<p><span class="math display">\[\alpha = \frac{\alpha_{Y}^{2} - \alpha_{XY}}{\alpha_{X}^{2} + \alpha_{Y}^{2} - 2\alpha_{XY}}\]</span>,</p>
-<p>Donde, <span class="math inline">\(\alpha_{X}^{2} = Var(X)\)</span>, <span class="math inline">\(\alpha_{Y}^{2} = Var(Y)\)</span>, y <span class="math inline">\(\alpha_{XY} = Cov(X, Y)\)</span>.</p>
-<p>Como hemos visto antes, usualmente las cantidades <span class="math inline">\(\alpha_{X}^{2}\)</span>, <span class="math inline">\(\alpha_{Y}^{2}\)</span>, y <span class="math inline">\(\alpha_{XY}\)</span> son desconocidas, por tanto debemos cuantificar los estimados, los cuales se representan como, <span class="math inline">\(\hat{\alpha}_{X}^{2}\)</span>, <span class="math inline">\(\hat{\alpha}_{Y}^{2}\)</span>, y <span class="math inline">\(\hat{\alpha}_{XY}\)</span>, por lo tanto, nuestra ecuación se representaría como,</p>
-<p><span class="math display">\[\hat{\alpha} = \frac{\hat{\alpha}_{Y}^{2} - \hat{\alpha}_{XY}}{\hat{\alpha}_{X}^{2} + \hat{\alpha}_{Y}^{2} – 2\hat{\alpha}_{XY}}\]</span>.</p>
-<p>Una de las ventajas de usar bootstrap es que podemos computar -emular- el proceso que estamos corriendo para obtener nuestras muestra que podemos utilizar para estimar la variabilidad de <span class="math inline">\(\hat{\alpha}\)</span> sin necesidad de general muestras adicionales. En otras palabras, lo que se hace es que, en lugar de obtener muestras independientes de la población, obtenemos conjuntos de datos diferentes por medio de repetir las observaciones <em>que ya se tienen para el grupo de datos original</em> <strong>con un reemplazo</strong>. Cada uno de estos grupos de Bootstrap es creado por medio del muestreo <strong>con reemplazos</strong>, el cual es del <strong>mismo tamaño</strong> del conjunto de datos original. Como resultado, algunas de las observaciones aparecen mas de una vez en un conjunto de datos de bootstrap o puede que no aparezcan en ninguno.</p>
-<p>Para estimar el error estándar en estos conjuntos de Bootstrap, tenemos que cada conjunto se denota como <span class="math inline">\(Z^{*1}\)</span>, por lo tanto, <span class="math inline">\(\alpha\)</span> se denotaría como <span class="math inline">\(\hat{\alpha^{*1}}\)</span>. Igualmente, este procedimiento puede ser repetido <span class="math inline">\(B\)</span> veces. Si tenemos <span class="math inline">\(B\)</span> conjuntos de bootstrap, entonces cada conjunto se denotaría como, <span class="math inline">\(Z^{*1}\)</span>, <span class="math inline">\(Z^{*2}\)</span>,…<span class="math inline">\(Z^{*B}\)</span>, y <span class="math inline">\(B\)</span>, y los estimados de <span class="math inline">\(\alpha\)</span> serían <span class="math inline">\(\hat{\alpha}^{*1}\)</span>, <span class="math inline">\(\hat{\alpha}^{*2}\)</span>,…, <span class="math inline">\(\hat{\alpha}^{*B}\)</span>. Con esto, podemos estimar el error estándar de este boopstrap usando la siguiente formula</p>
-<p><span class="math display">\[SE_{B}(\hat{\alpha}) = sqrt{\frac{1}{B - 1}\sum_{r=1}^{B}(\hat{\alpha}^{*r} - \overline{\hat{\alpha}}^{*})^2}\]</span>.</p>
-<p>A su vez, esta ecuación sirve para estimar el error estándar de <span class="math inline">\(\hat{\alpha}\)</span> estimado del conjunto de datos original.</p>
-<div id="otros-usos-del-bootstrap" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Otros usos del bootstrap<a href="métodos-de-remuestreo.html#otros-usos-del-bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En algunas ocasiones utilizar Bootstrap requiere pensar un poco, este es el caso para series de tiempo. Cuando se tienen series de tiempo no podemos muestrear las observaciones con reemplazos, por eso lo que se hace es crear bloques consecutivos de observaciones y muestrear esos reemplazos. Luego de esto, se pegan juntos esto bloque de muestras para obtener el conjunto de datos de Bootstrap.</p>
-<p>Como discutimos previamente, podemos usar bootstrap para calcular el error estándar de un estimado. Igualmente, podemos calcular el intérvalo de confianza del <em>porcentil del boostrap</em> para un estimado/parámetro.</p>
-</div>
-<div id="pre-validación" class="section level3 hasAnchor" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Pre-validación<a href="métodos-de-remuestreo.html#pre-validación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El proceso de pre-validación puede ser usada para comparar dos conjuntos de predictores. La pre-validación se diseñó para comparar predictores derivados adaptativamente con predictores fijos y predefinidos. Esto, con el fin de formar una versió <em>pre-validada</em> de los predictores adaptativos. Paricularmente, una versión más <em>fiel</em> que no se ha <em>visto</em> en la respuesta <span class="math inline">\(y\)</span>.</p>
-<p><strong>Creo que acá podemos hacer algo parecido a lo que hacen en las diapositvas mostrando el proceso de como se hace la prevalidacion y poner un ejemplo</strong></p>
-</div>
-<div id="bootstrap-versus-permutaciones" class="section level3 hasAnchor" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Bootstrap versus permutaciones<a href="métodos-de-remuestreo.html#bootstrap-versus-permutaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Muchas personas tienden a confundir bootstrap con pruebas de permutación, sin embargo, estas tienen ciertas diferencias. Las muestras del bootstrap son estimados apartir de la población y usa los resultados para estimar el error estándar y el intérvalo de confianza. Mientras que el método de permutación muestrea de un estimado de distribución <em>nulo</em> de kis datos, y se usa para estimar el <em>valor-p</em> y Tasas de descubrimiento falso para pruebas de hipótesis.</p>
-<p>Igualmente, podemos usar bootstrap para probar hipótesis nulas en situaciones simples, por ejemplo, si <span class="math inline">\(\theta = 0\)</span> es la hipótesis nula, podemos verificar si el intérvalo de confianza de <span class="math inline">\(\theta\)</span> contiene cero. A la vez, podemos adaptar bootstrap para una distribución nula simple, pero no hay una ventaja significativa sobre el método de permutación en este caso.</p>
+<div id="xgboost-cristian" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> XGboost (Cristian)<a href="métodos-basados-en-árboles-jhan.html#xgboost-cristian" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
@@ -313,8 +262,8 @@ Donde <span class="math inline">\(Err_{i} = I(y_{i} \neq \hat{y_{i}})\)</span>. 
           </div>
         </div>
       </div>
-<a href="clasificaciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="selección-de-modelos-lineares-y-regularización.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="selección-de-modelos-lineares-y-regularización.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -345,7 +294,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/RomanPalacios-lab/ml-biologia/edit/main/05-remu.Rmd",
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/edit/main/07-tbm.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -353,7 +302,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/RomanPalacios-lab/ml-biologia/blob/main/05-remu.Rmd",
+"link": "https://github.com/RomanPalacios-lab/ml-biologia/blob/main/07-tbm.Rmd",
 "text": null
 },
 "download": null,
