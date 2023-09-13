@@ -92,6 +92,12 @@ Donde $\hat{\alpha}^{2})$ es el estimado del error de varianza $\epsilon$ asocia
 
 ##### Criterio de información de Akaike ($AIC$)
 
+$$AIC = \frac{1}{n\hat{\alpha}^{2}}(RSS + 2d\hat{\alpha}^{2})$$ 
+
+##### Criterio de información de Akaike ($AIC$)
+
+$$BIC = \frac{1}{n}(RSS + log(n)d\hat{\alpha}^{2})$$ 
+
 
 #### Validación y validación cruzada
 
