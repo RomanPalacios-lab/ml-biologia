@@ -47,7 +47,7 @@ selección-del-modelo-óptimo
 c_p-aic-bic-y-r2-ajustado
 mallows-c_p
 criterio-de-información-de-akaike-aic
-criterio-de-información-de-akaike-aic-1
+criterio-de-información-bayesiano-bic
 validación-y-validación-cruzada
 métodos-de-contracción-cristian
 regresión-de-crestas-ridge-regression
