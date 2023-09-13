@@ -12,7 +12,7 @@ Hay diferentes alternativas para ajustar el uso de los mínimos cuadrados.
 
 * *Contracción*: Este procedimiento requiere ajustar un modelo con todos *p* predictores. Lo que hace ue haya un efecto en la reducción de la varianza, a su vez, de pendiendo del tipo de contracción que se utilice algunos de los coeficientes puede ser estimados como cero, lo que hace que el método de contracción pueda usarse para la selección de variables.
 
-* *Reducción dimensiones*: Este método tiene como objetivo *proyectar* los predictores *p* en *M* dimensiones subespaciales donde $M < p$. Lo cual se logra por medio de computar *M* *combinaciones lineares* diferentes o *proyecciones* de las variables. Luego, esta *M* proyecciones se usan como predictores para ajustar el modelos de regresión lineal por medio de mínimos cuadrados.
+* *Reducción dimensiones*: Este método tiene como objetivo *proyectar* los predictores *p* en *M* dimensiones subespaciales donde $M < p$. Lo cual se logra por medio de computar *M* *combinaciones lineares* diferentes o *proyecciones* de las variables. Luego, esta *M* proyecciones se usan como predictores para ajustar el modelos de regresión lineal por medio de mínimos cuadrados. No obstante, en este librillo no vamos a habalr mucho sobre este método de regularización.
 
 
 ## Selección de subconjuntos
@@ -66,12 +66,19 @@ La selección hacia atrás es una alternativa eficiente para elegir el mejor sub
 La selección hacia atrás buscan solamente $1 + p(p + 1)/2$ modelos, también puede ser aplicado cuando *p* es demasiado alto como para aplicar la selección del mejor subconjunto. No obstante, al igual que en la selección hacia adelante, la selección hacia atrás no garatiza encontrar el *mejor* modelo que contenga un subconjunto con *p* predictores. Uno de los requerimientos de la selección hacia atrás es que el número de muestras *n* sea mayor que el número de variables *p*.
 
 
-
 #### Selección híbrida
 
+La selección híbrida, como su nombre lo indica, es una versión híbrida entre la selección hacia adelante y la selección hacia atrás. En donde se añaden variables al modelo de manera seguida - como se hace en la selección adelanta -, pero luego de añadir cada nueva variable, la selección híbrida elimina las variables que no mejoren el ajuste del modelo. Este tipo de selección imita un poco a la *selección del mejor subconjunto*, pero a su vez, retiene las ventajas computacionales de la selección hacia adelana y hacia atrás.
 
 
 ### Selección del modelo óptimo
+
+Para poder implementar cualquiera de los tres modelos que hablamos anteriormente, tenemos que determinar cuál de estos modelos es el *mejor*. Como ya hemos hablado anteriormente, el modelo que tenga todos los predictores va a tener el $RSS$ más pequeño y el $R^{2}$ más alto, dado que estos valores está relacionados con el error de entrenamiento. Sin embargo, el error de entrenamiento no es ideal para estimar el error de prueba. Por lo tanto, el $RSS$ y el $R^{2}$ no son ideales para seleccionar el mejor modelo para un grupo de modelos que tiene diferente número de predictores. 
+
+Para poder elegir el mejor modelo con respecto al error de prueba, necesitamos estimar el error de prueba, para esto se pueden utilizar dos tipos de acercamiento:
+
+1) Podemos estimar el error de prueba de manera indirecta por medio de ajustar el error de entrenamiento para tener en cuenta el sesgo causado por el sobreajuste.
+2) También lo podemos estimar de manera directa usando un conjunto de validación o haciendo una validación cruzada.
 
 #### $C_{p}$, $AIC$, $BIC$ y $R^{2}$ ajustado
 

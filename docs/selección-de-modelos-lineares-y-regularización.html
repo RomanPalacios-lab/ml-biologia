@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-09-12" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><em>Selección de subconjunto</em>: Este procedimiento trata de identificar un subconjunto de <em>p</em> predictores que se cree que están relacionados con la respuesta, para luego ajustar el modelo usado en los mínimos caudrados para reducir el conjunto de variables.</p></li>
 <li><p><em>Contracción</em>: Este procedimiento requiere ajustar un modelo con todos <em>p</em> predictores. Lo que hace ue haya un efecto en la reducción de la varianza, a su vez, de pendiendo del tipo de contracción que se utilice algunos de los coeficientes puede ser estimados como cero, lo que hace que el método de contracción pueda usarse para la selección de variables.</p></li>
-<li><p><em>Reducción dimensiones</em>: Este método tiene como objetivo <em>proyectar</em> los predictores <em>p</em> en <em>M</em> dimensiones subespaciales donde <span class="math inline">\(M &lt; p\)</span>. Lo cual se logra por medio de computar <em>M</em> <em>combinaciones lineares</em> diferentes o <em>proyecciones</em> de las variables. Luego, esta <em>M</em> proyecciones se usan como predictores para ajustar el modelos de regresión lineal por medio de mínimos cuadrados.</p></li>
+<li><p><em>Reducción dimensiones</em>: Este método tiene como objetivo <em>proyectar</em> los predictores <em>p</em> en <em>M</em> dimensiones subespaciales donde <span class="math inline">\(M &lt; p\)</span>. Lo cual se logra por medio de computar <em>M</em> <em>combinaciones lineares</em> diferentes o <em>proyecciones</em> de las variables. Luego, esta <em>M</em> proyecciones se usan como predictores para ajustar el modelos de regresión lineal por medio de mínimos cuadrados. No obstante, en este librillo no vamos a habalr mucho sobre este método de regularización.</p></li>
 </ul>
 <div id="selección-de-subconjuntos" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Selección de subconjuntos<a href="selección-de-modelos-lineares-y-regularización.html#selección-de-subconjuntos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -306,10 +306,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="selección-híbrida" class="section level4 hasAnchor" number="6.1.2.3">
 <h4><span class="header-section-number">6.1.2.3</span> Selección híbrida<a href="selección-de-modelos-lineares-y-regularización.html#selección-híbrida" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La selección híbrida, como su nombre lo indica, es una versión híbrida entre la selección hacia adelante y la selección hacia atrás. En donde se añaden variables al modelo de manera seguida - como se hace en la selección adelanta -, pero luego de añadir cada nueva variable, la selección híbrida elimina las variables que no mejoren el ajuste del modelo. Este tipo de selección imita un poco a la <em>selección del mejor subconjunto</em>, pero a su vez, retiene las ventajas computacionales de la selección hacia adelana y hacia atrás.</p>
 </div>
 </div>
 <div id="selección-del-modelo-óptimo" class="section level3 hasAnchor" number="6.1.3">
 <h3><span class="header-section-number">6.1.3</span> Selección del modelo óptimo<a href="selección-de-modelos-lineares-y-regularización.html#selección-del-modelo-óptimo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para poder implementar cualquiera de los tres modelos que hablamos anteriormente, tenemos que determinar cuál de estos modelos es el <em>mejor</em>. Como ya hemos hablado anteriormente, el modelo que tenga todos los predictores va a tener el <span class="math inline">\(RSS\)</span> más pequeño y el <span class="math inline">\(R^{2}\)</span> más alto, dado que estos valores está relacionados con el error de entrenamiento. Sin embargo, el error de entrenamiento no es ideal para estimar el error de prueba. Por lo tanto, el <span class="math inline">\(RSS\)</span> y el <span class="math inline">\(R^{2}\)</span> no son ideales para seleccionar el mejor modelo para un grupo de modelos que tiene diferente número de predictores.</p>
+<p>Para poder elegir el mejor modelo con respecto al error de prueba, necesitamos estimar el error de prueba, para esto se pueden utilizar dos tipos de acercamiento:</p>
+<ol style="list-style-type: decimal">
+<li>Podemos estimar el error de prueba de manera indirecta por medio de ajustar el error de entrenamiento para tener en cuenta el sesgo causado por el sobreajuste.</li>
+<li>También lo podemos estimar de manera directa usando un conjunto de validación o haciendo una validación cruzada.</li>
+</ol>
 <div id="c_p-aic-bic-y-r2-ajustado" class="section level4 hasAnchor" number="6.1.3.1">
 <h4><span class="header-section-number">6.1.3.1</span> <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> y <span class="math inline">\(R^{2}\)</span> ajustado<a href="selección-de-modelos-lineares-y-regularización.html#c_p-aic-bic-y-r2-ajustado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
