@@ -45,6 +45,8 @@ selección-hacia-atrás
 selección-híbrida
 selección-del-modelo-óptimo
 c_p-aic-bic-y-r2-ajustado
+mallows-c_p
+criterio-de-información-de-akaike-aic
 validación-y-validación-cruzada
 métodos-de-contracción-cristian
 regresión-de-crestas-ridge-regression

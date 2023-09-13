@@ -82,7 +82,15 @@ Para poder elegir el mejor modelo con respecto al error de prueba, necesitamos e
 
 #### $C_{p}$, $AIC$, $BIC$ y $R^{2}$ ajustado
 
-Hay cuatro diferentes modelos que vamos mostrar en este librillo que son usado para la selección del cionjunto de modelos con diferentes números de variables. Estos cuatro modelos son: $C_{p}$, criterio de información de Akaike ($AIC$), criterio de información Bayesiano ($BIC$) y $R^{2}$ ajustado
+Hay cuatro diferentes modelos que vamos mostrar en este librillo que son usado para la selección del cionjunto de modelos con diferentes números de variables. Estos cuatro modelos son: $C_{p}$, criterio de información de Akaike ($AIC$), criterio de información Bayesiano ($BIC$) y $R^{2}$ ajustado.
+
+##### Mallow's $C_{p}$ 
+Para un modelo ajustando de mínimos crucados que contine *d* predictores, el $C_{p}$ estima el MSE de prueba, el cual se computa usando la siguiente formula:
+ 
+$$C_{p} = \frac{1}{n}(RSS + 2d\hat{\alpha}_^{2})$$ 
+Donde $\hat{\alpha}_^{2})$ es el estimado del error de varianza $\epsilon$ asociado a cada medida de respuesta y *d* es el número total de parámetros usados. Este método añade una penalidad de $2d\hat{\alpha}_^{2})$ para el RSS de entrenamiento, debido a que el error de entrenamiento tiene a subestimar el error de prueba. *Nota: esta penalidad incrementa a medida que el número de predictores en el modelo aumenta* 
+
+##### Criterio de información de Akaike ($AIC$)
 
 
 #### Validación y validación cruzada
