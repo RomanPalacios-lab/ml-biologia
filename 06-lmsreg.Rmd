@@ -82,6 +82,9 @@ Para poder elegir el mejor modelo con respecto al error de prueba, necesitamos e
 
 #### $C_{p}$, $AIC$, $BIC$ y $R^{2}$ ajustado
 
+Hay cuatro diferentes modelos que vamos mostrar en este librillo que son usado para la selección del cionjunto de modelos con diferentes números de variables. Estos cuatro modelos son: $C_{p}$, criterio de información de Akaike ($AIC$), criterio de información Bayesiano ($BIC$) y $R^{2}$ ajustado
+
+
 #### Validación y validación cruzada
 
 
