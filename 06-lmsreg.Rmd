@@ -113,10 +113,11 @@ El estadístico $R^{2}$ es uno de los métodos más utilizados para seleccionar 
 $$R^{2} ajustado = 1 - \frac{RSS/(n-d-1)}{TSS/(n-1)}$$
 A diferencia de $C_{p}$, AIC y BIC que toman el mejor modelo que tengan en *menor* valor de error de prueba, un valor de $R^{2}$ ajustado *grande* indica el modelo con el error de prueba más bajo. Para el caso de $R^{2}$ ajustado es equivalente a maximizar $\frac{RSS}{n-d-1}$. Mientras que RSS decrece a medida que el número de variables aumenta, $\frac{RSS}{n-d-1}$ puede que incremente o disminuye debido a la presencia de *d* en el denominador. A diferencia del estadístico $R^{2}$, el estadístico $R^{2}$ ajustado  *paga un precio* por incluir variables innecesarias en el modelo.
 
-
 #### Validación y validación cruzada
 
+Otra alternativa para los métodos que vimos anteriormente, donde podemos estimar directamente el error de prueba es usando un conjunto de validación o la validación cruzada. Con cualquiera de estos dos métodos podemos calcular el error para cada uno de los modelos, y luego seleccionar el mejor modelo para el cual el estimado para el error de prueba es el más pequeño. 
 
+Cuando se hace el conjunto de validación o la validación cruzada,  
 
 ## Métodos de contracción (Cristian)
 
