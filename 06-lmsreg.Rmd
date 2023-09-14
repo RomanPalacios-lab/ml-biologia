@@ -92,9 +92,15 @@ Donde $\hat{\alpha}^{2})$ es el estimado del error de varianza $\epsilon$ asocia
 
 ##### Criterio de información de Akaike ($AIC$)
 
-$$AIC = \frac{1}{n\hat{\alpha}^{2}}(RSS + 2d\hat{\alpha}^{2})$$ 
+El AIC usualmente se utiliza para modelos ajustados con muchas clases usando máxima verosimilitud. 
+
+$$AIC = -2 logL + 2 ⋅ d$$ 
+Donde *L* es el valor maximizado de la función de la verosimilitus para el estimado del modelo. Para modelos de mínimos cuadrados, $C_{p}$ y AIC son proporsionales.
+
 
 ##### Criterio de información Bayesiano ($BIC$)
+
+BIC es derivado desde un punto de vista Bayesiano, pero es algo parecido al $C_{p}$ y *AIC*. Para los modelos de mínimos cuadrados con *d* predictores, para hayar el valor de BIC se calcula utilizando la siguiente ecuación
 
 $$BIC = \frac{1}{n}(RSS + log(n)d\hat{\alpha}^{2})$$ 
 
