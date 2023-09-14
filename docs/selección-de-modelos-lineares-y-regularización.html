@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-09-13" />
+<meta name="date" content="2023-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -334,8 +334,15 @@ Donde <em>L</em> es el valor maximizado de la función de la verosimilitus para 
 </div>
 <div id="criterio-de-información-bayesiano-bic" class="section level5 hasAnchor" number="6.1.3.1.3">
 <h5><span class="header-section-number">6.1.3.1.3</span> Criterio de información Bayesiano (<span class="math inline">\(BIC\)</span>)<a href="selección-de-modelos-lineares-y-regularización.html#criterio-de-información-bayesiano-bic" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>BIC es derivado desde un punto de vista Bayesiano, pero es algo parecido al <span class="math inline">\(C_{p}\)</span> y <em>AIC</em>. Para los modelos de mínimos cuadrados con <em>d</em> predictores, para hayar el valor de BIC se calcula utilizando la siguiente ecuación</p>
+<p>BIC es derivado desde un punto de vista Bayesiano, pero es algo parecido al <span class="math inline">\(C_{p}\)</span> y <em>AIC</em>. Para los modelos de mínimos cuadrados con <em>d</em> predictores, para hallar el valor de BIC se calcula utilizando la siguiente ecuación</p>
 <p><span class="math display">\[BIC = \frac{1}{n}(RSS + log(n)d\hat{\alpha}^{2})\]</span></p>
+<p>Donde <em>n</em> es el número de observaciones. Al igual que <span class="math inline">\(C_{p}\)</span>, <em>BIC</em> va a tender a tener valores bajos para modelos con errores de prueba pequeños, y usualmente, nosotros seleccionamos el modelo que tenga el valor de BIC más bajo. Igualmente, podemos notar que el térmico <span class="math inline">\(2d\hat{\alpha}^{2})\)</span> en <span class="math inline">\(C_{p}\)</span> es reemplazado por <span class="math inline">\(log(n)d\hat{\alpha}^{2}\)</span> en BIC. Esto indica que cuando log<span class="math inline">\(n &gt; 2\)</span> para cualquier <span class="math inline">\(n &gt; 7\)</span>, el estadístico BIC da una mayor penalidad a modelos que tienen muchas variables, por lo tanto, tiende a selecciones modelos más pequeños que <span class="math inline">\(C_{p}\)</span>.</p>
+</div>
+<div id="r2-ajustado" class="section level5 hasAnchor" number="6.1.3.1.4">
+<h5><span class="header-section-number">6.1.3.1.4</span> <span class="math inline">\(R^{2}\)</span> ajustado<a href="selección-de-modelos-lineares-y-regularización.html#r2-ajustado" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>El estadístico <span class="math inline">\(R^{2}\)</span> es uno de los métodos más utilizados para seleccionar un modelo en particular entre varios modelos que tienen diferente número de variables. Para un modelos de mínimos cuadrados con <em>d</em> variables, el <span class="math inline">\(R^{2}\)</span> ajustado es calculado por medio de la siguiente formula</p>
+<p><span class="math display">\[R^{2} ajustado = 1 - \frac{RSS/(n-d-1)}{TSS/(n-1)}\]</span>
+A diferencia de <span class="math inline">\(C_{p}\)</span>, AIC y BIC que toman el mejor modelo que tengan en <em>menor</em> valor de error de prueba, un valor de <span class="math inline">\(R^{2}\)</span> ajustado <em>grande</em> indica el modelo con el error de prueba más bajo. Para el caso de <span class="math inline">\(R^{2}\)</span> ajustado es equivalente a maximizar <span class="math inline">\(\frac{RSS}{n-d-1}\)</span>. Mientras que RSS decrece a medida que el número de variables aumenta, <span class="math inline">\(\frac{RSS}{n-d-1}\)</span> puede que incremente o disminuye debido a la presencia de <em>d</em> en el denominador. A diferencia del estadístico <span class="math inline">\(R^{2}\)</span>, el estadístico <span class="math inline">\(R^{2}\)</span> ajustado <em>paga un precio</em> por incluir variables innecesarias en el modelo.</p>
 </div>
 </div>
 <div id="validación-y-validación-cruzada" class="section level4 hasAnchor" number="6.1.3.2">
