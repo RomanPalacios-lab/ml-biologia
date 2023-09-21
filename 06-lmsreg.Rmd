@@ -117,7 +117,9 @@ A diferencia de $C_{p}$, AIC y BIC que toman el mejor modelo que tengan en *meno
 
 Otra alternativa para los métodos que vimos anteriormente, donde podemos estimar directamente el error de prueba es usando un conjunto de validación o la validación cruzada. Con cualquiera de estos dos métodos podemos calcular el error para cada uno de los modelos, y luego seleccionar el mejor modelo para el cual el estimado para el error de prueba es el más pequeño. 
 
-Cuando se hace el conjunto de validación o la validación cruzada,  
+Cuando se hace el conjunto de validación o la validación cruzada se tienen dos ventajas a comparación de $C_{p}$, $AIC$, $BIC$ o $R^{2}$ ajustado, ambos tipos de validación calculan directamente el error de pruba y no requiere estimar el error de varianza, $\sigma^{2}$. Del mismo modo, la validación cruzada puede ser usada para un mayor número de tareas de selecció de modelo, incluso cuando es difícil de estimar los *grados de libertad* o el error de varianza, $\sigma^{2}$.
+
+Para llevar a acabo ambos tipos de validación necesitamos que cada uno de los procedimientos retorne a una secuencia de modelos $M_{k}$ para modelos con un tamaño de $k = 0, 1, 2...$. Nuestro trabajo es seleccionar un $\hat{k}$. Una vez seleccioando, vamos a retornar a $M_{k}$. Necesitamos computar el error de conjunto de validación o el error de validación cruzada para cada modelo $M_{k}$ que se encuentra bajo consideració, y luego, selecionar el *k* para cada estimado donde el error de prueba sea el más pequeño.
 
 ## Métodos de contracción (Cristian)
 

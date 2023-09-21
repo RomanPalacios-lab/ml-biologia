@@ -23,7 +23,7 @@
 <meta name="author" content="Jhan C. Salazar y Cristian Román-Palacios" />
 
 
-<meta name="date" content="2023-09-14" />
+<meta name="date" content="2023-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -348,7 +348,8 @@ A diferencia de <span class="math inline">\(C_{p}\)</span>, AIC y BIC que toman 
 <div id="validación-y-validación-cruzada" class="section level4 hasAnchor" number="6.1.3.2">
 <h4><span class="header-section-number">6.1.3.2</span> Validación y validación cruzada<a href="selección-de-modelos-lineares-y-regularización.html#validación-y-validación-cruzada" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Otra alternativa para los métodos que vimos anteriormente, donde podemos estimar directamente el error de prueba es usando un conjunto de validación o la validación cruzada. Con cualquiera de estos dos métodos podemos calcular el error para cada uno de los modelos, y luego seleccionar el mejor modelo para el cual el estimado para el error de prueba es el más pequeño.</p>
-<p>Cuando se hace el conjunto de validación o la validación cruzada,</p>
+<p>Cuando se hace el conjunto de validación o la validación cruzada se tienen dos ventajas a comparación de <span class="math inline">\(C_{p}\)</span>, <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> o <span class="math inline">\(R^{2}\)</span> ajustado, ambos tipos de validación calculan directamente el error de pruba y no requiere estimar el error de varianza, <span class="math inline">\(\sigma^{2}\)</span>. Del mismo modo, la validación cruzada puede ser usada para un mayor número de tareas de selecció de modelo, incluso cuando es difícil de estimar los <em>grados de libertad</em> o el error de varianza, <span class="math inline">\(\sigma^{2}\)</span>.</p>
+<p>Para llevar a acabo ambos tipos de validación necesitamos que cada uno de los procedimientos retorne a una secuencia de modelos <span class="math inline">\(M_{k}\)</span> para modelos con un tamaño de <span class="math inline">\(k = 0, 1, 2...\)</span>. Nuestro trabajo es seleccionar un <span class="math inline">\(\hat{k}\)</span>. Una vez seleccioando, vamos a retornar a <span class="math inline">\(M_{k}\)</span>. Necesitamos computar el error de conjunto de validación o el error de validación cruzada para cada modelo <span class="math inline">\(M_{k}\)</span> que se encuentra bajo consideració, y luego, selecionar el <em>k</em> para cada estimado donde el error de prueba sea el más pequeño.</p>
 </div>
 </div>
 </div>
