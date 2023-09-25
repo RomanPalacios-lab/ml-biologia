@@ -1,5 +1,7 @@
 # Métodos basados en árboles (Jhan)
 
+Las decisiones basadas en árboles se usan para problemas de regresión y de clasificación. Las decisiones basadas en árboles utilizan series de reglas de *si y entonces* para hacer  predicciones y tomar decisiones basadas en uno o mas árboles. El objetivo de este procedimiento es estratificar, dividir, ramificar o segmentar los predictores en diferentes regiones simples. En resumen, podemoes tomar decisiones basadas en árboles utilziando reglas de remificación para segmentar los predictores simplificandoles en forma de árboles. Normalmente, estas decisiones son mucho mas sencillas de interpretar que otros métodos que hemos hablado anteriormente. En este capítulo, vamos hablar sobre tres métodos diferentes: *bagging*, *bosques aleatorios* y *impulso o boosting en inglés*. 
+
 ## Decision trees
 ## Boosting and bagging
 
