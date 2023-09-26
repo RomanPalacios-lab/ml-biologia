@@ -2,6 +2,10 @@
 
 Las decisiones basadas en árboles se usan para problemas de regresión y de clasificación. Las decisiones basadas en árboles utilizan series de reglas de *si y entonces* para hacer  predicciones y tomar decisiones basadas en uno o mas árboles. El objetivo de este procedimiento es estratificar, dividir, ramificar o segmentar los predictores en diferentes regiones simples. En resumen, podemoes tomar decisiones basadas en árboles utilziando reglas de remificación para segmentar los predictores simplificandoles en forma de árboles. Normalmente, estas decisiones son mucho mas sencillas de interpretar que otros métodos que hemos hablado anteriormente. En este capítulo, vamos hablar sobre tres métodos diferentes: *bagging*, *bosques aleatorios* y *impulso o boosting en inglés*. 
 
+## Árboles de regresión
+
+Cuando se ajustan los árboles de regresión, se usan una serie de reglas de ramificaciones comenzando dos la parte de arriba del árbol. Usualmente, para realizar este tipo de análisis, los árboles se dividen en regiones $R_{1}$, $R_{2}$,...,$R_{n}$, estas áreas son conocidas como *nodos terminales* o *hojas* del árbol. Este tipo de árboles, se dibujan de arriba hacia abajo, esto quiere decir que las hojas del árbol están hacia abajo. 
+
 ## Decision trees
 ## Boosting and bagging
 

@@ -61,6 +61,7 @@ un-caso-especies-para-la-regresión-de-crestas-y-el-lasso
 interpretación-bayesiana-para-la-regresión-de-crestas-y-el-lasso
 selección-de-ajuste-de-parámetros
 métodos-basados-en-árboles-jhan
+árboles-de-regresión
 decision-trees
 boosting-and-bagging
 lightgbm-cristian
