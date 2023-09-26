@@ -253,6 +253,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Se dividen los predictores en conjuntos de valores posibles para <span class="math inline">\(X_{1}\)</span>, <span class="math inline">\(X_{2}\)</span>,…,<span class="math inline">\(X_{p}\)</span>, en <em>J</em> regiones distintas que no se sobrelapan, <span class="math inline">\(R_{1}\)</span>, <span class="math inline">\(R_{2}\)</span>,…,<span class="math inline">\(R_{j}\)</span>.</li>
 <li>Para cada observación que cae en la <span class="math inline">\(R_{j}\)</span>, hacemos la misma predicción, la cual es la media de la respuesta para las observaciones de entrenamiento en <span class="math inline">\(R_{j}\)</span>.</li>
 </ol>
+<p>Del mismo modo, para contruir estos árboles, en teoría, las regiones pueden tomar cualquier forma. Sin embargo, podemos dividir los predictores en en <em>cajas</em> de altas dimensiones, esto para simplificar la interpretabilidad de los resultados del modelo. El objetivo de esto es encontrar las cajas <span class="math inline">\(R_{1}\)</span>,…,<span class="math inline">\(R_{j}\)</span> que minimicen el RSS, esto está dado por</p>
+<p><span class="math display">\[\sum_{j=1}^{J}\sum_{i\epsilon R_{j}}(y_{i}-\hat{y}_{R_{j}})^2\]</span>
+Donde <span class="math inline">\(\hat{y}_{R_{j}}\)</span> es la media de la respuesta para las observaciones de entrenamiento dentro de la <em>j</em>ésima caja.</p>
 </div>
 <div id="decision-trees" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Decision trees<a href="métodos-basados-en-árboles-jhan.html#decision-trees" class="anchor-section" aria-label="Anchor link to header"></a></h2>

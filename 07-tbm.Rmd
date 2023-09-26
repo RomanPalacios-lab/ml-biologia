@@ -11,6 +11,12 @@ Para construir un árbol de regresión se hacen los siguientes dos pasos:
 1) Se dividen los predictores en conjuntos de valores posibles para $X_{1}$, $X_{2}$,...,$X_{p}$, en *J* regiones distintas que no se sobrelapan, $R_{1}$, $R_{2}$,...,$R_{j}$.
 2) Para cada observación que cae en la $R_{j}$, hacemos la misma predicción, la cual es la media de la respuesta para las observaciones de entrenamiento en $R_{j}$.
 
+Del mismo modo, para contruir estos árboles, en teoría, las regiones pueden tomar cualquier forma. Sin embargo, podemos dividir los predictores en en *cajas* de altas dimensiones, esto para simplificar la interpretabilidad de los resultados del modelo.  El objetivo de esto es encontrar las cajas $R_{1}$,...,$R_{j}$ que minimicen el RSS, esto está dado por
+
+$$\sum_{j=1}^{J}\sum_{i\epsilon R_{j}}(y_{i}-\hat{y}_{R_{j}})^2$$
+Donde $\hat{y}_{R_{j}}$ es la media de la respuesta para las observaciones de entrenamiento dentro de la *j*ésima caja.
+
+
 ## Decision trees
 ## Boosting and bagging
 
