@@ -4,7 +4,12 @@ Las decisiones basadas en árboles se usan para problemas de regresión y de cla
 
 ## Árboles de regresión
 
-Cuando se ajustan los árboles de regresión, se usan una serie de reglas de ramificaciones comenzando dos la parte de arriba del árbol. Usualmente, para realizar este tipo de análisis, los árboles se dividen en regiones $R_{1}$, $R_{2}$,...,$R_{n}$, estas áreas son conocidas como *nodos terminales* o *hojas* del árbol. Este tipo de árboles, se dibujan de arriba hacia abajo, esto quiere decir que las hojas del árbol están hacia abajo. 
+Cuando se ajustan los árboles de regresión, se usan una serie de reglas de ramificaciones comenzando dos la parte de arriba del árbol. Usualmente, para realizar este tipo de análisis, los árboles se dividen en regiones $R_{1}$, $R_{2}$,...,$R_{j}$, estas áreas son conocidas como *nodos terminales* o *hojas* del árbol. Este tipo de árboles, se dibujan de arriba hacia abajo, esto quiere decir que las hojas del árbol están hacia abajo. Los puntos del árbol en donde los predictores se difurcan se conocen como *nodos internos*. Y los estos segmentos del árbol que conectan a los nodos por medio de *ramas*.
+
+Para construir un árbol de regresión se hacen los siguientes dos pasos:
+
+1) Se dividen los predictores en conjuntos de valores posibles para $X_{1}$, $X_{2}$,...,$X_{p}$, en *J* regiones distintas que no se sobrelapan, $R_{1}$, $R_{2}$,...,$R_{j}$.
+2) Para cada observación que cae en la $R_{j}$, hacemos la misma predicción, la cual es la media de la respuesta para las observaciones de entrenamiento en $R_{j}$.
 
 ## Decision trees
 ## Boosting and bagging
