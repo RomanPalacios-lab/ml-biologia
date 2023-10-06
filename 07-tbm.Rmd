@@ -18,6 +18,8 @@ Donde $\hat{y}_{R_{j}}$ es la media de la respuesta para las observaciones de en
 
 Desafortunadamente, es computacionalmente difícil considerar cada partición para cada una de las características de las *J* cajas. Por ello, se usa un enfoque de **arriba hacia abaja** y **avaro**, el cual se conoce como ramificación binaria recursiva. Se dice que es tiene un enfoque de **arriba hacia abajo**, porque comienza desde arriba del árbol raminifcando cada uno de los predictores, cada una de estas ramificación da origen a nuevas ramas más abajo en el árbol. Del mismo modo, se dice que es **avaro**, porque cada paso de la contrucción del árbol la mejor ramificación se hace en esa ramificación en lugar de mirar hacia adelante y elegir una ramificación que podría resultan en un mejor árbol en el futuro.
 
+El realizar este procedimiento, primero seleccionamos el predictor $X_{j}$
+
 ## Decision trees
 ## Boosting and bagging
 
